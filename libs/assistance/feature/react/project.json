@@ -1,0 +1,37 @@
+{
+  "name": "assistance-feature-react",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/assistance/feature/react/src",
+  "projectType": "library",
+  "tags": [
+    "feature"
+  ],
+  "targets": {
+    "build": {
+      "executor": "@nx/rollup:rollup",
+      "outputs": [
+        "{options.outputPath}"
+      ],
+      "options": {
+        "outputPath": "dist/libs/assistance/feature/react",
+        "tsConfig": "libs/assistance/feature/react/tsconfig.lib.json",
+        "project": "libs/assistance/feature/react/package.json",
+        "entryFile": "libs/assistance/feature/react/src/index.ts",
+        "external": [
+          "react",
+          "react-dom",
+          "react/jsx-runtime"
+        ],
+        "rollupConfig": "@nx/react/plugins/bundle-rollup",
+        "compiler": "babel",
+        "assets": [
+          {
+            "glob": "libs/assistance/feature/react/README.md",
+            "input": ".",
+            "output": "."
+          }
+        ]
+      }
+    }
+  }
+}

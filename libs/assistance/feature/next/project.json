@@ -1,0 +1,37 @@
+{
+  "name": "assistance-feature-next",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/assistance/feature/next/src",
+  "projectType": "library",
+  "tags": [
+    "feature"
+  ],
+  "targets": {
+    "build": {
+      "executor": "@nx/rollup:rollup",
+      "outputs": [
+        "{options.outputPath}"
+      ],
+      "options": {
+        "outputPath": "dist/libs/assistance/feature/next",
+        "tsConfig": "libs/assistance/feature/next/tsconfig.lib.json",
+        "project": "libs/assistance/feature/next/package.json",
+        "entryFile": "libs/assistance/feature/next/src/index.ts",
+        "external": [
+          "react",
+          "react-dom",
+          "react/jsx-runtime"
+        ],
+        "rollupConfig": "@nx/react/plugins/bundle-rollup",
+        "compiler": "swc",
+        "assets": [
+          {
+            "glob": "libs/assistance/feature/next/README.md",
+            "input": ".",
+            "output": "."
+          }
+        ]
+      }
+    }
+  }
+}
