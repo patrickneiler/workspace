@@ -1,0 +1,8 @@
+{
+  "name": "assistance-app-next",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/assistance/next",
+  "projectType": "application",
+  "targets": {},
+  "tags": ["app"]
+}

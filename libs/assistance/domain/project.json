@@ -1,10 +1,10 @@
 {
-  "name": "assistance-feature-next",
-  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "libs/assistance/feature/next/src",
+  "name": "assistance-domain",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/assistance/domain/src",
   "projectType": "library",
   "tags": [
-    "feature"
+    "domain"
   ],
   "targets": {
     "build": {
@@ -13,10 +13,10 @@
         "{options.outputPath}"
       ],
       "options": {
-        "outputPath": "dist/libs/assistance/feature/next",
-        "tsConfig": "libs/assistance/feature/next/tsconfig.lib.json",
-        "project": "libs/assistance/feature/next/package.json",
-        "entryFile": "libs/assistance/feature/next/src/index.ts",
+        "outputPath": "dist/libs/assistance/domain",
+        "tsConfig": "libs/assistance/domain/tsconfig.lib.json",
+        "project": "libs/assistance/domain/package.json",
+        "entryFile": "libs/assistance/domain/src/index.ts",
         "external": [
           "react",
           "react-dom",
@@ -26,7 +26,7 @@
         "compiler": "babel",
         "assets": [
           {
-            "glob": "libs/assistance/feature/next/README.md",
+            "glob": "libs/assistance/domain/README.md",
             "input": ".",
             "output": "."
           }
