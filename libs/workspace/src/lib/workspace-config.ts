@@ -35,20 +35,35 @@ export const config: WorkspaceConfig = {
 					type: "library",
 					description: "This library contains the core functionality for the react-based presentational and stateful components for the assistance feature.",
 					importPath: "@ranthology/assistance/feature/react",
-					generator:
-						"npx nx generate @nx/react:library --name=assistance-feature-react --directory=assistance/feature/react --buildable=true --component=false --importPath=@ranthology/assistance/feature/react --projectNameAndRootFormat=as-provided --publishable=true --skipFormat=true --tags=feature --unitTestRunner=none --no-interactive",
-					exports: [
+					generator: "npx nx generate @nx/react:library --name=assistance-feature-react --directory=assistance/feature/react --buildable=true --component=false --importPath=@ranthology/assistance/feature/react --projectNameAndRootFormat=as-provided --publishable=true --skipFormat=true --tags=feature --unitTestRunner=none --no-interactive",
+					lib: [
 						{
 							name: "useAssistance",
 							type: "hook",
 							description: "This hook is used to manage the state and logic for the assistance feature.",
 							options: {
-								api: 'api/assistance',
-								threadId: 'threadId',
-								credentials: 'same-origin',
-								headers: "'Content-Type': 'application/json' }",
+								description: "The input parameters for the useAssistance hook.",
+								properties: {
+									api: {
+										description: "The API endpoint for the assistance feature.",
+										type: 'string',
+									},
+									threadId: {
+										description: "The current thread ID for the chat messages.",
+										type: 'string',
+									},
+									credentials: {
+										description: "The credentials for the request to the assistance feature.",
+										type: 'stringn',
+									},
+									headers: {
+										description: "The headers for the request to the assistance feature.",
+										type: "string",
+									}
+								}
 							  },
 							state: {
+								description: "The state and logic for the assistance feature.",
 								properties: {
 									messages: {
 										type: "Message[]",
@@ -60,7 +75,7 @@ export const config: WorkspaceConfig = {
 									},
 									input: {
 										type: "string",
-										description: "The current value of the input field.",
+										description: "The current value of the input field and the user's message.",
 									},
 									setInput: {
 										type: "React.Dispatch<React.SetStateAction<string>>",
@@ -84,21 +99,29 @@ export const config: WorkspaceConfig = {
 									},
 								},
 							},
-							generator:
-								"npx nx generate @nx/react:hook --name=useAssistance --project=assistance-feature-react --skipFormat=true --no-interactive",
-							readme: {
+							imports: {
+								'ai/react': {
+									value: "experimental_useAssistant, Message, UseAssistantHelpers as UseAssistanceHelpers, UseAssistantOptions as UseAssistanceOptions",
+									description: "The experimental hook for the assistance feature.",
+								},
 							},
-							task: {
-							},
+							generator: "npx nx generate @nx/react:hook --name=useAssistance --project=assistance-feature-react --skipFormat=true --no-interactive",
 						},
 						{
 							name: "Assistance",
 							type: "host-component",
 							description: "This component is the host for the assistance feature.",
 							options: {
-								api: 'string',
+								description: "The input parameters for the Assistance component.",
+								properties: {
+									api: {
+										description: "The API endpoint for the assistance feature.",
+										type: 'string',
+									},
+								}
 							},
 							state: {
+								description: "The state and logic for the assistance feature.",
 								properties: {
 									useAssistance: {
 										type: "useAssistance",
@@ -106,40 +129,59 @@ export const config: WorkspaceConfig = {
 									},
 								}
 							},
+							imports: {
+								'./useAssistance': {
+									value: "useAssistance",
+									description: "The hook for the assistance feature.",
+								},
+								'./AssistanceChat': {
+									value: "AssistanceChat",
+									description: "The presentational component for the chat interface of the assistance feature.",
+								},
+							},
 							generator:
 								"npx nx generate @nx/react:component --name=Assistance --project=assistance-feature-react --skipFormat=true --no-interactive",
 							children: [
 								'AssistanceChat'
 							],
-							readme: {
-							},
-							task: {
-							},
 						},
 						{
 							name: "AssistanceChat",
 							type: "functional-component",
 							description: "This component is the presentational component for the chat interface of the assistance feature.",
+							generator:  "npx nx generate @nx/react:component --name=AssistanceChat --project=assistance-feature-react --skipFormat=true --no-interactive",
 							options: {
-								messages: 'Message[]',
-								status: 'string',
-								input: 'string',
-								submitMessage: '() => void',
-								handleInputChange: '(event: React.ChangeEvent<HTMLInputElement>) => void',
-								error: 'any',
-							},
-							generator:
-								"npx nx generate @nx/react:component --name=AssistanceChat --project=assistance-feature-react --skipFormat=true --no-interactive",
-							readme: {
-							},
-							task: {
+								description: "The input parameters for the AssistanceChat component.",
+								properties: {
+									messages: {
+										type: 'Message[]',
+										description: "The current array of chat messages.",
+									},
+									status: {
+										type: 'AssistantStatus',
+										description: "The current status of the assistant. This can be used to show a loading indicator.",
+									},
+									input: {
+										type: 'string',
+										description: "The current value of the input field.",
+									},
+									submitMessage: {
+										type: '() => void',
+										description: "Form submission handler that automatically resets the input field and appends a user message.",
+									},
+									handleInputChange: {
+										type:  '(event: React.ChangeEvent<HTMLInputElement>) => void',
+										description: "Handler for the `onChange` event of the input field to control the input's value.",
+									},
+									error: {
+										type: 'undefined | unknown',
+										description: "The error thrown during the assistant message processing, if any",
+									},
+								}
 							},
 						},
 					],
-					readme: {
-					},
-					task: {
-					},
+					exports: ['useAssistance', 'Assistance'],
 				},
 				{
 					framework: "next",
@@ -149,19 +191,7 @@ export const config: WorkspaceConfig = {
 					importPath: "@ranthology/assistance/feature/next",
 					generator:
 						"npx nx generate @nx/next:library --name=assistance-feature-next --directory=assistance/feature/next --buildable=true --component=false --importPath=@ranthology/assistance/feature/next --projectNameAndRootFormat=as-provided --publishable=true --skipFormat=true --tags=feature --unitTestRunner=none --no-interactive",
-					routes: [
-						{
-							name: "AssistanceApiRoute",
-							type: "server",
-							description: "This server route is used to handle the API requests for the assistance feature. This endpoint is used to communicate with the OpenAI API.",
-							options: {
-								apiKey: 'string',
-								assistantId: 'string',
-							},
-							path: "/routes/assistance",
-						},
-					],
-					pages: [
+					lib: [
 						{
 							name: "Assistance",
 							type: "page",
@@ -172,11 +202,26 @@ export const config: WorkspaceConfig = {
 								'AssistanceChat'
 							],
 						},
+						{
+							name: "AssistanceApiRoute",
+							type: "server",
+							description: "This server route is used to handle the API requests for the assistance feature. This endpoint is used to communicate with the OpenAI API.",
+							options: {
+								description: "The input parameters for the AssistanceApiRoute server route.",
+								properties: {
+									apiKey: {
+										description: "The API key for the OpenAI API.",
+										type: 'string',
+									},
+									assistantId: {
+										description: "The assistant ID for the OpenAI API.",
+										type: 'string',
+									},
+								}
+							},
+						}
 					],
-					readme: {
-					},
-					task: {
-					},
+					exports: ['Assistance', 'AssistanceApiRoute'],
 				},
 			],
 			domain: {
@@ -187,22 +232,8 @@ export const config: WorkspaceConfig = {
 				importPath: "@ranthology/assistance/domain",
 				generator:
 					"npx nx generate @nx/typescript:library --name=assistance-domain --directory=assistance/domain --buildable=true --importPath=@ranthology/assistance/domain --projectNameAndRootFormat=as-provided --publishable=true --skipFormat=true --tags=domain --unitTestRunner=none --no-interactive",
-				exports: [
-					{
-						name: "state",
-						type: "state",
-						description: "This module contains the core state management logic for the assistance feature.",
-					}
-				],
-				readme: {
-				},
-				task: {
-				},
+
 			},
-			readme: {
-			},
-			task: {
-			},
-		},
+		}
 	],
 };

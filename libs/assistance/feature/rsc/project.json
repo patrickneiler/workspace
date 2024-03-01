@@ -1,0 +1,29 @@
+{
+  "name": "assistant-feature-rsc",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/assistance/feature/rsc/src",
+  "projectType": "library",
+  "tags": ["feature"],
+  "targets": {
+    "build": {
+      "executor": "@nx/rollup:rollup",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/assistance/feature/rsc",
+        "tsConfig": "libs/assistance/feature/rsc/tsconfig.lib.json",
+        "project": "libs/assistance/feature/rsc/package.json",
+        "entryFile": "libs/assistance/feature/rsc/src/index.ts",
+        "external": ["react", "react-dom", "react/jsx-runtime"],
+        "rollupConfig": "@nx/react/plugins/bundle-rollup",
+        "compiler": "swc",
+        "assets": [
+          {
+            "glob": "libs/assistance/feature/rsc/README.md",
+            "input": ".",
+            "output": "."
+          }
+        ]
+      }
+    }
+  }
+}
