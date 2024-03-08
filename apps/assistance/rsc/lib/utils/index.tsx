@@ -28,7 +28,7 @@ export function runOpenAICompletion<
     ? T['functions'][number]['name']
     : never;
 
-  let onTextContent: (text: string, isFinal: boolean) => void = () => {};
+  let onTextContent: (text: string, isFinal: boolean) => void = () => { };
 
   let onFunctionCall: Record<string, (args: Record<string, any>) => void> = {};
 

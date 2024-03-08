@@ -4,9 +4,23 @@ import dynamic from 'next/dynamic';
 import { StockSkeleton } from './stock-skeleton';
 import { StocksSkeleton } from './stocks-skeleton';
 import { EventsSkeleton } from './events-skeleton';
+import { ConfigForm } from '../llm-workspace/ConfigForm';
 
 export { spinner } from './spinner';
 export { BotCard, BotMessage, SystemMessage } from './message';
+
+
+const Workspace = ({ type }: { type: string }) => dynamic(
+  () => import(`../llm-workspace/${type}Form`).then((mod: ConfigForm) => mod.ConfigForm),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="bg-zinc-900 rounded-lg px-4 py-5 text-center text-xs">
+        Loading workspace configuration...
+      </div>
+    ),
+  },
+);
 
 const Stock = dynamic(() => import('./stock').then(mod => mod.Stock), {
   ssr: false,
@@ -35,4 +49,4 @@ const Events = dynamic(() => import('./event').then(mod => mod.Events), {
   loading: () => <EventsSkeleton />,
 });
 
-export { Stock, Purchase, Stocks, Events };
+export { Stock, Purchase, Stocks, Events, Workspace };

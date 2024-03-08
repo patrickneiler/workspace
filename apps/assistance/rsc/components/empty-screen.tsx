@@ -4,16 +4,16 @@ import { IconArrowRight } from '@/components/ui/icons';
 
 const exampleMessages = [
   {
-    heading: 'What are the trending stocks?',
-    message: 'What are the trending stocks?',
+    heading: 'A new workspace scope',
+    message: 'I want to configure a new scope for "ai" within my workspace.',
   },
   {
-    heading: "What's the stock price of APPL?",
-    message: "What's the stock price of APPL?",
+    heading: "A new scoped library",
+    message: 'I want to build a new library named "ui" within the "ai" scope.',
   },
   {
-    heading: "I'd like to buy 10 shares of MSFT",
-    message: "I'd like to buy 10 shares of MSFT",
+    heading: "A new library component",
+    message: 'I want to build a new react component named "Form" within the ai/ui library.',
   },
 ];
 
@@ -26,11 +26,10 @@ export function EmptyScreen({
     <div className="mx-auto max-w-2xl px-4">
       <div className="rounded-lg border bg-background p-8 mb-4">
         <h1 className="mb-2 text-lg font-semibold">
-          Welcome to AI SDK 3.0 Generative UI demo!
+          Welcome to AI NX Workspace Configuration Generator!
         </h1>
         <p className="mb-2 leading-normal text-muted-foreground">
-          This is a demo of an interactive financial assistant. It can show you
-          stocks, tell you their prices, and even help you buy shares.
+          This is a demo of an interactive NX workspace configuration generator. It can interpret feature descriptions, identify requirements, and generate the appropriate NX workspace configurations.
         </p>
         <p className="mb-2 leading-normal text-muted-foreground">
           The demo is built with{' '}
@@ -66,9 +65,6 @@ export function EmptyScreen({
           ))}
         </div>
       </div>
-      <p className="leading-normal text-muted-foreground text-[0.8rem] text-center">
-        Note: This is not real financial advice.
-      </p>
     </div>
   );
 }

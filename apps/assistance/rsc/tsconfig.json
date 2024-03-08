@@ -1,5 +1,4 @@
 {
-  "extends": "../../../tsconfig.base.json",
   "compilerOptions": {
     "target": "ES2015",
     "lib": ["dom", "dom.iterable", "esnext"],
@@ -17,7 +16,8 @@
     "incremental": true,
     "plugins": [{ "name": "next" }],
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./*"],
+      "@ranthology/workspace/react": ["../../../libs/workspace/react/src/index.ts"],
     }
   },
   "include": [
@@ -29,6 +29,6 @@
     "../../../dist/apps/assistance/rsc/.next/types/**/*.ts",
     "next-env.d.ts",
     ".next/types/**/*.ts"
-  ],
+, "../../../libs/workspace/src/lib/Graph.tsx"  ],
   "exclude": ["node_modules", "jest.config.ts", "**/*.spec.ts", "**/*.test.ts"]
 }

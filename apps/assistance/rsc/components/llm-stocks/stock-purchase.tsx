@@ -56,11 +56,7 @@ export function Purchase({
 
   return (
     <div className="rounded-xl bg-zinc-950 p-4 text-green-400 border">
-      <div className="float-right inline-block rounded-full bg-white/10 px-2 py-1 text-xs">
-        +1.23% ↑
-      </div>
-      <div className="text-lg text-zinc-300">{name}</div>
-      <div className="text-3xl font-bold">${price}</div>
+
       {purchasingUI ? (
         <div className="mt-4 text-zinc-200">{purchasingUI}</div>
       ) : (
@@ -76,18 +72,6 @@ export function Purchase({
               max="1000"
               className="h-1 w-full cursor-pointer appearance-none rounded-lg bg-zinc-600 accent-green-500 dark:bg-zinc-700"
             />
-            <span className="absolute bottom-1 start-0 text-xs text-zinc-400">
-              10
-            </span>
-            <span className="absolute bottom-1 start-1/3 -translate-x-1/2 text-xs text-zinc-400 rtl:translate-x-1/2">
-              100
-            </span>
-            <span className="absolute bottom-1 start-2/3 -translate-x-1/2 text-xs text-zinc-400 rtl:translate-x-1/2">
-              500
-            </span>
-            <span className="absolute bottom-1 end-0 text-xs text-zinc-400">
-              1000
-            </span>
           </div>
 
           <div className="mt-6">
@@ -95,19 +79,6 @@ export function Purchase({
             <div className="flex items-center sm:items-end sm:gap-2 text-xl sm:text-3xl font-bold flex-wrap">
               <div className="flex flex-col basis-1/3 sm:basis-auto sm:flex-row sm:items-center sm:gap-2 tabular-nums">
                 {value}
-                <span className="mb-1 text-sm font-normal text-zinc-600 dark:text-zinc-400 sm:mb-0">
-                  shares
-                </span>
-              </div>
-              <div className="basis-1/3 text-center sm:basis-auto">×</div>
-              <span className="flex flex-col basis-1/3 sm:basis-auto sm:flex-row sm:items-center sm:gap-2 tabular-nums">
-                ${price}
-                <span className="mb-1 ml-1 text-sm font-normal text-zinc-600 dark:text-zinc-400 sm:mb-0">
-                  per share
-                </span>
-              </span>
-              <div className="basis-full text-center sm:text-left sm:basis-auto border-t border-t-zinc-700 mt-2 pt-2 sm:border-0 sm:mt-0 sm:pt-0">
-                = <span>{formatNumber(value * price)}</span>
               </div>
             </div>
           </div>
@@ -125,7 +96,7 @@ export function Purchase({
               ]);
             }}
           >
-            Purchase
+            Confirm
           </button>
         </>
       )}
