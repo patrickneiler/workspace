@@ -174,7 +174,7 @@ export default function Page() {
                 </div>
               </div>
             </form>
-            <FooterText className="hidden sm:block" />
+            {/* <FooterText className="hidden sm:block" /> */}
           </div>
         </div>
       </div>
