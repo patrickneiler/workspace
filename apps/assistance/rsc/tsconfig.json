@@ -18,6 +18,7 @@
     "paths": {
       "@/*": ["./*"],
       "@ranthology/workspace/react": ["../../../libs/workspace/react/src/index.ts"],
+      "@ranthology/presenter/react": ["../../../libs/presenter/react/src/index.ts"],
     }
   },
   "include": [

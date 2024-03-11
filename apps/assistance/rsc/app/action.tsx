@@ -30,6 +30,7 @@ import { StockSkeleton } from '@/components/llm-stocks/stock-skeleton';
 import { EventsSkeleton } from '@/components/llm-stocks/events-skeleton';
 import { StocksSkeleton } from '@/components/llm-stocks/stocks-skeleton';
 import { WorkspaceConfig, WorkspaceConfigProps, getFunctionDisplayName } from '@/components/llm-workspace/WorkspaceConfig';
+import { Presenter } from '@ranthology/presenter/react';
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY || '',
@@ -135,8 +136,17 @@ async function submitUserMessage(content: string) {
   });
 
   completion.onTextContent((content: string, isFinal: boolean) => {
-    reply.update(<BotMessage>{content}</BotMessage>);
+    reply.update(
+      <Presenter isLocked={false}>
+        <BotMessage showAvatar={false}>{content}</BotMessage>
+      </Presenter>
+    );
     if (isFinal) {
+      reply.update(
+        <Presenter script={content} isLocked={false}>
+          <BotMessage showAvatar={false}>{content}</BotMessage>
+        </Presenter>
+      )
       reply.done();
       aiState.done([...aiState.get(), { role: 'assistant', content }]);
     }

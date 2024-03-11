@@ -44,6 +44,11 @@ export const viewport = {
   ],
 };
 
+const videoConfig = {
+  url: 'https://api.d-id.com/talks',
+  key: process.env.DID_API
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -59,6 +64,7 @@ export default function RootLayout({
           <Providers
             attribute="class"
             defaultTheme="system"
+            videoConfig={videoConfig}
             enableSystem
             disableTransitionOnChange
           >

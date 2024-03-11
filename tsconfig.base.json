@@ -30,6 +30,7 @@
       "@ranthology/assistance/feature/rsc": [
         "libs/assistance/feature/rsc/src/index.ts"
       ],
+      "@ranthology/presenter/react": ["libs/presenter/react/src/index.ts"],
       "@ranthology/workspace/config": ["libs/workspace/config/src/index.ts"]
     }
   },

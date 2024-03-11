@@ -5,11 +5,16 @@ import { ThemeProvider as NextThemesProvider } from 'next-themes';
 import { ThemeProviderProps } from 'next-themes/dist/types';
 
 import { TooltipProvider } from '@/components/ui/tooltip';
-
-export function Providers({ children, ...props }: ThemeProviderProps) {
+import { VideoProvider, Config } from '@ranthology/presenter/react';
+export interface ProviderProps extends ThemeProviderProps {
+  videoConfig: Config
+}
+export function Providers({ children, videoConfig, ...props }: ProviderProps) {
   return (
     <NextThemesProvider {...props}>
-      <TooltipProvider delayDuration={0}>{children}</TooltipProvider>
+      <VideoProvider config={videoConfig}>
+        <TooltipProvider delayDuration={0}>{children}</TooltipProvider>
+      </VideoProvider>
     </NextThemesProvider>
   );
 }

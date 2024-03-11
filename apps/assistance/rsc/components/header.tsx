@@ -18,6 +18,9 @@ export async function Header() {
           </span>
         </Link>
       </span>
+      <div className="flex items-end justify-center">
+        <div className="mt-20"></div>
+      </div>
       <div className="flex items-center justify-end space-x-2">
         <Button variant="outline" asChild>
           <a

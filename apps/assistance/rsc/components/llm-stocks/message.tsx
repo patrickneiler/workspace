@@ -2,6 +2,8 @@
 
 import { IconAI, IconUser } from '@/components/ui/icons';
 import { cn } from '@/lib/utils';
+import { useVideoContext } from '@ranthology/presenter/react';
+import { useEffect } from 'react';
 
 // Different types of message bubbles.
 
@@ -21,13 +23,18 @@ export function UserMessage({ children }: { children: React.ReactNode }) {
 export function BotMessage({
   children,
   className,
+  showAvatar = true,
 }: {
   children: React.ReactNode;
   className?: string;
+  showAvatar?: boolean;
 }) {
   return (
     <div className={cn('group relative flex items-start md:-ml-12', className)}>
-      <div className="flex h-8 w-8 shrink-0 select-none items-center justify-center rounded-md border shadow-sm bg-primary text-primary-foreground">
+      <div className={cn(
+        'flex h-8 w-8 shrink-0 select-none items-center justify-center rounded-md border shadow-sm bg-primary text-primary-foreground',
+        !showAvatar && 'invisible',
+      )}>
         <IconAI />
       </div>
       <div className="ml-4 flex-1 space-y-2 overflow-hidden px-1">

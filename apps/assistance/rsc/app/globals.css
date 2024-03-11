@@ -57,3 +57,12 @@
     @apply bg-background text-foreground;
   }
 }
+
+.clone-video {
+  height: 96px;
+  width: 96px;
+}
+
+.clone-video-mute {
+  transform: translateX(8px);
+}
