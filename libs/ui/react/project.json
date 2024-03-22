@@ -1,24 +1,24 @@
 {
-  "name": "presenter-react",
+  "name": "ui-react",
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "libs/presenter/react/src",
+  "sourceRoot": "libs/ui/react/src",
   "projectType": "library",
-  "tags": ["feature"],
+  "tags": ["ui"],
   "targets": {
     "build": {
       "executor": "@nx/rollup:rollup",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/libs/presenter/react",
-        "tsConfig": "libs/presenter/react/tsconfig.lib.json",
-        "project": "libs/presenter/react/package.json",
-        "entryFile": "libs/presenter/react/src/index.ts",
+        "outputPath": "dist/libs/ui/react",
+        "tsConfig": "libs/ui/react/tsconfig.lib.json",
+        "project": "libs/ui/react/package.json",
+        "entryFile": "libs/ui/react/src/index.ts",
         "external": ["react", "react-dom", "react/jsx-runtime"],
         "rollupConfig": "@nx/react/plugins/bundle-rollup",
         "compiler": "babel",
         "assets": [
           {
-            "glob": "libs/presenter/react/README.md",
+            "glob": "libs/ui/react/README.md",
             "input": ".",
             "output": "."
           }

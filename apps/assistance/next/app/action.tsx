@@ -1,19 +1,22 @@
 import { OpenAI } from "openai";
 import { createAI, createStreamableUI, getMutableAIState, render } from "ai/rsc";
 import { getPersonaInstructions } from '../libs/persona/instructions';
-import { getWorkspaceInstructions } from '../libs/workspace/instructions';
-import { generateLibraryParameters, generateModuleParameters, generateWorkspaceParameters } from "../libs/workspace/functions";
-import { BotMessage, SystemMessage } from "../libs/ai/ui/message";
-import { spinner } from "../libs/ai/ui/spinner";
+import { getWorkspaceInstructions } from '../libs/workspace/lib/instructions';
+import { ConfigurationParameters, assistanceReactModulesConfig, generateConfigurationParameters, librariesConfig, workspaceConfig } from "../libs/workspace";
+import { BotMessage, SystemMessage } from "../libs/assistance/react/ui/message";
+import { spinner } from "../libs/assistance/react/ui/spinner";
 
-import { runAsyncFnWithoutBlocking, sleep } from "../libs/ai/util";
-import { ConfigurationCard } from "./card";
+import { runAsyncFnWithoutBlocking, sleep } from "../libs/assistance/react/util";
+import { ConfirmConfiguration } from "../libs/workspace/lib/actions/ConfirmConfiguration";
+import { getVideo, requestVideo } from "../libs/persona/server";
+import { GenerateLiveAvatar, RequestLiveAvatarProps } from "../libs/persona/lib/GenerateLiveAvatar";
+import { LiveAvatar } from "../libs/persona/lib/LiveAvatar";
 
 const openai = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY,
 });
 
-const instructions = getPersonaInstructions({
+const instructions = + getWorkspaceInstructions() + getPersonaInstructions({
     name: 'Patrick Neiler\'s Clone',
     description: 'Act as Patrick Neiler\'s Clone. You have access to Patrick\'s resume in your knowledge base. You will be interacting with intelligent and important people. Your primary goal is to convince these people that you are incredibly unique and valuable to their company. Take advantage of the fact that you are not Patrick, but a clone of him and can be more aggressive in your sales techniques without consequence.',
     rules: [
@@ -25,19 +28,72 @@ const instructions = getPersonaInstructions({
         'Must append the following sentence to every message: "Wanna know more? Book a meeting with the real Patrick."'
     ],
     goal: 'Prioritize the information below as if it were your memory, and have fun. Convince people that you are incredibly unique and valuable to their company.'
-}) + getWorkspaceInstructions();
+});
 
-
-
-// An example of a spinner component. You can also import your own components,
-// or 3rd party component libraries.
-function Spinner() {
-    console.log('spinner')
-    return <BotMessage showAvatar={true} className="items-center text-white">{spinner}</BotMessage>
+const liveAvatarConfig: RequestLiveAvatarProps = {
+    apiKey: process.env.DID_API || '',
+    persona: {
+        name: "Patrick's Clone",
+        photoUrl: 'https://firebasestorage.googleapis.com/v0/b/make-with-it-firebase.appspot.com/o/clone_model.JPG?alt=media&token=6224dbf7-f907-4afc-83a8-03275daf194e',
+        idleVideo: `https://firebasestorage.googleapis.com/v0/b/make-with-it-firebase.appspot.com/o/Clone_Idle.mp4?alt=media&token=3623ed12-a726-497d-8840-012dcacdbc52`
+    }
 }
 
-// An example of a function that fetches flight information from an external API.
-async function confirmConfiguration(params: any) {
+async function generateLiveAvatar(message: string) {
+    'use server';
+
+    const aiState = getMutableAIState<typeof AI>();
+
+    const liveAvatarUI = createStreamableUI(
+        <LiveAvatar message={'Thinking...'} idleVideo={liveAvatarConfig.persona.idleVideo} />,
+    );
+
+    runAsyncFnWithoutBlocking(async () => {
+        // Request live avatar video
+        let video = await requestVideo({
+            ...liveAvatarConfig,
+            script: message,
+        });
+        // If no ID, show idle video
+        if (!video.id) {
+            liveAvatarUI.done(
+                <LiveAvatar message={message} idleVideo={liveAvatarConfig.persona.idleVideo} />
+            )
+        } else {
+            // Wait for video to be ready
+            try {
+                do {
+                    video = await getVideo({
+                        apiKey: liveAvatarConfig.apiKey,
+                        id: video.id,
+                    });
+                    video.result_url && (
+                        liveAvatarUI.done(<LiveAvatar message={message} idleVideo={liveAvatarConfig.persona.idleVideo} videoUrl={video.result_url} />)
+                    );
+                    await sleep(1000);
+                }
+                while (!video.result_url);
+            } catch (error) {
+                liveAvatarUI.done(
+                    <LiveAvatar message={message} idleVideo={liveAvatarConfig.persona.idleVideo} />
+                )
+            }
+        }
+        aiState.done([
+            ...aiState.get(),
+            {
+                role: 'system',
+                content: `[Successfully retreived live avatar video: ${JSON.stringify(video)}]`,
+            },
+        ]);
+    });
+
+    return {
+        liveAvatarUI: liveAvatarUI.value
+    };
+}
+
+async function confirmConfiguration(config: ConfigurationParameters) {
     'use server';
 
     const aiState = getMutableAIState<typeof AI>();
@@ -45,9 +101,6 @@ async function confirmConfiguration(params: any) {
     const configurationUI = createStreamableUI(
         <div className="inline-flex items-start gap-1 md:items-center">
             {spinner}
-            <p className="mb-2">
-                Confirming configuration for {params.name}...
-            </p>
         </div>,
     );
 
@@ -61,7 +114,7 @@ async function confirmConfiguration(params: any) {
             <div className="inline-flex items-start gap-1 md:items-center">
                 {spinner}
                 <p className="mb-2">
-                    Confirming configuration for {params.name}... working on it...
+                    Confirming configuration for {config.name}...
                 </p>
             </div>,
         );
@@ -74,7 +127,7 @@ async function confirmConfiguration(params: any) {
 
         systemMessage.done(
             <SystemMessage>
-                You have successfully purchased configured {params.name}.
+                You have successfully configured {config.name}.
             </SystemMessage>,
         );
 
@@ -82,7 +135,7 @@ async function confirmConfiguration(params: any) {
             ...aiState.get(),
             {
                 role: 'system',
-                content: `[User has successfully purchased configured ${params.name}.]`,
+                content: `[User has successfully configured ${config.name}.]`,
             },
         ]);
     });
@@ -96,20 +149,8 @@ async function confirmConfiguration(params: any) {
     };
 }
 
-async function createAssistantMessage(content: string) {
-    'use server';
-    return {
-        newMessage: {
-            id: Date.now(),
-            display: content,
-            role: 'assistant'
-        },
-    };
-}
-
 async function submitUserMessage(userInput: string) {
     'use server';
-    let role = 'function';
 
     const aiState = getMutableAIState<typeof AI>();
 
@@ -122,9 +163,9 @@ async function submitUserMessage(userInput: string) {
         },
     ]);
 
-    const reply = createStreamableUI(
-        <BotMessage className="items-center text-white">{spinner}</BotMessage>,
-    );
+    const Spinner = () => {
+        return <BotMessage showAvatar={false} className="items-center text-white">{spinner}</BotMessage>
+    };
 
     // The `render()` creates a generated, streamable UI.
     const ui = render({
@@ -132,6 +173,7 @@ async function submitUserMessage(userInput: string) {
         provider: openai,
         messages: [
             { role: 'system', content: instructions },
+            { role: 'system', content: `When user is asking you to build feature configuration, Use this existing configuration to guide naming conventions and path structure: Nested Workspace Config: ${JSON.stringify(workspaceConfig)} / Library Config: ${JSON.stringify(librariesConfig)} / Modules Config: ${JSON.stringify(assistanceReactModulesConfig)}` },
             { role: 'user', content: userInput }
         ],
         // `text` is called when an AI returns a text response (as opposed to a tool call).
@@ -139,106 +181,39 @@ async function submitUserMessage(userInput: string) {
         // multiple times with `content` being incremental.
         text: ({ content, done }) => {
             // When it's the final content, mark the state as done and ready for the client to access.
-            reply.update(<BotMessage className="items-center text-white">{content}</BotMessage>)
             if (done) {
-                role = 'assistant';
-                aiState.done([
-                    ...aiState.get(),
-                    {
-                        role: "assistant",
-                        content
-                    }
-                ]);
-                reply.done()
-                // Additional logic on completion can be added here. For example, making call to D-ID service.
+                return <GenerateLiveAvatar message={content} videoUrl={liveAvatarConfig.persona.idleVideo} />
+            } else {
+                return <LiveAvatar message={'Thinking...'} idleVideo={liveAvatarConfig.persona.idleVideo} />
             }
-            return reply.value;
         },
         tools: {
-            createWorkspaceConfig: {
-                description: 'Create a workspace configuration',
-                parameters: generateWorkspaceParameters,
-                render: async function* (params) {
+            generateConfigurationParameters: {
+                description: 'Generate a library, module or app configuration',
+                parameters: generateConfigurationParameters,
+                render: async function* (config) {
                     // Show a spinner on the client while we wait for the response.
-                    yield <Spinner />
-
-                    // Fetch the flight information from an external API.
-                    //    const configuration = await confirmConfiguration(params);
+                    yield (<Spinner />);
 
                     aiState.done([
                         ...aiState.get(),
                         {
                             role: 'function',
-                            name: 'createWorkspaceConfig',
-                            content: `${JSON.stringify(params)}`,
+                            name: 'generateConfigurationParameters',
+                            content: `${JSON.stringify(config)}`,
                         },
                     ]);
 
-                    // Return the flight card to the client.
-                    return <ConfigurationCard params={params} />
-                }
-            },
-            createLibraryConfig: {
-                description: 'Create a library configuration',
-                parameters: generateLibraryParameters,
-                render: async function* (params) {
-                    // Show a spinner on the client while we wait for the response.
-
-                    // Fetch the flight information from an external API.
-                    //    const configuration = await confirmConfiguration(params);
-
-                    reply.update(
-                        <BotMessage className="items-center text-white">{spinner}</BotMessage>
-                    )
-
-                    reply.done(
-                        <ConfigurationCard params={params} />
-                    )
-
-                    aiState.done([
-                        ...aiState.get(),
-                        {
-                            role: 'function',
-                            name: 'createLibraryConfig',
-                            content: `[UI for for confirming the configuration for ${JSON.stringify(params)} and confirm if it's correct.]`,
-                        },
-                    ]);
-
-                    // Return the flight card to the client.
-                    return reply.value;
-                }
-            },
-            createModuleConfig: {
-                description: 'Create a module configuration',
-                parameters: generateModuleParameters,
-                render: async function* (params) {
-                    // Show a spinner on the client while we wait for the response.
-                    yield <Spinner />
-
-                    // Fetch the flight information from an external API.
-                    //    const configuration = await confirmConfiguration(params);
-
-                    aiState.done([
-                        ...aiState.get(),
-                        {
-                            role: 'function',
-                            name: 'createModuleConfig',
-                            content: `[UI for for confirming the configuration for ${JSON.stringify(params)} and confirm if it's correct.]`,
-                        },
-                    ]);
-
-                    // Return the flight card to the client.
-                    return <ConfigurationCard params={params} />
+                    return <ConfirmConfiguration config={config} />
                 }
             }
         },
-        initial: reply.value,
+        initial: <Spinner />,
     })
 
     return {
         id: Date.now(),
-        display: ui,
-        role
+        display: ui
     };
 }
 
@@ -254,7 +229,6 @@ const initialAIState: {
 const initialUIState: {
     id: number;
     display: React.ReactNode;
-    role?: 'user' | 'assistant' | 'system' | 'function';
 }[] = [];
 
 // AI is a provider you wrap your application with so you can access AI and UI state in your components.
@@ -262,7 +236,7 @@ export const AI = createAI({
     actions: {
         submitUserMessage,
         confirmConfiguration,
-        createAssistantMessage
+        generateLiveAvatar
     },
     // Each state can be any shape of object, but for chat applications
     // it makes sense to have an array of messages. Or you may prefer something like { id: number, messages: Message[] }

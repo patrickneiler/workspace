@@ -4,7 +4,7 @@ import * as React from 'react';
 import { ThemeProvider as NextThemesProvider } from 'next-themes';
 import { ThemeProviderProps } from 'next-themes/dist/types';
 
-import { TooltipProvider } from '../libs/ai/ui/tooltip';
+import { TooltipProvider } from '../libs/assistance/react/ui/tooltip';
 export function Providers({ children, ...props }: ThemeProviderProps) {
   return (
     <NextThemesProvider {...props}>

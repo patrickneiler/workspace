@@ -1,6 +1,6 @@
 'use client';
 import { IconAI, IconUser } from './icons';
-import { Callout, Link } from '@radix-ui/themes';
+import { Text, Box, Button, Callout, Card, Flex, Heading, Link, TextFieldRoot, cardPropDefs } from '@radix-ui/themes';
 import { CheckCircledIcon } from '@radix-ui/react-icons'
 import { cn } from '../util';
 
@@ -80,3 +80,17 @@ export function SystemMessage({ children }: { children: React.ReactNode }) {
 
   );
 }
+
+export function FunctionCard({ children }: { children: React.ReactNode }) {
+  return (
+    <>
+      <Card variant="classic" size="4" style={{ width: 400 }}>
+        {children}
+      </Card>
+    </>
+  )
+}
+
+
+// export function FunctionMessage({ children }: { children: React.ReactNode }) {
+// }
