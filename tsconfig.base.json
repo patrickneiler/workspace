@@ -15,11 +15,14 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@ranthology/workspace/react": ["libs/workspace/react/src/index.ts"],
+      "@assistance/rsc/server": ["assistance/src/server.ts"],
+      "@pathology/workspace/react": ["libs/workspace/react/src/index.ts"],
       "@ranthology/assistance/chat": ["libs/assistance/chat/src/index.ts"],
-      "@ranthology/assistance/next": ["libs/assistance/next/src/index.ts"],
-      "@ranthology/assistance/next/server": [
-        "libs/assistance/next/src/server.ts"
+      "@ranthology/assistance/feature/next": [
+        "libs/assistance/feature/next/src/index.ts"
+      ],
+      "@ranthology/assistance/feature/next/api": [
+        "libs/assistance/feature/next/src/api.ts"
       ],
       "@ranthology/assistance/ui": ["libs/assistance/ui/src/index.ts"],
       "@ranthology/assistance/util": ["libs/assistance/util/src/index.ts"],

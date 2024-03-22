@@ -1,5 +1,9 @@
 {
-  "extends": ["plugin:@nx/react", "../../../.eslintrc.base.json"],
+  "extends": [
+    "plugin:@nx/react",
+    "../../../../.eslintrc.json",
+    "../../../../.eslintrc.base.json"
+  ],
   "ignorePatterns": ["!**/*"],
   "overrides": [
     {
@@ -14,5 +18,11 @@
       "files": ["*.js", "*.jsx"],
       "rules": {}
     }
-  ]
+  ],
+  "settings": {
+    "tailwindcss": {
+      "callees": ["cn", "cva"],
+      "config": "tailwind.config.js"
+    }
+  }
 }
