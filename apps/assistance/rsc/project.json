@@ -1,8 +1,0 @@
-{
-  "name": "assistance-rsc",
-  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/assistance/rsc",
-  "projectType": "application",
-  "targets": {},
-  "tags": ["app"]
-}

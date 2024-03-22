@@ -1,0 +1,29 @@
+{
+  "name": "assistance-util",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/assistance/util/src",
+  "projectType": "library",
+  "tags": ["util"],
+  "targets": {
+    "build": {
+      "executor": "@nx/rollup:rollup",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/assistance/util",
+        "tsConfig": "libs/assistance/util/tsconfig.lib.json",
+        "project": "libs/assistance/util/package.json",
+        "entryFile": "libs/assistance/util/src/index.ts",
+        "external": ["react", "react-dom", "react/jsx-runtime"],
+        "rollupConfig": "@nx/react/plugins/bundle-rollup",
+        "compiler": "babel",
+        "assets": [
+          {
+            "glob": "libs/assistance/util/README.md",
+            "input": ".",
+            "output": "."
+          }
+        ]
+      }
+    }
+  }
+}

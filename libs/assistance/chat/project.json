@@ -1,0 +1,29 @@
+{
+  "name": "assistance-chat",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/assistance/chat/src",
+  "projectType": "library",
+  "tags": ["feature"],
+  "targets": {
+    "build": {
+      "executor": "@nx/rollup:rollup",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/assistance/chat",
+        "tsConfig": "libs/assistance/chat/tsconfig.lib.json",
+        "project": "libs/assistance/chat/package.json",
+        "entryFile": "libs/assistance/chat/src/index.ts",
+        "external": ["react", "react-dom", "react/jsx-runtime"],
+        "rollupConfig": "@nx/react/plugins/bundle-rollup",
+        "compiler": "babel",
+        "assets": [
+          {
+            "glob": "libs/assistance/chat/README.md",
+            "input": ".",
+            "output": "."
+          }
+        ]
+      }
+    }
+  }
+}

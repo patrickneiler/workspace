@@ -1,5 +1,5 @@
-import { Assistance } from '@ranthology/assistance/feature/react';
+import { Assistance } from '@ranthology/assistance/chat';
 
 export function AssistancePage() {
-  return <Assistance api='api/assistance' />;
+  return <Assistance api="api/assistance" />;
 }
