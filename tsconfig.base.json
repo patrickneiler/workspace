@@ -17,7 +17,6 @@
     "paths": {
       "@assistance/rsc/server": ["assistance/src/server.ts"],
       "@pathology/workspace/react": ["libs/workspace/react/src/index.ts"],
-      "@ranthology/assistance/domain": ["libs/assistance/domain/src/index.ts"],
       "@ranthology/assistance/feature/next": [
         "libs/assistance/feature/next/src/index.ts"
       ],
@@ -26,9 +25,6 @@
       ],
       "@ranthology/assistance/feature/react": [
         "libs/assistance/feature/react/src/index.ts"
-      ],
-      "@ranthology/assistance/feature/rsc": [
-        "libs/assistance/feature/rsc/src/index.ts"
       ],
       "@ranthology/ui/react": ["libs/ui/react/src/index.ts"],
       "@ranthology/workspace/config": ["libs/workspace/config/src/index.ts"]
