@@ -6,8 +6,8 @@ export default defineConfig({
   e2e: {
     ...nxE2EPreset(__filename, {
       cypressDir: 'src',
-      webServerCommands: { default: 'nx run assistance-ai:start' },
-      ciWebServerCommand: 'nx run assistance-ai:serve-static',
+      webServerCommands: { default: 'nx run assistance-ai-app:start' },
+      ciWebServerCommand: 'nx run assistance-ai-app:serve-static',
     }),
     baseUrl: 'http://localhost:3000',
   },

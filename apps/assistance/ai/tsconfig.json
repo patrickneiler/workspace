@@ -30,7 +30,7 @@
     "../../../dist/ai/.next/types/**/*.ts",
     "next-env.d.ts",
     ".next/types/**/*.ts"
-  ],
+, "../../../libs/assistance/shell/src/lib/empty-screen.tsx"  ],
   "exclude": [
     "node_modules",
     "jest.config.ts",

@@ -1,0 +1,29 @@
+{
+  "name": "dynamic-diagram",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/shared/dynamic/diagram/src",
+  "projectType": "library",
+  "tags": ["feature"],
+  "targets": {
+    "build": {
+      "executor": "@nx/rollup:rollup",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/shared/dynamic/diagram",
+        "tsConfig": "libs/shared/dynamic/diagram/tsconfig.lib.json",
+        "project": "libs/shared/dynamic/diagram/package.json",
+        "entryFile": "libs/shared/dynamic/diagram/src/index.ts",
+        "external": ["react", "react-dom", "react/jsx-runtime"],
+        "rollupConfig": "@nx/react/plugins/bundle-rollup",
+        "compiler": "babel",
+        "assets": [
+          {
+            "glob": "libs/shared/dynamic/diagram/README.md",
+            "input": ".",
+            "output": "."
+          }
+        ]
+      }
+    }
+  }
+}

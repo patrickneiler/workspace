@@ -1,11 +1,10 @@
 {
-  "name": "assistance-ai-e2e",
+  "name": "assistance-ai-app-e2e",
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "ai-e2e/src",
   "tags": [],
   "implicitDependencies": [
-    "assistance-ai"
+    "assistance-ai-app"
   ],
-  "// targets": "to see all targets run: nx show project assistance-ai-e2e --web",
   "targets": {}
 }

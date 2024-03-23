@@ -2,12 +2,10 @@ import type { Metadata } from 'next';
 import { GeistMono } from 'geist/font/mono';
 import { GeistSans } from 'geist/font/sans';
 import { Theme } from '@radix-ui/themes';
-import { Toaster } from '../libs/assistance/react/ui/toaster';
+import { Toaster } from '@ranthology/ui/react';
 import './global.css';
 
-import { AI } from './action';
-import { Header } from '../libs/assistance/react/chat/header';
-import { Providers } from './providers';
+import { AssistanceLayout } from '@ranthology/assistance/shell';
 
 const meta = {
   title: 'AI RSC Demo',
@@ -17,8 +15,8 @@ const meta = {
 export const metadata: Metadata = {
   ...meta,
   title: {
-    default: 'AI RSC Demo',
-    template: `%s - AI RSC Demo`,
+    default: 'Assistance',
+    template: `%s - Assistance`,
   },
   icons: {
     icon: '/favicon.ico',
@@ -28,7 +26,7 @@ export const metadata: Metadata = {
   twitter: {
     ...meta,
     card: 'summary_large_image',
-    site: '@vercel',
+    site: '@ranthology',
   },
   openGraph: {
     ...meta,
@@ -56,21 +54,9 @@ export default function RootLayout({
       >
         <Theme appearance="dark" accentColor="sky" grayColor="slate">
           <Toaster />
-          <AI>
-            <Providers
-              attribute="class"
-              defaultTheme="system"
-              enableSystem
-              disableTransitionOnChange
-            >
-              <div className="flex flex-col min-h-screen">
-                <Header />
-                <main className="flex flex-col flex-1 bg-muted/50 dark:bg-background">
-                  {children}
-                </main>
-              </div>
-            </Providers>
-          </AI>
+          <AssistanceLayout>
+            {children}
+          </AssistanceLayout>
         </Theme>
 
       </body>

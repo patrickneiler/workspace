@@ -15,18 +15,21 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@ranthology/assistance/ai": ["libs/assistance/ai/src/index.ts"],
       "@ranthology/assistance/chat": ["libs/assistance/chat/src/index.ts"],
-      "@ranthology/assistance/feature/next": [
-        "libs/assistance/feature/next/src/index.ts"
+      "@ranthology/assistance/shell": ["libs/assistance/shell/src/index.ts"],
+      "@ranthology/assistance/shell/server": [
+        "libs/assistance/shell/src/server.ts"
       ],
-      "@ranthology/assistance/feature/next/api": [
-        "libs/assistance/feature/next/src/api.ts"
-      ],
-      "@ranthology/assistance/ui": ["libs/assistance/ui/src/index.ts"],
       "@ranthology/assistance/util": ["libs/assistance/util/src/index.ts"],
+      "@ranthology/dynamic-avatar": ["libs/shared/dynamic/avatar/src/index.ts"],
+      "@ranthology/dynamic-diagram": [
+        "libs/shared/dynamic/diagram/src/index.ts"
+      ],
+      "@ranthology/dynamic-form": ["libs/shared/dynamic/form/src/index.ts"],
       "@ranthology/ui/react": ["libs/ui/react/src/index.ts"],
-      "@ranthology/workspace/config": ["libs/workspace/config/src/index.ts"],
-      "@ranthology/workspace/react": ["libs/workspace/react/src/index.ts"]
+      "@ranthology/util": ["libs/util/src/index.ts"],
+      "@ranthology/workspace/config": ["libs/workspace/config/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
