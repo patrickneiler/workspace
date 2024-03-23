@@ -1,0 +1,11 @@
+{
+  "name": "assistance-ai",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "ai",
+  "projectType": "application",
+  "tags": [
+    "app"
+  ],
+  "// targets": "to see all targets run: nx show project assistance-ai --web",
+  "targets": {}
+}
