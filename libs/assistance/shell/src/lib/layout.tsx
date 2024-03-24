@@ -1,12 +1,14 @@
 import { AI } from '@ranthology/assistance/ai';
 import { Providers } from './providers';
 
+// The AssistanceLayout component is a layout component that wraps the application so you can access AI and UI state in your components.
 export function AssistanceLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
+    // The AI provider is a context provider that wraps the application so you can access AI and UI state in your components.
     <AI>
       <Providers
         attribute="class"

@@ -1,26 +1,35 @@
-import { runAsyncFnWithoutBlocking } from '@ranthology/util';
-import { getMutableAIState, createStreamableUI } from 'ai/rsc/dist';
-import { sleep } from 'openai/core';
-import { LiveAvatar } from '@ranthology/dynamic-avatar';
+'use server';
 import { AI } from '../provider';
+import { getMutableAIState, createStreamableUI } from 'ai/rsc';
+import { runAsyncFnWithoutBlocking, sleep } from '@ranthology/util';
+
 import { requestVideo, getVideo } from './server';
 import { RequestLiveAvatarProps } from './domain';
 
+import { LiveAvatar } from '@ranthology/dynamic-avatar';
+
+// TODO: Parameterize this configuration
 const liveAvatarConfig: RequestLiveAvatarProps = {
   apiKey: process.env.DID_API || '',
   persona: {
-    name: "Patrick's Clone",
+    name: "Patrick Neiler",
     photoUrl:
       'https://firebasestorage.googleapis.com/v0/b/make-with-it-firebase.appspot.com/o/clone_model.JPG?alt=media&token=6224dbf7-f907-4afc-83a8-03275daf194e',
     idleVideo: `https://firebasestorage.googleapis.com/v0/b/make-with-it-firebase.appspot.com/o/Clone_Idle.mp4?alt=media&token=3623ed12-a726-497d-8840-012dcacdbc52`,
   },
 };
 
+/**
+ * Generates a live avatar video based on the provided message.
+ * @param message - The message to generate the live avatar video for.
+ * @returns An object containing the live avatar UI.
+ */
 export async function generateLiveAvatar(message: string) {
-  'use server';
 
+  // Get the mutable AI state.
   const aiState = getMutableAIState<typeof AI>();
 
+  // Create a streamable UI for the live avatar.
   const liveAvatarUI = createStreamableUI(
     <LiveAvatar
       message={'Thinking...'}
@@ -46,10 +55,13 @@ export async function generateLiveAvatar(message: string) {
       // Wait for video to be ready
       try {
         do {
+          // Get the video
           video = await getVideo({
             apiKey: liveAvatarConfig.apiKey,
             id: video.id,
           });
+
+          // If the video is ready, update the live avatar UI
           video.result_url &&
             liveAvatarUI.done(
               <LiveAvatar
@@ -58,9 +70,11 @@ export async function generateLiveAvatar(message: string) {
                 videoUrl={video.result_url}
               />,
             );
+          // Delay for 1 second
           await sleep(1000);
         } while (!video.result_url);
       } catch (error) {
+        // If there is an error, show the idle video
         liveAvatarUI.done(
           <LiveAvatar
             message={message}

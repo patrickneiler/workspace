@@ -1,5 +1,3 @@
-import { Separator } from '../ui/separator';
-
 export function ChatList({ messages }: { messages: any[] }) {
   if (!messages.length) {
     return null;

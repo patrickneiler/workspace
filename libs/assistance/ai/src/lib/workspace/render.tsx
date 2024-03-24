@@ -1,18 +1,19 @@
-import { BotMessage, spinner } from '@ranthology/ui/react';
+import { getMutableAIState } from 'ai/rsc';
+import { AI } from '../provider';
+
 import { ConfirmWorkspace } from './components/ConfirmWorkspace';
+import { WorkspaceParameters } from './domain';
 
-const Spinner = () => {
-  return (
-    <BotMessage showAvatar={false} className="items-center text-white">
-      {spinner}
-    </BotMessage>
-  );
-};
+import { SpinnerMessage } from '@ranthology/ui/react';
 
-export function renderWorkspace(aiState: any) {
-  return async function* (config: any) {
+
+export function renderWorkspace() {
+  return async function* (config: WorkspaceParameters) {
+    // Get the mutable AI state.
+    const aiState = getMutableAIState<typeof AI>();
+
     // Show a spinner on the client while we wait for the response.
-    yield <Spinner />;
+    yield <SpinnerMessage>Thinking...</SpinnerMessage>;
 
     aiState.done([
       ...aiState.get(),

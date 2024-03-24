@@ -1,3 +1,4 @@
+
 'use client';
 
 import * as React from 'react';
@@ -8,6 +9,14 @@ interface ChatScrollAnchorProps {
   trackVisibility?: boolean;
 }
 
+/**
+ * A component that serves as an anchor for scrolling in a chat interface.
+ *
+ * @component
+ * @param {Object} props - The component props.
+ * @param {boolean} [props.trackVisibility] - Determines whether to track the visibility of the anchor.
+ * @returns {JSX.Element} The rendered `ChatScrollAnchor` component.
+ */
 export function ChatScrollAnchor({ trackVisibility }: ChatScrollAnchorProps) {
   const isAtBottom = useAtBottom();
   const { ref, entry, inView } = useInView({

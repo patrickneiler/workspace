@@ -1,21 +1,13 @@
 import * as React from 'react';
 import { Box, Button, Flex, Select, Text, TextField } from '@radix-ui/themes';
+import { DynamicFormProps, DynamicFormField } from './domain';
 
-export interface DynamicFormField {
-  name: string;
-  type: 'input' | 'select' | 'multi' | 'checkbox' | 'radio' | 'file';
-  options?: string[];
-  required?: boolean;
-  placeholder?: string;
-  label: string;
-  value: string;
-}
-
-export interface DynamicFormProps {
-  fields: DynamicFormField[];
-  onSubmit: (formState: DynamicFormField[]) => void;
-}
-
+/**
+ * Renders a dynamic form based on the provided fields and handles form submission.
+ *
+ * @param fields - An array of field objects that define the form fields.
+ * @param onSubmit - A callback function that is called when the form is submitted.
+ */
 export const DynamicForm = ({ fields, onSubmit }: DynamicFormProps) => {
   const [formState, setFormState] = React.useState(
     fields.reduce((acc, field) => ({ ...acc, [field.name]: '' }), {}),

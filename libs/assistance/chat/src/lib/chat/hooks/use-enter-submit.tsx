@@ -1,5 +1,11 @@
+
 import { useRef, type RefObject } from 'react';
 
+/**
+ * Custom hook that enables submitting a form when the Enter key is pressed.
+ *
+ * @returns An object containing the formRef and onKeyDown function.
+ */
 export function useEnterSubmit(): {
   formRef: RefObject<HTMLFormElement>;
   onKeyDown: (event: React.KeyboardEvent<HTMLTextAreaElement>) => void;

@@ -1,7 +1,7 @@
 {
-  "name": "@ranthology/source",
+  "name": "ranthology",
   "version": "0.0.0",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "scripts": {},
   "private": true,
   "devDependencies": {
@@ -91,6 +91,27 @@
     "zod": "3.22.4",
     "zod-to-json-schema": "3.22.4"
   },
+  "engines": {
+    "node": ">=14.6"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "homepage": "https://ai.makewith.it",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vercel/ai.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vercel/ai/issues"
+  },
+  "keywords": [
+    "ai",
+    "nextjs",
+    "svelte",
+    "react",
+    "vue"
+  ],
   "nx": {
     "includedScripts": []
   }

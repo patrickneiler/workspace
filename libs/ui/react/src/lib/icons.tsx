@@ -36,6 +36,12 @@ function IconVercel({ className, ...props }: React.ComponentProps<'svg'>) {
   );
 }
 
+/**
+ * Renders an SVG icon for GitHub.
+ *
+ * @param {React.ComponentProps<'svg'>} props - The SVG element props.
+ * @returns {JSX.Element} The rendered SVG icon.
+ */
 function IconGitHub({ className, ...props }: React.ComponentProps<'svg'>) {
   return (
     <svg
@@ -169,6 +175,12 @@ function IconCopy({ className, ...props }: React.ComponentProps<'svg'>) {
   );
 }
 
+/**
+ * Renders an SVG icon for a checkmark.
+ *
+ * @param {React.ComponentProps<'svg'>} props - The SVG element props.
+ * @returns {JSX.Element} The rendered SVG icon.
+ */
 function IconCheck({ className, ...props }: React.ComponentProps<'svg'>) {
   return (
     <svg
@@ -183,6 +195,12 @@ function IconCheck({ className, ...props }: React.ComponentProps<'svg'>) {
   );
 }
 
+/**
+ * Renders an SVG icon for closing or dismissing.
+ *
+ * @param {React.ComponentProps<'svg'>} props - The SVG element props.
+ * @returns {JSX.Element} The rendered SVG icon.
+ */
 function IconClose({ className, ...props }: React.ComponentProps<'svg'>) {
   return (
     <svg
@@ -197,6 +215,12 @@ function IconClose({ className, ...props }: React.ComponentProps<'svg'>) {
   );
 }
 
+/**
+ * Renders an SVG icon for sharing.
+ *
+ * @param {React.ComponentProps<'svg'>} props - The SVG element props.
+ * @returns {JSX.Element} The rendered SVG icon.
+ */
 function IconShare({ className, ...props }: React.ComponentProps<'svg'>) {
   return (
     <svg
@@ -211,6 +235,13 @@ function IconShare({ className, ...props }: React.ComponentProps<'svg'>) {
   );
 }
 
+/**
+ * Renders an SVG icon representing users.
+ *
+ * @param className - The CSS class name for the SVG element.
+ * @param props - Additional props to be spread to the SVG element.
+ * @returns The rendered SVG icon.
+ */
 function IconUsers({ className, ...props }: React.ComponentProps<'svg'>) {
   return (
     <svg
@@ -225,6 +256,12 @@ function IconUsers({ className, ...props }: React.ComponentProps<'svg'>) {
   );
 }
 
+/**
+ * Renders an external link icon.
+ *
+ * @param {React.ComponentProps<'svg'>} props - The SVG element props.
+ * @returns {JSX.Element} The rendered external link icon.
+ */
 function IconExternalLink({
   className,
   ...props
@@ -242,6 +279,12 @@ function IconExternalLink({
   );
 }
 
+/**
+ * Renders an SVG icon for a chevron pointing up and down.
+ *
+ * @param {React.ComponentProps<'svg'>} props - The SVG element props.
+ * @returns {JSX.Element} The rendered SVG icon.
+ */
 function IconChevronUpDown({
   className,
   ...props
@@ -259,6 +302,13 @@ function IconChevronUpDown({
   );
 }
 
+/**
+ * Renders an SVG icon for sparkles.
+ *
+ * @param className - The CSS class name for the icon.
+ * @param props - Additional props for the SVG element.
+ * @returns The rendered SVG icon.
+ */
 function IconSparkles({ className, ...props }: React.ComponentProps<'svg'>) {
   return (
     <svg

@@ -2,10 +2,23 @@ import * as React from 'react';
 
 import { cn } from '@ranthology/util';
 
-export interface InputProps
-  extends React.InputHTMLAttributes<HTMLInputElement> { }
+/**
+ * Props for the Input component.
+ */
+export type InputProps = React.InputHTMLAttributes<HTMLInputElement>;
 
+/**
+ * A custom input component.
+ */
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
+  /**
+   * Renders the input element.
+   * @param className - The CSS class name for the input element.
+   * @param type - The type of the input element.
+   * @param props - Additional input element attributes.
+   * @param ref - The ref to forward to the input element.
+   * @returns The rendered input element.
+   */
   ({ className, type, ...props }, ref) => {
     return (
       <input

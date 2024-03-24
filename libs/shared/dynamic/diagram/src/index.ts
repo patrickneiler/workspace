@@ -1,1 +1,1 @@
-export * from './lib/Diagram';
+export * from './lib/DynamicDiagram';

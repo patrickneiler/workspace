@@ -1,5 +1,9 @@
-'use client';
-
+'use client'
+/**
+ * Renders a spinner SVG element.
+ *
+ * @returns The spinner SVG element.
+ */
 export const spinner = (
   <svg
     fill="none"

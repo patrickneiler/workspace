@@ -1,7 +1,15 @@
-import { createAI } from 'ai/rsc';
+/**
+ * @file FILEPATH: /Users/simplist/Repositories/ranthology/libs/assistance/ai/src/lib/provider.tsx
+ * @description This file contains the implementation of the AI provider.
+ */
+
 import React from 'react';
-import { submitUserMessage } from './action';
+import { createAI } from 'ai/rsc';
 import { AIProvider } from './domain';
+
+import { submitUserMessage } from './action';
+import { confirmWorkspace, generateWorkspaceDiagram } from './workspace/actions';
+import { generateLiveAvatar } from './persona/actions';
 
 // Define the initial state of the AI. It can be any JSON object.
 const initialAIState: {
@@ -17,10 +25,15 @@ const initialUIState: {
   display: React.ReactNode;
 }[] = [];
 
-// AI is a provider you wrap your application with so you can access AI and UI state in your components.
+/**
+ * The AI provider that creates an instance of the AI with the specified actions, initial UI state, and initial AI state.
+ */
 export const AI: AIProvider = createAI({
   actions: {
     submitUserMessage,
+    confirmWorkspace,
+    generateWorkspaceDiagram,
+    generateLiveAvatar
   },
   initialUIState,
   initialAIState,

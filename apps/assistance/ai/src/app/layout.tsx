@@ -1,17 +1,24 @@
 import type { Metadata } from 'next';
+import { Theme } from '@radix-ui/themes';
 import { GeistMono } from 'geist/font/mono';
 import { GeistSans } from 'geist/font/sans';
-import { Theme } from '@radix-ui/themes';
-import { Toaster } from '@ranthology/ui/react';
 import './global.css';
 
+// Import the assistance layout from the scoped package.
 import { AssistanceLayout } from '@ranthology/assistance/shell';
 
+/**
+ * The metadata for the site.
+ */
 const meta = {
-  title: 'AI RSC Demo',
+  title: 'Assistance',
   description:
-    'Demo of an interactive financial assistant built using Next.js and Vercel AI SDK.',
+    'The primary objective of Assistance is to leverage the power of Artificial Intelligence to drastically improve the efficiency of software development teams.',
 };
+
+/**
+ * The complete metadata object for the site.
+ */
 export const metadata: Metadata = {
   ...meta,
   title: {
@@ -35,12 +42,14 @@ export const metadata: Metadata = {
   },
 };
 
+// The viewport settings for the site.
 export const viewport = {
   themeColor: [
     { media: '(prefers-color-scheme: light)', color: 'white' },
     { media: '(prefers-color-scheme: dark)', color: 'black' },
   ],
 };
+
 
 export default function RootLayout({
   children,
@@ -53,15 +62,16 @@ export default function RootLayout({
         className={`font-sans antialiased ${GeistSans.variable} ${GeistMono.variable}`}
       >
         <Theme appearance="dark" accentColor="sky" grayColor="slate">
-          <Toaster />
           <AssistanceLayout>
             {children}
           </AssistanceLayout>
         </Theme>
-
       </body>
     </html>
   );
 }
 
+/**
+ * The runtime version used for the application.
+ */
 export const runtime = 'edge';

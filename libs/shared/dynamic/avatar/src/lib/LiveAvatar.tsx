@@ -9,6 +9,21 @@ import { Card, Text, IconButton } from '@radix-ui/themes';
 import { useState, useRef } from 'react';
 import { LiveAvatarProps } from './domain';
 
+/**
+ * Renders a live avatar component with a video and message.
+ *
+ * @component
+ * @example
+ * ```tsx
+ * <LiveAvatar
+ *   message="Hello, world!"
+ *   videoUrl="https://example.com/video.mp4"
+ *   idleVideo="https://example.com/idle-video.mp4"
+ *   onReady={handleVideoReady}
+ *   onEnd={handleVideoEnd}
+ * />
+ * ```
+ */
 export const LiveAvatar = ({
   message,
   videoUrl,
@@ -20,6 +35,9 @@ export const LiveAvatar = ({
   const [isMuted, setIsMuted] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
+  /**
+   * Toggles the play/pause state of the video.
+   */
   const togglePlay = () => {
     if (videoRef.current) {
       if (isPlaying) {
@@ -31,6 +49,9 @@ export const LiveAvatar = ({
     }
   };
 
+  /**
+   * Toggles the mute/unmute state of the video.
+   */
   const toggleMute = () => {
     if (videoRef.current) {
       videoRef.current.muted = !isMuted;
