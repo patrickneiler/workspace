@@ -53,3 +53,5 @@ Thumbs.db
 out
 *.local
 apps/assistance/next/.env.local
+
+storybook-static

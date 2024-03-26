@@ -6,6 +6,7 @@ import './global.css';
 
 // Import the assistance layout from the scoped package.
 import { AssistanceLayout } from '@wrkspce/assistance/shell';
+import { generateDiagram, generateWorkspace, submitUserMessage } from '@wrkspce/assistance/feature/interaction';
 
 /**
  * The metadata for the site.
@@ -62,7 +63,7 @@ export default function RootLayout({
         className={`font-sans antialiased ${GeistSans.variable} ${GeistMono.variable}`}
       >
         <Theme appearance="dark" accentColor="sky" grayColor="slate">
-          <AssistanceLayout>
+          <AssistanceLayout actions={[submitUserMessage, ...generateDiagram.actions, ...generateWorkspace.actions]}>
             {children}
           </AssistanceLayout>
         </Theme>

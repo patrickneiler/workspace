@@ -17,6 +17,12 @@
     "paths": {
       "@wrkspce/assistance/ai": ["libs/assistance/ai/src/index.ts"],
       "@wrkspce/assistance/chat": ["libs/assistance/chat/src/index.ts"],
+      "@wrkspce/assistance/feature/interaction": [
+        "libs/assistance/feature/interaction/src/index.ts"
+      ],
+      "@wrkspce/assistance/feature/interaction/server": [
+        "libs/assistance/feature/interaction/src/server.ts"
+      ],
       "@wrkspce/assistance/shell": ["libs/assistance/shell/src/index.ts"],
       "@wrkspce/assistance/shell/server": [
         "libs/assistance/shell/src/server.ts"

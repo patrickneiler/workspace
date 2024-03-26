@@ -1,15 +1,17 @@
-import { AI } from '@wrkspce/assistance/ai';
+import { AIProvider, Action, InteractionLayout } from '@wrkspce/assistance/feature/interaction';
 import { Providers } from './providers';
 
 // The AssistanceLayout component is a layout component that wraps the application so you can access AI and UI state in your components.
 export function AssistanceLayout({
+  actions,
   children,
 }: Readonly<{
+  actions: Action[],
   children: React.ReactNode;
 }>) {
   return (
     // The AI provider is a context provider that wraps the application so you can access AI and UI state in your components.
-    <AI>
+    <InteractionLayout actions={actions}>
       <Providers
         attribute="class"
         defaultTheme="system"
@@ -22,7 +24,7 @@ export function AssistanceLayout({
           </main>
         </div>
       </Providers>
-    </AI>
+    </InteractionLayout>
   );
 }
 

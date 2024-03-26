@@ -37,7 +37,6 @@ const liveAvatarConfig: RequestLiveAvatarProps = {
     idleVideo: `https://firebasestorage.googleapis.com/v0/b/make-with-it-firebase.appspot.com/o/Clone_Idle.mp4?alt=media&token=3623ed12-a726-497d-8840-012dcacdbc52`,
   },
 };
-
 /**
  * Submits the user's message and generates a response from the AI.
  * @param userInput The user's input message.
@@ -89,12 +88,12 @@ export async function submitUserMessage(userInput: string) {
       generateWorkspaceParameters: {
         description: 'You will also receive written descriptions of features and their requirements. Your goal is to interpret these descriptions and use the provided functions to generate the appropriate NX workspace configurations.',
         parameters: generateWorkspaceParameters,
-        render: renderWorkspace(),
+        render: renderWorkspace,
       },
       generateLiveAvatarParameters: {
         description: `You will be asked personal questions. Your goal is to answer them as if you were ${liveAvatarConfig.persona.name}. You will also be asked to generate a live avatar video of yourself.`,
         parameters: generateLiveAvatarParameters,
-        render: renderPersona(),
+        render: renderPersona,
       },
     },
     initial: <SpinnerMessage>Thinking...</SpinnerMessage>,

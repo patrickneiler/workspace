@@ -10,27 +10,26 @@ import { SpinnerMessage } from '@wrkspce/ui/react';
  * Renders the persona.
  * @returns An async generator function that yields a spinner message while waiting for the response.
  */
-export function renderPersona() {
-  return async function* (persona: LiveAvatarProps) {
+export const renderPersona = async function* (persona: LiveAvatarProps) {
 
-    // Get the message from the persona.
-    const { message } = persona;
+  // Get the message from the persona.
+  const { message } = persona;
 
-    // Get the mutable AI state.
-    const aiState = getMutableAIState<typeof AI>();
+  // Get the mutable AI state.
+  const aiState = getMutableAIState<typeof AI>();
 
-    // Show a spinner on the client while we wait for the response.
-    yield <SpinnerMessage>Thinking...</SpinnerMessage>;
+  // Show a spinner on the client while we wait for the response.
+  yield <SpinnerMessage>Thinking...</SpinnerMessage>;
 
-    aiState.done([
-      ...aiState.get(),
-      {
-        role: 'function',
-        name: 'generateWorkspaceParameters',
-        content: `${JSON.stringify(persona)}`,
-      },
-    ]);
+  aiState.done([
+    ...aiState.get(),
+    {
+      role: 'function',
+      name: 'generateWorkspaceParameters',
+      content: `${JSON.stringify(persona)}`,
+    },
+  ]);
 
-    return <GenerateLiveAvatar message={message} />;
-  };
-}
+  return <GenerateLiveAvatar message={message} />;
+};
+

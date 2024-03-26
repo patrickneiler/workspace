@@ -8,7 +8,7 @@ import { DynamicFormProps, DynamicFormField } from './domain';
  * @param fields - An array of field objects that define the form fields.
  * @param onSubmit - A callback function that is called when the form is submitted.
  */
-export const DynamicForm = ({ fields, onSubmit }: DynamicFormProps) => {
+export const DynamicForm = ({ fields = [], onSubmit }: DynamicFormProps) => {
   const [formState, setFormState] = React.useState(
     fields.reduce((acc, field) => ({ ...acc, [field.name]: '' }), {}),
   );

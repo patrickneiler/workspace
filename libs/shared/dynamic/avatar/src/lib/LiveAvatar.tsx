@@ -68,6 +68,7 @@ export const LiveAvatar = ({
             autoPlay
             loop={true}
             src={idleVideo}
+            data-testid="idle-video"
             className={`absolute w-full h-full ${videoUrl ? 'hidden' : ''} ${idleVideo ? '' : 'hidden'}`}
           />
           <video
@@ -77,6 +78,7 @@ export const LiveAvatar = ({
             loop={false}
             src={videoUrl}
             muted={isMuted}
+            data-testid="video"
             className={`absolute w-full h-full ${videoUrl ? '' : 'hidden'}`}
             onLoadedMetadata={(e) =>
               onReady && onReady(e.currentTarget, e.currentTarget.duration)
@@ -89,6 +91,7 @@ export const LiveAvatar = ({
             variant="ghost"
             color={`${isPlaying ? 'sky' : 'gray'}`}
             onClick={togglePlay}
+            data-testid="play-button"
           >
             {isPlaying ? <PauseIcon /> : <PlayIcon />}
           </IconButton>
@@ -96,6 +99,7 @@ export const LiveAvatar = ({
             variant="ghost"
             color={`${isMuted ? 'sky' : 'gray'}`}
             onClick={toggleMute}
+            data-testid="mute-button"
           >
             {isMuted ? <SpeakerOffIcon /> : <SpeakerQuietIcon />}
           </IconButton>
