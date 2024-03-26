@@ -1,4 +1,4 @@
-import { AI } from '@ranthology/assistance/ai';
+import { AI } from '@wrkspce/assistance/ai';
 import { Providers } from './providers';
 
 // The AssistanceLayout component is a layout component that wraps the application so you can access AI and UI state in your components.

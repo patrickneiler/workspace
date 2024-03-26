@@ -1143,8 +1143,8 @@
           "implicitDependencies": []
         }
       },
-      "ranthology": {
-        "name": "ranthology",
+      "wrkspce": {
+        "name": "wrkspce",
         "type": "lib",
         "data": {
           "root": ".",
@@ -1172,7 +1172,7 @@
             }
           },
           "sourceRoot": ".",
-          "name": "ranthology",
+          "name": "wrkspce",
           "projectType": "library",
           "includedScripts": [],
           "implicitDependencies": [],
@@ -1259,7 +1259,7 @@
         }
       ],
       "util": [],
-      "ranthology": []
+      "wrkspce": []
     }
   },
   "affectedProjects": [],

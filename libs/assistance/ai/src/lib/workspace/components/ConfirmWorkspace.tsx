@@ -1,10 +1,10 @@
 'use client';
 import { useUIState, useActions } from 'ai/rsc';
 import { useState } from 'react';
-import { DynamicForm, DynamicFormField } from '@ranthology/dynamic-form';
+import { DynamicForm, DynamicFormField } from '@wrkspce/dynamic-form';
 import { Box, Heading, Text } from '@radix-ui/themes';
 import { WorkspaceParameters } from '../domain';
-import { BotMessage, FunctionCard } from '@ranthology/ui/react';
+import { BotMessage, FunctionCard } from '@wrkspce/ui/react';
 import { AI } from '../../provider';
 export const ConfirmWorkspace = ({
   config,

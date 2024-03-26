@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { cn } from '@ranthology/util';
+import { cn } from '@wrkspce/util';
 
 /**
  * Props for the Input component.

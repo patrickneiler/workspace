@@ -2,7 +2,7 @@
 
 import { AI } from '../provider';
 import { getMutableAIState, createStreamableUI } from 'ai/rsc';
-import { runAsyncFnWithoutBlocking } from '@ranthology/util';
+import { runAsyncFnWithoutBlocking } from '@wrkspce/util';
 import { completion } from '../completion';
 
 import { WorkspaceParameters } from './domain';
@@ -10,7 +10,7 @@ import { diagramInstructions } from './instructions';
 import { generateDiagramParameters } from './parameters';
 import { WorkspaceDiagram } from './components/WorkspaceDiagram';
 
-import { BotMessage, spinner, SystemMessage } from '@ranthology/ui/react';
+import { BotMessage, spinner, SystemMessage } from '@wrkspce/ui/react';
 
 /**
  * Confirms the workspace configuration.

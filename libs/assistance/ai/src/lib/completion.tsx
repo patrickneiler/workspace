@@ -4,7 +4,7 @@
 import { OpenAI } from "openai";
 import { AI } from "./provider";
 import { getMutableAIState } from "ai/rsc";
-import { runOpenAICompletion } from "@ranthology/assistance/util";
+import { runOpenAICompletion } from "@wrkspce/assistance/util";
 
 // Create an instance of the OpenAI API.
 const openai = new OpenAI({

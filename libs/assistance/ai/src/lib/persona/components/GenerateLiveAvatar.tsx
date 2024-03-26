@@ -1,7 +1,7 @@
 'use client';
 import { useActions } from 'ai/rsc';
 import { useEffect, useState } from 'react';
-import { LiveAvatarCard } from '@ranthology/dynamic-avatar';
+import { LiveAvatarCard } from '@wrkspce/dynamic-avatar';
 
 /**
  * Renders a live avatar based on the provided message.

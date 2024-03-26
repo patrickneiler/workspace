@@ -15,20 +15,20 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@ranthology/assistance/ai": ["libs/assistance/ai/src/index.ts"],
-      "@ranthology/assistance/chat": ["libs/assistance/chat/src/index.ts"],
-      "@ranthology/assistance/shell": ["libs/assistance/shell/src/index.ts"],
-      "@ranthology/assistance/shell/server": [
+      "@wrkspce/assistance/ai": ["libs/assistance/ai/src/index.ts"],
+      "@wrkspce/assistance/chat": ["libs/assistance/chat/src/index.ts"],
+      "@wrkspce/assistance/shell": ["libs/assistance/shell/src/index.ts"],
+      "@wrkspce/assistance/shell/server": [
         "libs/assistance/shell/src/server.ts"
       ],
-      "@ranthology/assistance/util": ["libs/assistance/util/src/index.ts"],
-      "@ranthology/dynamic-avatar": ["libs/shared/dynamic/avatar/src/index.ts"],
-      "@ranthology/dynamic-diagram": [
+      "@wrkspce/assistance/util": ["libs/assistance/util/src/index.ts"],
+      "@wrkspce/dynamic-avatar": ["libs/shared/dynamic/avatar/src/index.ts"],
+      "@wrkspce/dynamic-diagram": [
         "libs/shared/dynamic/diagram/src/index.ts"
       ],
-      "@ranthology/dynamic-form": ["libs/shared/dynamic/form/src/index.ts"],
-      "@ranthology/ui/react": ["libs/ui/react/src/index.ts"],
-      "@ranthology/util": ["libs/util/src/index.ts"]
+      "@wrkspce/dynamic-form": ["libs/shared/dynamic/form/src/index.ts"],
+      "@wrkspce/ui/react": ["libs/ui/react/src/index.ts"],
+      "@wrkspce/util": ["libs/util/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

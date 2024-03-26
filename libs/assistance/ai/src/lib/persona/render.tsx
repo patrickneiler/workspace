@@ -2,9 +2,9 @@ import { getMutableAIState } from 'ai/rsc';
 import { AI } from '../provider';
 
 import GenerateLiveAvatar from './components/GenerateLiveAvatar';
-import { LiveAvatarProps } from '@ranthology/dynamic-avatar';
+import { LiveAvatarProps } from '@wrkspce/dynamic-avatar';
 
-import { SpinnerMessage } from '@ranthology/ui/react';
+import { SpinnerMessage } from '@wrkspce/ui/react';
 
 /**
  * Renders the persona.

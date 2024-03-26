@@ -5,9 +5,9 @@ import Textarea from 'react-textarea-autosize';
 
 // TODO: Utilize this implementation within the library components.
 import { useUIState, useActions } from 'ai/rsc';
-import { type AI } from '@ranthology/assistance/ai';
+import { type AI } from '@wrkspce/assistance/ai';
 
-import { ChatScrollAnchor, useEnterSubmit, ChatList, EmptyScreen } from '@ranthology/assistance/chat';
+import { ChatScrollAnchor, useEnterSubmit, ChatList, EmptyScreen } from '@wrkspce/assistance/chat';
 
 import {
     Button, IconArrowElbow, IconPlus, Tooltip,
@@ -15,7 +15,7 @@ import {
     TooltipTrigger,
     PanelBackground,
     UserMessage
-} from '@ranthology/ui/react';
+} from '@wrkspce/ui/react';
 
 
 // TODO - Parameterize this intro message

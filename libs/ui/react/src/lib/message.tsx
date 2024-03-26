@@ -2,7 +2,7 @@
 import { IconAI, IconUser } from './icons';
 import { Callout, Card } from '@radix-ui/themes';
 import { CheckCircledIcon } from '@radix-ui/react-icons'
-import { cn } from '@ranthology/util';
+import { cn } from '@wrkspce/util';
 import { spinner } from './spinner';
 
 /**

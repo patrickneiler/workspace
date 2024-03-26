@@ -3,7 +3,7 @@
 import * as React from 'react';
 import * as SeparatorPrimitive from '@radix-ui/react-separator';
 
-import { cn } from '@ranthology/util';
+import { cn } from '@wrkspce/util';
 
 /**
  * A custom separator component.

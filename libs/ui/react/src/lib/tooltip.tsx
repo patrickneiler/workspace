@@ -3,7 +3,7 @@
 import * as React from 'react';
 import * as TooltipPrimitive from '@radix-ui/react-tooltip';
 
-import { cn } from '@ranthology/util';
+import { cn } from '@wrkspce/util';
 
 /**
  * Provides a tooltip component that can be used to display additional information

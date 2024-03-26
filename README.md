@@ -6,8 +6,8 @@
 
 ```
 graph TD
-    style ranthology fill:#f9f,stroke:#333,stroke-width:2px
-    ranthology{{"Ranthology Workspace"}}
+    style wrkspce fill:#f9f,stroke:#333,stroke-width:2px
+    wrkspce{{"Workspace"}}
 
     subgraph assistance["Assistance"]
         reactLib(("assistant-feature-react"))
@@ -20,7 +20,7 @@ graph TD
         AssistanceApiRoute>AssistanceApiRoute]
     end
 
-    ranthology --> assistance
+    wrkspce --> assistance
     assistance --> reactLib
     assistance --> nextLib
     assistance --> domainLib

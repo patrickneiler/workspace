@@ -1,5 +1,5 @@
 /**
- * @file FILEPATH: /Users/simplist/Repositories/ranthology/libs/assistance/ai/src/lib/provider.tsx
+ * @file FILEPATH: /Users/simplist/Repositories/wrkspce/libs/assistance/ai/src/lib/provider.tsx
  * @description This file contains the implementation of the AI provider.
  */
 

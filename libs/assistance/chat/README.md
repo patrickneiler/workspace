@@ -16,7 +16,7 @@ submitMessage: A function to call when the form is submitted.
 handleInputChange: A function to call when the input field value changes.
 error: An error object to display if there's an error.
 Message Type
-This is a type that will be imported from the @ranthology/assistance/domain package. Each Message object will have the following properties:
+This is a type that will be imported from the @wrkspce/assistance/domain package. Each Message object will have the following properties:
 
 id: A unique identifier for the message.
 role: The role of the sender. It can be 'system', 'user', 'function', 'tool', 'assistant', or 'data'.
@@ -35,7 +35,7 @@ Implementation
 To implement the Assistance Chat feature, you will need to:
 
 Create the AssistanceChat component with the required props.
-Import the Message type from the @ranthology/assistance/domain package.
+Import the Message type from the @wrkspce/assistance/domain package.
 Implement the role to color mapping.
 Render the messages in the chat, each with the color corresponding to its role.
 Render the input field and bind it to the input prop and the handleInputChange handler.

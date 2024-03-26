@@ -1,4 +1,4 @@
-import { generateInstructions } from "@ranthology/assistance/util";
+import { generateInstructions } from "@wrkspce/assistance/util";
 
 /**
  * Represents the instructions for generating a persona.

@@ -4,7 +4,7 @@ import { WorkspaceParameters } from './domain';
  * Represents the configuration for the workspace.
  */
 export const workspaceConfig: WorkspaceParameters = {
-  name: '@ranthology',
+  name: '@wrkspce',
   configType: 'workspace',
   children: [
     {
@@ -39,19 +39,19 @@ export const workspaceConfig: WorkspaceParameters = {
         {
           name: 'importPath',
           type: 'input',
-          value: '@ranthology/shared/dynamic/avatar',
+          value: '@wrkspce/shared/dynamic/avatar',
           required: true,
-          placeholder: '@ranthology/shared/dynamic/avatar',
+          placeholder: '@wrkspce/shared/dynamic/avatar',
           label: 'Import Path',
         },
         {
           name: 'generator',
           type: 'input',
           value:
-            'nx generate @nx/workspace:lib --name=dynamic-avatar --directory=libs/shared/dynamic/avatar --buildable=true --importPath=@ranthology/shared/dynamic/avatar --projectNameAndRootFormat=as-provided --publishable=true --skipFormat=true --tags=feature --unitTestRunner=none --no-interactive',
+            'nx generate @nx/workspace:lib --name=dynamic-avatar --directory=libs/shared/dynamic/avatar --buildable=true --importPath=@wrkspce/shared/dynamic/avatar --projectNameAndRootFormat=as-provided --publishable=true --skipFormat=true --tags=feature --unitTestRunner=none --no-interactive',
           required: true,
           placeholder:
-            'nx generate @nx/workspace:lib --name=dynamic-avatar --directory=libs/shared/dynamic/avatar --buildable=true --importPath=@ranthology/shared/dynamic/avatar --projectNameAndRootFormat=as-provided --publishable=true --skipFormat=true --tags=feature --unitTestRunner=none --no-interactive',
+            'nx generate @nx/workspace:lib --name=dynamic-avatar --directory=libs/shared/dynamic/avatar --buildable=true --importPath=@wrkspce/shared/dynamic/avatar --projectNameAndRootFormat=as-provided --publishable=true --skipFormat=true --tags=feature --unitTestRunner=none --no-interactive',
           label: 'Generator',
         },
       ],
@@ -88,19 +88,19 @@ export const workspaceConfig: WorkspaceParameters = {
         {
           name: 'importPath',
           type: 'input',
-          value: '@ranthology/shared/dynamic/form',
+          value: '@wrkspce/shared/dynamic/form',
           required: true,
-          placeholder: '@ranthology/shared/dynamic/form',
+          placeholder: '@wrkspce/shared/dynamic/form',
           label: 'Import Path',
         },
         {
           name: 'generator',
           type: 'input',
           value:
-            'nx generate @nx/workspace:lib --name=dynamic-form --directory=libs/shared/dynamic/form --buildable=true --importPath=@ranthology/shared/dynamic/form --projectNameAndRootFormat=as-provided --publishable=true --skipFormat=true --tags=feature --unitTestRunner=none --no-interactive',
+            'nx generate @nx/workspace:lib --name=dynamic-form --directory=libs/shared/dynamic/form --buildable=true --importPath=@wrkspce/shared/dynamic/form --projectNameAndRootFormat=as-provided --publishable=true --skipFormat=true --tags=feature --unitTestRunner=none --no-interactive',
           required: true,
           placeholder:
-            'nx generate @nx/workspace:lib --name=dynamic-form --directory=libs/shared/dynamic/form --buildable=true --importPath=@ranthology/shared/dynamic/form --projectNameAndRootFormat=as-provided --publishable=true --skipFormat=true --tags=feature --unitTestRunner=none --no-interactive',
+            'nx generate @nx/workspace:lib --name=dynamic-form --directory=libs/shared/dynamic/form --buildable=true --importPath=@wrkspce/shared/dynamic/form --projectNameAndRootFormat=as-provided --publishable=true --skipFormat=true --tags=feature --unitTestRunner=none --no-interactive',
           label: 'Generator',
         },
       ],
@@ -137,19 +137,19 @@ export const workspaceConfig: WorkspaceParameters = {
         {
           name: 'importPath',
           type: 'input',
-          value: '@ranthology/assistance/shell',
+          value: '@wrkspce/assistance/shell',
           required: true,
-          placeholder: '@ranthology/assistance/shell',
+          placeholder: '@wrkspce/assistance/shell',
           label: 'Import Path',
         },
         {
           name: 'generator',
           type: 'input',
           value:
-            'nx generate @nx/workspace:lib --name=assistance-shell --directory=libs/assistance/shell --buildable=true --importPath=@ranthology/assistance/shell --projectNameAndRootFormat=as-provided --publishable=true --skipFormat=true --tags=feature --unitTestRunner=none --no-interactive',
+            'nx generate @nx/workspace:lib --name=assistance-shell --directory=libs/assistance/shell --buildable=true --importPath=@wrkspce/assistance/shell --projectNameAndRootFormat=as-provided --publishable=true --skipFormat=true --tags=feature --unitTestRunner=none --no-interactive',
           required: true,
           placeholder:
-            'nx generate @nx/workspace:lib --name=assistance-shell --directory=libs/assistance/shell --buildable=true --importPath=@ranthology/assistance/shell --projectNameAndRootFormat=as-provided --publishable=true --skipFormat=true --tags=feature --unitTestRunner=none --no-interactive',
+            'nx generate @nx/workspace:lib --name=assistance-shell --directory=libs/assistance/shell --buildable=true --importPath=@wrkspce/assistance/shell --projectNameAndRootFormat=as-provided --publishable=true --skipFormat=true --tags=feature --unitTestRunner=none --no-interactive',
           label: 'Generator',
         },
       ],
@@ -186,19 +186,19 @@ export const workspaceConfig: WorkspaceParameters = {
         {
           name: 'importPath',
           type: 'input',
-          value: '@ranthology/assistance/ai',
+          value: '@wrkspce/assistance/ai',
           required: true,
-          placeholder: '@ranthology/assistance/ai',
+          placeholder: '@wrkspce/assistance/ai',
           label: 'Import Path',
         },
         {
           name: 'generator',
           type: 'input',
           value:
-            'nx generate @nx/workspace:lib --name=assistance-ai --directory=libs/assistance/ai --buildable=true --importPath=@ranthology/assistance/ai --projectNameAndRootFormat=as-provided --publishable=true --skipFormat=true --tags=feature --unitTestRunner=none --no-interactive',
+            'nx generate @nx/workspace:lib --name=assistance-ai --directory=libs/assistance/ai --buildable=true --importPath=@wrkspce/assistance/ai --projectNameAndRootFormat=as-provided --publishable=true --skipFormat=true --tags=feature --unitTestRunner=none --no-interactive',
           required: true,
           placeholder:
-            'nx generate @nx/workspace:lib --name=assistance-ai --directory=libs/assistance/ai --buildable=true --importPath=@ranthology/assistance/ai --projectNameAndRootFormat=as-provided --publishable=true --skipFormat=true --tags=feature --unitTestRunner=none --no-interactive',
+            'nx generate @nx/workspace:lib --name=assistance-ai --directory=libs/assistance/ai --buildable=true --importPath=@wrkspce/assistance/ai --projectNameAndRootFormat=as-provided --publishable=true --skipFormat=true --tags=feature --unitTestRunner=none --no-interactive',
           label: 'Generator',
         },
       ],
@@ -235,19 +235,19 @@ export const workspaceConfig: WorkspaceParameters = {
         {
           name: 'importPath',
           type: 'input',
-          value: '@ranthology/assistance/chat',
+          value: '@wrkspce/assistance/chat',
           required: true,
-          placeholder: '@ranthology/assistance/chat',
+          placeholder: '@wrkspce/assistance/chat',
           label: 'Import Path',
         },
         {
           name: 'generator',
           type: 'input',
           value:
-            'nx generate @nx/workspace:lib --name=assistance-chat --directory=libs/assistance/chat --buildable=true --importPath=@ranthology/assistance/chat --projectNameAndRootFormat=as-provided --publishable=true --skipFormat=true --tags=feature --unitTestRunner=none --no-interactive',
+            'nx generate @nx/workspace:lib --name=assistance-chat --directory=libs/assistance/chat --buildable=true --importPath=@wrkspce/assistance/chat --projectNameAndRootFormat=as-provided --publishable=true --skipFormat=true --tags=feature --unitTestRunner=none --no-interactive',
           required: true,
           placeholder:
-            'nx generate @nx/workspace:lib --name=assistance-chat --directory=libs/assistance/chat --buildable=true --importPath=@ranthology/assistance/chat --projectNameAndRootFormat=as-provided --publishable=true --skipFormat=true --tags=feature --unitTestRunner=none --no-interactive',
+            'nx generate @nx/workspace:lib --name=assistance-chat --directory=libs/assistance/chat --buildable=true --importPath=@wrkspce/assistance/chat --projectNameAndRootFormat=as-provided --publishable=true --skipFormat=true --tags=feature --unitTestRunner=none --no-interactive',
           label: 'Generator',
         },
       ],
@@ -284,19 +284,19 @@ export const workspaceConfig: WorkspaceParameters = {
         {
           name: 'importPath',
           type: 'input',
-          value: '@ranthology/assistance/util',
+          value: '@wrkspce/assistance/util',
           required: true,
-          placeholder: '@ranthology/assistance/util',
+          placeholder: '@wrkspce/assistance/util',
           label: 'Import Path',
         },
         {
           name: 'generator',
           type: 'input',
           value:
-            'nx generate @nx/workspace:lib --name=assistance-util --directory=libs/assistance/util --buildable=true --importPath=@ranthology/assistance/util --projectNameAndRootFormat=as-provided --publishable=true --skipFormat=true --tags=feature --unitTestRunner=none --no-interactive',
+            'nx generate @nx/workspace:lib --name=assistance-util --directory=libs/assistance/util --buildable=true --importPath=@wrkspce/assistance/util --projectNameAndRootFormat=as-provided --publishable=true --skipFormat=true --tags=feature --unitTestRunner=none --no-interactive',
           required: true,
           placeholder:
-            'nx generate @nx/workspace:lib --name=assistance-util --directory=libs/assistance/util --buildable=true --importPath=@ranthology/assistance/util --projectNameAndRootFormat=as-provided --publishable=true --skipFormat=true --tags=feature --unitTestRunner=none --no-interactive',
+            'nx generate @nx/workspace:lib --name=assistance-util --directory=libs/assistance/util --buildable=true --importPath=@wrkspce/assistance/util --projectNameAndRootFormat=as-provided --publishable=true --skipFormat=true --tags=feature --unitTestRunner=none --no-interactive',
           label: 'Generator',
         },
       ],
@@ -333,19 +333,19 @@ export const workspaceConfig: WorkspaceParameters = {
         {
           name: 'importPath',
           type: 'input',
-          value: '@ranthology/assistance/ai',
+          value: '@wrkspce/assistance/ai',
           required: true,
-          placeholder: '@ranthology/assistance/ai',
+          placeholder: '@wrkspce/assistance/ai',
           label: 'Import Path',
         },
         {
           name: 'generator',
           type: 'input',
           value:
-            'nx generate @nx/workspace:app --name=assistance-ai-app --directory=apps/assistance/ai --importPath=@ranthology/assistance/ai --projectNameAndRootFormat=as-provided --publishable=true --skipFormat=true --tags=app --unitTestRunner=none --no-interactive',
+            'nx generate @nx/workspace:app --name=assistance-ai-app --directory=apps/assistance/ai --importPath=@wrkspce/assistance/ai --projectNameAndRootFormat=as-provided --publishable=true --skipFormat=true --tags=app --unitTestRunner=none --no-interactive',
           required: true,
           placeholder:
-            'nx generate @nx/workspace:app --name=assistance-ai-app --directory=apps/assistance/ai --importPath=@ranthology/assistance/ai --projectNameAndRootFormat=as-provided --publishable=true --skipFormat=true --tags=app --unitTestRunner=none --no-interactive',
+            'nx generate @nx/workspace:app --name=assistance-ai-app --directory=apps/assistance/ai --importPath=@wrkspce/assistance/ai --projectNameAndRootFormat=as-provided --publishable=true --skipFormat=true --tags=app --unitTestRunner=none --no-interactive',
           label: 'Generator',
         },
       ],
@@ -382,19 +382,19 @@ export const workspaceConfig: WorkspaceParameters = {
         {
           name: 'importPath',
           type: 'input',
-          value: '@ranthology/ui/react',
+          value: '@wrkspce/ui/react',
           required: true,
-          placeholder: '@ranthology/ui/react',
+          placeholder: '@wrkspce/ui/react',
           label: 'Import Path',
         },
         {
           name: 'generator',
           type: 'input',
           value:
-            'nx generate @nx/workspace:lib --name=ui-react --directory=libs/ui/react --buildable=true --importPath=@ranthology/ui/react --projectNameAndRootFormat=as-provided --publishable=true --skipFormat=true --tags=feature --unitTestRunner=none --no-interactive',
+            'nx generate @nx/workspace:lib --name=ui-react --directory=libs/ui/react --buildable=true --importPath=@wrkspce/ui/react --projectNameAndRootFormat=as-provided --publishable=true --skipFormat=true --tags=feature --unitTestRunner=none --no-interactive',
           required: true,
           placeholder:
-            'nx generate @nx/workspace:lib --name=ui-react --directory=libs/ui/react --buildable=true --importPath=@ranthology/ui/react --projectNameAndRootFormat=as-provided --publishable=true --skipFormat=true --tags=feature --unitTestRunner=none --no-interactive',
+            'nx generate @nx/workspace:lib --name=ui-react --directory=libs/ui/react --buildable=true --importPath=@wrkspce/ui/react --projectNameAndRootFormat=as-provided --publishable=true --skipFormat=true --tags=feature --unitTestRunner=none --no-interactive',
           label: 'Generator',
         },
       ],
@@ -431,19 +431,19 @@ export const workspaceConfig: WorkspaceParameters = {
         {
           name: 'importPath',
           type: 'input',
-          value: '@ranthology/util',
+          value: '@wrkspce/util',
           required: true,
-          placeholder: '@ranthology/util',
+          placeholder: '@wrkspce/util',
           label: 'Import Path',
         },
         {
           name: 'generator',
           type: 'input',
           value:
-            'nx generate @nx/workspace:lib --name=util --directory=libs/util --buildable=true --importPath=@ranthology/util --projectNameAndRootFormat=as-provided --publishable=true --skipFormat=true --tags=feature --unitTestRunner=none --no-interactive',
+            'nx generate @nx/workspace:lib --name=util --directory=libs/util --buildable=true --importPath=@wrkspce/util --projectNameAndRootFormat=as-provided --publishable=true --skipFormat=true --tags=feature --unitTestRunner=none --no-interactive',
           required: true,
           placeholder:
-            'nx generate @nx/workspace:lib --name=util --directory=libs/util --buildable=true --importPath=@ranthology/util --projectNameAndRootFormat=as-provided --publishable=true --skipFormat=true --tags=feature --unitTestRunner=none --no-interactive',
+            'nx generate @nx/workspace:lib --name=util --directory=libs/util --buildable=true --importPath=@wrkspce/util --projectNameAndRootFormat=as-provided --publishable=true --skipFormat=true --tags=feature --unitTestRunner=none --no-interactive',
           label: 'Generator',
         },
       ],

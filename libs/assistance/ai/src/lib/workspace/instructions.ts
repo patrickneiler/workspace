@@ -1,4 +1,4 @@
-import { generateInstructions } from "@ranthology/assistance/util";
+import { generateInstructions } from "@wrkspce/assistance/util";
 import { workspaceConfig } from "./configuration";
 import { diagram } from "./diagram";
 

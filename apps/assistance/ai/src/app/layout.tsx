@@ -5,7 +5,7 @@ import { GeistSans } from 'geist/font/sans';
 import './global.css';
 
 // Import the assistance layout from the scoped package.
-import { AssistanceLayout } from '@ranthology/assistance/shell';
+import { AssistanceLayout } from '@wrkspce/assistance/shell';
 
 /**
  * The metadata for the site.
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   twitter: {
     ...meta,
     card: 'summary_large_image',
-    site: '@ranthology',
+    site: '@wrkspce',
   },
   openGraph: {
     ...meta,

@@ -1,4 +1,4 @@
-import { AssistancePage } from '@ranthology/assistance/shell'
+import { AssistancePage } from '@wrkspce/assistance/shell'
 
 const Page = AssistancePage;
 

@@ -15,7 +15,7 @@ import { renderPersona } from './persona/render';
 import { RequestLiveAvatarProps } from './persona/domain';
 
 // Import the UI components from the shared library.
-import { BotMessage, SpinnerMessage } from '@ranthology/ui/react';
+import { BotMessage, SpinnerMessage } from '@wrkspce/ui/react';
 
 // Create an instance of the OpenAI API.
 const openai = new OpenAI({

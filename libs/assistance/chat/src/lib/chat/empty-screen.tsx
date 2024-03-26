@@ -1,4 +1,4 @@
-import { LiveAvatar, LiveAvatarCard } from '@ranthology/dynamic-avatar';
+import { LiveAvatar, LiveAvatarCard } from '@wrkspce/dynamic-avatar';
 import { Box } from '@radix-ui/themes';
 
 export function EmptyScreen({

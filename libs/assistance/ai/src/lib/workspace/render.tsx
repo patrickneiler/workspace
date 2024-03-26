@@ -4,7 +4,7 @@ import { AI } from '../provider';
 import { ConfirmWorkspace } from './components/ConfirmWorkspace';
 import { WorkspaceParameters } from './domain';
 
-import { SpinnerMessage } from '@ranthology/ui/react';
+import { SpinnerMessage } from '@wrkspce/ui/react';
 
 
 export function renderWorkspace() {

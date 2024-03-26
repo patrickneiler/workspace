@@ -3,7 +3,7 @@
 import { ThemeProvider as NextThemesProvider } from 'next-themes';
 import { ThemeProviderProps } from 'next-themes/dist/types';
 
-import { TooltipProvider } from '@ranthology/ui/react';
+import { TooltipProvider } from '@wrkspce/ui/react';
 
 /**
  * Renders the providers for the application.

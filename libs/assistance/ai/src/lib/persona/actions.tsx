@@ -1,12 +1,12 @@
 'use server';
 import { AI } from '../provider';
 import { getMutableAIState, createStreamableUI } from 'ai/rsc';
-import { runAsyncFnWithoutBlocking, sleep } from '@ranthology/util';
+import { runAsyncFnWithoutBlocking, sleep } from '@wrkspce/util';
 
 import { requestVideo, getVideo } from './server';
 import { RequestLiveAvatarProps } from './domain';
 
-import { LiveAvatar } from '@ranthology/dynamic-avatar';
+import { LiveAvatar } from '@wrkspce/dynamic-avatar';
 
 // TODO: Parameterize this configuration
 const liveAvatarConfig: RequestLiveAvatarProps = {
