@@ -1,0 +1,38 @@
+{
+  "name": "assistance-ui-stocks",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/assistance/ui/stocks/src",
+  "projectType": "library",
+  "tags": [
+    "scope:assistance",
+    "type:ui"
+  ],
+  "targets": {
+    "build": {
+      "executor": "@nx/rollup:rollup",
+      "outputs": [
+        "{options.outputPath}"
+      ],
+      "options": {
+        "outputPath": "dist/libs/assistance/ui/stocks",
+        "tsConfig": "libs/assistance/ui/stocks/tsconfig.lib.json",
+        "project": "libs/assistance/ui/stocks/package.json",
+        "entryFile": "libs/assistance/ui/stocks/src/index.ts",
+        "external": [
+          "react",
+          "react-dom",
+          "react/jsx-runtime"
+        ],
+        "rollupConfig": "@nx/react/plugins/bundle-rollup",
+        "compiler": "babel",
+        "assets": [
+          {
+            "glob": "libs/assistance/ui/stocks/README.md",
+            "input": ".",
+            "output": "."
+          }
+        ]
+      }
+    }
+  }
+}

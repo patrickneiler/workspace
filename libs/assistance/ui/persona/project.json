@@ -1,0 +1,29 @@
+{
+  "name": "assistance-ui-persona",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/assistance/ui/persona/src",
+  "projectType": "library",
+  "tags": ["scope:assistance", "type:ui"],
+  "targets": {
+    "build": {
+      "executor": "@nx/rollup:rollup",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/assistance/ui/persona",
+        "tsConfig": "libs/assistance/ui/persona/tsconfig.lib.json",
+        "project": "libs/assistance/ui/persona/package.json",
+        "entryFile": "libs/assistance/ui/persona/src/index.ts",
+        "external": ["react", "react-dom", "react/jsx-runtime"],
+        "rollupConfig": "@nx/react/plugins/bundle-rollup",
+        "compiler": "babel",
+        "assets": [
+          {
+            "glob": "libs/assistance/ui/persona/README.md",
+            "input": ".",
+            "output": "."
+          }
+        ]
+      }
+    }
+  }
+}

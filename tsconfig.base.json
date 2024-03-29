@@ -14,7 +14,42 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@wrkspce/assistance/domain": ["libs/assistance/domain/src/index.ts"],
+      "@wrkspce/assistance/feature/ai/server": [
+        "libs/assistance/feature/ai/src/server.ts"
+      ],
+      "@wrkspce/assistance/feature/core": [
+        "libs/assistance/feature/core/src/index.ts"
+      ],
+      "@wrkspce/assistance/feature/workspace": [
+        "libs/assistance/feature/workspace/src/index.ts"
+      ],
+      "@wrkspce/assistance/feature/workspace/server": [
+        "libs/assistance/feature/workspace/src/server.ts"
+      ],
+      "@wrkspce/assistance/plugin": ["libs/assistance/plugin/src/index.ts"],
+      "@wrkspce/assistance/ui/chat": ["libs/assistance/ui/chat/src/index.ts"],
+      "@wrkspce/assistance/ui/persona": [
+        "libs/assistance/ui/persona/src/index.ts"
+      ],
+      "@wrkspce/assistance/ui/stocks": [
+        "libs/assistance/ui/stocks/src/index.ts"
+      ],
+      "@wrkspce/assistance/ui/workspace": [
+        "libs/assistance/ui/workspace/src/index.ts"
+      ],
+      "@wrkspce/assistance/util": ["libs/assistance/util/src/index.ts"],
+      "@wrkspce/shared/feature/avatar": [
+        "libs/shared/feature/avatar/src/index.ts"
+      ],
+      "@wrkspce/shared/feature/diagram": [
+        "libs/shared/feature/diagram/src/index.ts"
+      ],
+      "@wrkspce/shared/feature/form": ["libs/shared/feature/form/src/index.ts"],
+      "@wrkspce/shared/ui": ["libs/shared/ui/src/index.ts"],
+      "@wrkspce/shared/util": ["libs/shared/util/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

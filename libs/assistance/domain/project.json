@@ -1,0 +1,22 @@
+{
+  "name": "assistance-domain",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/assistance/domain/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/rollup:rollup",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/assistance/domain",
+        "main": "libs/assistance/domain/src/index.ts",
+        "tsConfig": "libs/assistance/domain/tsconfig.lib.json",
+        "assets": [],
+        "project": "libs/assistance/domain/package.json",
+        "compiler": "swc",
+        "format": ["cjs", "esm"]
+      }
+    }
+  },
+  "tags": ["scope:assistance", "type:domain"]
+}

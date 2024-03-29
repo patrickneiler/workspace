@@ -1,0 +1,29 @@
+{
+  "name": "shared-feature-diagram",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/shared/feature/diagram/src",
+  "projectType": "library",
+  "tags": ["feature"],
+  "targets": {
+    "build": {
+      "executor": "@nx/rollup:rollup",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/shared/feature/diagram",
+        "tsConfig": "libs/shared/feature/diagram/tsconfig.lib.json",
+        "project": "libs/shared/feature/diagram/package.json",
+        "entryFile": "libs/shared/feature/diagram/src/index.ts",
+        "external": ["react", "react-dom", "react/jsx-runtime"],
+        "rollupConfig": "@nx/react/plugins/bundle-rollup",
+        "compiler": "babel",
+        "assets": [
+          {
+            "glob": "libs/shared/feature/diagram/README.md",
+            "input": ".",
+            "output": "."
+          }
+        ]
+      }
+    }
+  }
+}

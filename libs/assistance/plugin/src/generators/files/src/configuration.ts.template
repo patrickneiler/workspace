@@ -1,0 +1,5 @@
+export const current = <%- JSON.stringify(config) -%>;
+
+export const generator = <%- JSON.stringify(generator) -%>;
+
+export const graph = <%- JSON.stringify(graph) -%>;

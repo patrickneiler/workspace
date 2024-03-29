@@ -1,0 +1,41 @@
+{
+  "name": "assistance-plugin",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/assistance/plugin/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/assistance/plugin",
+        "main": "libs/assistance/plugin/src/index.ts",
+        "tsConfig": "libs/assistance/plugin/tsconfig.lib.json",
+        "assets": [
+          "libs/assistance/plugin/*.md",
+          {
+            "input": "./libs/assistance/plugin/src",
+            "glob": "**/!(*.ts)",
+            "output": "./src"
+          },
+          {
+            "input": "./libs/assistance/plugin/src",
+            "glob": "**/*.d.ts",
+            "output": "./src"
+          },
+          {
+            "input": "./libs/assistance/plugin",
+            "glob": "generators.json",
+            "output": "."
+          },
+          {
+            "input": "./libs/assistance/plugin",
+            "glob": "executors.json",
+            "output": "."
+          }
+        ]
+      }
+    }
+  },
+  "tags": ["scope:assistance", "type:plugin"]
+}
