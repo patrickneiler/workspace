@@ -1,0 +1,9 @@
+{
+  "generators": {
+    "workspace-configuration": {
+      "factory": "./src/generators/generator",
+      "schema": "./src/generators/schema.json",
+      "description": "This generator reads the current workspace configuration, and then parses it into an object representing the nx workspace generator scripts that initially created the libraries."
+    }
+  }
+}

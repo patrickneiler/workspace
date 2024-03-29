@@ -1,0 +1,8 @@
+{
+  "name": "assistance-app",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "ai",
+  "projectType": "application",
+  "tags": ["app"],
+  "targets": {}
+}

@@ -3,6 +3,7 @@ import { OpenAIStream } from 'ai';
 import type OpenAI from 'openai';
 import { z } from 'zod';
 import zodToJsonSchema from 'zod-to-json-schema';
+import { CompletionResponse } from './domain';
 
 
 /**
@@ -148,7 +149,7 @@ export function runOpenAICompletion<
     );
   })();
 
-  return {
+  const response: CompletionResponse<TFunctions, TToolMap> = {
     onTextContent: (
       callback: (text: string, isFinal: boolean) => void | Promise<void>,
     ) => {
@@ -171,4 +172,5 @@ export function runOpenAICompletion<
       onFunctionCall[name] = callback;
     },
   };
+  return response;
 }

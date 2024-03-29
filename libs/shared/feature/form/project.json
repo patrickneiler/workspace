@@ -1,0 +1,29 @@
+{
+  "name": "shared-feature-form",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/shared/feature/form/src",
+  "projectType": "library",
+  "tags": ["feature"],
+  "targets": {
+    "build": {
+      "executor": "@nx/rollup:rollup",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/shared/feature/form",
+        "tsConfig": "libs/shared/feature/form/tsconfig.lib.json",
+        "project": "libs/shared/feature/form/package.json",
+        "entryFile": "libs/shared/feature/form/src/index.ts",
+        "external": ["react", "react-dom", "react/jsx-runtime"],
+        "rollupConfig": "@nx/react/plugins/bundle-rollup",
+        "compiler": "babel",
+        "assets": [
+          {
+            "glob": "libs/shared/feature/form/README.md",
+            "input": ".",
+            "output": "."
+          }
+        ]
+      }
+    }
+  }
+}
