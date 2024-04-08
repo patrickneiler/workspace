@@ -1,0 +1,14 @@
+import { <% tool.names.className %>Parameters } from '@wrkspce/assistance/domain';
+
+export function  <% tool.action.names.className %>({ params }: { params: <% tool.names.className %>Parameters }) {
+  return (
+    <Card size="1">
+        <Box>
+          // Your code here
+        </Box>
+      </Flex>
+    </Card>
+  );
+}
+
+export default  <% tool.action.names.className %>;

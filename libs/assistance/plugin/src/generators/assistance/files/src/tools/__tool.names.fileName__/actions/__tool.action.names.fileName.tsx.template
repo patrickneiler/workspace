@@ -1,0 +1,35 @@
+import 'server-only';
+
+import { createStreamableUI, getMutableAIState } from 'ai/rsc';
+import { SpinnerMessage } from '@wrkspce/shared/ui';
+import { runAsyncFnWithoutBlocking } from '@wrkspce/shared/util';
+import { <% tool.action.names.className %> } from '@wrkspce/assistance/ui/<% feature.names.fileName %>';
+import { AI, AIAction, <% tool.names.className %>Parameters } from '@wrkspce/assistance/domain';
+
+
+export async function <% tool.action.functionName %>(params: <% tool.names.className %>Parameters): Promise<{ id: number, display: JSX.Element }> {
+  'use server';
+
+  const aiState = getMutableAIState<AI>();
+  const ui = createStreamableUI(
+    <SpinnerMessage>...</SpinnerMessage>,
+  );
+
+  runAsyncFnWithoutBlocking(async () => {
+
+    ui.done(<<% tool.action.names.className %> params={params} />);
+
+    aiState.done([
+      ...aiState.get(),
+      {
+        role: 'system',
+        content: `[User has generated ${params}.]`,
+      },
+    ]);
+  });
+
+  return {
+    id: Date.now(),
+    display: ui.value,
+  };
+}

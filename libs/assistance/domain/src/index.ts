@@ -1,2 +1,2 @@
-export * from './lib/assistance.types';
-export * from './lib/feature/workspace.types';
+export * from './lib/core.types';
+export * from './lib/feature/project';

@@ -1,6 +1,6 @@
 import { AssistanceChat } from "@wrkspce/assistance/ui/chat"
 
-const DefaultPage = () => {
+const AssistanceProjectPage = () => {
     return <AssistanceChat />;
 }
-export default DefaultPage;
+export default AssistanceProjectPage;

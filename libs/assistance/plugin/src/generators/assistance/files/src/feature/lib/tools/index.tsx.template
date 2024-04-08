@@ -1,0 +1,15 @@
+<% - feature.tools.map(
+    tool => `import { ${tool.names.className} } from './${tool.names.fileName}'`
+).join('; ') -%>
+
+export const ToolActions = {
+    <% - feature.tools.map(
+    tool => `...${tool.action.names.className}`
+).join(', ') -%>
+}
+
+export const Tools = [
+    <% - feature.tools.map(
+    tool => `...${tool.names.className}`
+).join(', ') -%>
+]

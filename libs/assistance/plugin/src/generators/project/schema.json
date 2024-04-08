@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-schema.org/schema",
+  "$id": "ProjectConfigurationGenerator",
+  "title": "Project Configuration Generator",
+  "type": "object",
+  "properties": {}
+}

@@ -1,9 +1,14 @@
 {
   "generators": {
-    "workspace-configuration": {
-      "factory": "./src/generators/generator",
-      "schema": "./src/generators/schema.json",
+    "project-configuration": {
+      "factory": "./src/generators/project/generator.ts",
+      "schema": "./src/generators/project/schema.json",
       "description": "This generator reads the current workspace configuration, and then parses it into an object representing the nx workspace generator scripts that initially created the libraries."
+    },
+    "assistance-feature": {
+      "factory": "./src/generators/assistance/generator.ts",
+      "schema": "./src/generators/assistance/schema.json",
+      "description": "This generator creates a new feature to provide AI assistance."
     }
   }
 }

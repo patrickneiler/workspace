@@ -54,7 +54,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const navItems = [{ title: 'Stocks', href: '/stocks' }, { title: 'Workspace', href: "/workspace" }, { title: 'Persona', href: '/persona' }];
+  const navItems = [{ title: 'Stocks', href: '/stocks' }, { title: 'Project', href: "/project" }, { title: 'Persona', href: '/persona' }];
   return (
     <html lang="en" suppressHydrationWarning>
       <body

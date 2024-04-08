@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/schema",
+  "$id": "AssistanceFeature",
+  "title": "Assistance Feature Generator",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The name of the assistance feature"
+    },
+    "tool": {
+      "type": "object",
+      "description": "The tool that the feature will use",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name of the tool"
+        },
+        "type": {
+          "type": "string",
+          "description": "The type of the tool",
+          "enum": [
+            "static",
+            "async",
+            "action"
+          ]
+        },
+        "condition": {
+          "type": "string",
+          "description": "The condition that the tool will be used for"
+        },
+        "goal": {
+          "type": "string",
+          "description": "The goal of the tool"
+        },
+        "rules": {
+          "type": "string",
+          "description": "Stringified array of strings defining rules that the assistant will follow. i.e. '['rule1', 'rule2']'"
+        },
+        "parameters": {
+          "type": "string",
+          "description": "Stringified array of parameter objects that assistant will return responses in. i.e. '[{prop: 'prop1', type: 'string', description: 'prop description'}, {prop: 'prop2', type: 'number', description: 'prop description'}]'"
+        },
+        "action": {
+          "type": "string",
+          "description": "The action that the tool will perform"
+        }
+      },
+      "required": [
+        "name",
+        "type",
+        "condition",
+        "goal",
+        "rules",
+        "parameters"
+      ]
+    }
+  },
+  "required": [
+    "name",
+    "tool"
+  ]
+}
