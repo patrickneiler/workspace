@@ -31,7 +31,6 @@ The implementation of **@wrkspce** in product development embraces a conceptual,
 > Our AI tool provides automatic generation of project scaffolding, inclusive of readme files with detailed documentation, subtasks, and useful prompts. This ensures developers have all the necessary resources at their disposal while creating project code.
 > 
 
-![@wrkspce%20dbde03652ad64f8a968f02a820013f28/profile.png](@wrkspce%20dbde03652ad64f8a968f02a820013f28/profile.png)
 
 About @Patrick Neiler
 
