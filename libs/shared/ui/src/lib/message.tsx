@@ -1,6 +1,6 @@
 'use client';
 import { IconAI, IconUser } from './icons';
-import { Callout, Card } from '@radix-ui/themes';
+import { Callout, Card, Heading, Separator, Text } from '@radix-ui/themes';
 import { CheckCircledIcon } from '@radix-ui/react-icons';
 import { cn } from '@wrkspce/shared/util';
 import { spinner } from './spinner';
@@ -73,7 +73,7 @@ export function BotCard({
     <div className="group relative flex items-start md:-ml-12">
       <div
         className={cn(
-          'flex h-8 w-8 shrink-0 select-none items-center justify-center rounded-md border shadow-sm bg-primary text-primary-foreground',
+          'flex h-8 w-8 shrink-0 select-none items-center justify-center rounded-md border shadow-sm border-sky-11 bg-sky text-sky rounded-full',
           !showAvatar && 'invisible',
         )}
       >
@@ -109,7 +109,24 @@ export function SystemMessage({ children }: { children: React.ReactNode }) {
  */
 export function FunctionCard({ children }: { children: React.ReactNode }) {
   return (
-    <Card variant="classic" size="4" style={{ width: '100%' }}>
+    <Card color="mint" variant="surface" size="2" mt="2" style={{ width: '100%' }}>
+      {children}
+    </Card>
+  );
+}
+
+/**
+ * Renders a function card component.
+ * @param children - The content of the function card.
+ * @returns The function card component.
+ */
+export function FunctionFormCard({ children, heading }: { children: React.ReactNode, heading: string }) {
+  return (
+    <Card color="mint" variant="surface" size="2" mt="2" style={{ width: '100%' }}>
+      <Heading as="h4" size="4" mb="4">
+        <Text as="span">{heading}</Text>
+      </Heading>
+      <Separator size="4" />
       {children}
     </Card>
   );

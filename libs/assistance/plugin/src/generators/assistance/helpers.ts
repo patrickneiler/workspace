@@ -1,4 +1,5 @@
 import { DynamicFormField } from "@wrkspce/shared/feature/form";
+import { Tree} from "@nx/devkit";
 import slugify from "slugify";
 import { AssistanceFeatureFileGeneratorParams, AssistantToolPropertyType } from "./schema";
 import { NextLibrarySchema, ReactLibrarySchema, Linter } from "./library";
@@ -45,34 +46,36 @@ export function generatePropertyField(property: {
     }
   }
 
-  export function convertParametersToZodObject(parameters: {
+  export function convertToZod(parameters: {
     property: string;
-    type: AssistantToolPropertyType;
+    type: string;
     description: string;
-  }[]) {
-    return parameters.reduce((acc, parameter) => {
-      return {
-        ...acc,
-        [parameter.property]: convertPropertyTypeToZodType(parameter.type, parameter.description),
-  
-      };
-    }, {});
+  }[]): {[key: string]: z.AnyZodObject} {
+    const zodSchema = {};
+    parameters.forEach((param) => {
+      switch (param.type) {
+        case 'string':
+          zodSchema[param.property] = z.string().describe(param.description);
+          break;
+        case 'number':
+          zodSchema[param.property] = z.number().describe(param.description);
+          break;
+        case 'boolean':
+          zodSchema[param.property] = z.boolean().describe(param.description);
+          break;
+        case 'object':
+          zodSchema[param.property] = z.object({}).describe(param.description);
+          break;
+        case 'array':
+          zodSchema[param.property] = z.array(z.object({})).describe(param.description);
+          break;
+        default:
+          break;
+      }
+    });
+    return zodSchema;
   }
-  
-  export function convertPropertyTypeToZodType(type: string, description: string) {
-    switch (type) {
-      case 'string':
-        return z.string().describe(description);
-      case 'number':
-        return z.number().describe(description);
-      case 'boolean':
-        return z.boolean().describe(description);
-      case 'object':
-        return z.object({}).describe(description);
-      case 'array':
-        return z.array(z.string()).describe(description);
-    }
-  }
+
 
   export function generateNextLibraryOptions(
     feature: AssistanceFeatureFileGeneratorParams,
@@ -92,7 +95,7 @@ export function generatePropertyField(property: {
       component: false,
       publishable: true,
       buildable: true,
-      importPath: `@wrkspce/assistance/feature/${feature.names.name}`,
+      importPath: `@wrkspce/assistance/feature/${feature.names.fileName}`,
     };
   }
   
@@ -117,3 +120,10 @@ export function generatePropertyField(property: {
       importPath: `@wrkspce/assistance/ui/${feature.names.fileName}`,
     };
   }
+
+  export function readFileReplaceString(tree: Tree, path: string, replace: string, replaceWith: string) {
+    const content = tree.read(path)?.toString('utf-8');
+    const updatedContent = content.replace(replace, replaceWith);
+    tree.write(path, updatedContent);
+  }
+

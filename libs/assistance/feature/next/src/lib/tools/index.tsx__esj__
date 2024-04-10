@@ -1,0 +1,9 @@
+import { <%= feature.tools[0].names.className %>Tool, actions } from './<%= feature.tools[0].names.fileName %>'
+
+export const ToolActions = {
+   ...actions
+}
+
+export const Tools = [
+     <%= feature.tools[0].names.className %>Tool
+]

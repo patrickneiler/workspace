@@ -1,10 +1,10 @@
-import { AssistanceProjectProvider } from '@wrkspce/assistance/feature/project';
+import { AssistanceFeatureProvider } from '@wrkspce/assistance/feature/core';
 
-export function AssistanceWorkspace({
+export function AssistanceLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return <AssistanceProjectProvider>{children}</AssistanceProjectProvider>;
+  return <AssistanceFeatureProvider>{children}</AssistanceFeatureProvider>;
 }
-export default AssistanceWorkspace;
+export default AssistanceLayout;

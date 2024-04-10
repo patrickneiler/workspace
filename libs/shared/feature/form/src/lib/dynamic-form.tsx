@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Box, Button, Flex, Select, Text, TextField } from '@radix-ui/themes';
+import { Box, Button, Flex, Heading, Select, Separator, Text, TextField } from '@radix-ui/themes';
 import { DynamicFormProps, DynamicFormField } from './domain';
 
 /**
@@ -29,7 +29,7 @@ export const DynamicForm = ({ fields = [], onSubmit }: DynamicFormProps) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      {fields.map((field) => {
+      {fields.map((field, index) => {
         switch (field.type) {
           case 'select':
             return (
@@ -57,16 +57,51 @@ export const DynamicForm = ({ fields = [], onSubmit }: DynamicFormProps) => {
                 </label>
               </Box>
             );
+          case 'group':
+            return (
+              <Box key={field + index.toString()} mb="4" mt="4">
+                <Heading size="3" color="sky">
+                  <Separator size="4" />
+                  <Box pt="4" pb="2">
+                    {field.label}
+                  </Box>
+                </Heading>
+                {
+                  field.fields?.map((subField) => (
+                    <Box key={subField.name} mb="4" mt="4">
+                      <label>
+                        <Text as="div" size="2" weight="medium" ml="1" mb="2">
+                          {subField.label}
+                        </Text>
+                        <TextField.Root>
+                          <TextField.Input
+                            variant="classic"
+                            size="2"
+                            name={subField.name}
+                            type={subField.type}
+                            placeholder={subField.placeholder}
+                            defaultValue={subField.value}
+                            required={subField.required}
+                            onChange={(e) => handleChange(subField.name, e.target.value)}
+                          />
+                        </TextField.Root>
+                      </label>
+                    </Box>
+                  ))
+                }
+              </Box>
+            )
           default:
             return (
-              <Box key={field.name} mb="5">
+              <Box key={field.name} mb="4" mt="4">
                 <label>
-                  <Text as="div" size="2" weight="medium" mb="2">
+                  <Text as="div" size="2" weight="medium" ml="1" mb="2">
                     {field.label}
                   </Text>
                   <TextField.Root>
                     <TextField.Input
                       variant="classic"
+                      size="2"
                       name={field.name}
                       type={field.type}
                       placeholder={field.placeholder}
@@ -81,7 +116,7 @@ export const DynamicForm = ({ fields = [], onSubmit }: DynamicFormProps) => {
         }
       })}
       <Flex mt="6" justify="end" gap="3">
-        <Button variant="solid">Submit</Button>
+        <Button color='sky' variant="soft">Submit</Button>
       </Flex>
     </form>
   );

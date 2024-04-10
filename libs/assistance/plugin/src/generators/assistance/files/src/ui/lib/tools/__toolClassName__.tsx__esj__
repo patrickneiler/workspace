@@ -1,0 +1,45 @@
+'use client';
+import { useActions } from 'ai/rsc';
+import { useState } from 'react';
+import { DynamicForm, DynamicFormField } from '@wrkspce/shared/feature/form';
+import { BotCard, FunctionFormCard } from '@wrkspce/shared/ui';
+import { generatePropertyField } from '@wrkspce/assistance/util';
+
+import { <%= tool.names.className %>Parameters } from '@wrkspce/assistance/domain';
+
+export const <%= tool.names.className %> = ({
+  params,
+}: {
+  params: <%= tool.names.className %>Parameters;
+}) => {
+  const [ui, setUi] = useState<null | React.ReactNode>(null);
+  const { <%= tool.action.names.functionName %> } = useActions();
+  const fields: DynamicFormField[] = Object.keys(params).map((key) => (generatePropertyField({ property: key, type: params[key].type, value: params[key].value })));
+
+
+const handle<%= tool.action.names.className %> = async (fields: DynamicFormField[]) => {
+  const response = await <%= tool.action.names.functionName %> ({
+    params,
+    ...fields
+  });
+  setUi(response.display);
+};
+return (
+  // eslint-disable-next-line react/jsx-no-useless-fragment
+  <>
+    {ui ? (
+      <div className="mt-4 text-zinc-200">{ui}</div>
+    ) : (
+       <>
+          <BotCard>Absolutely! Take a look and review:</BotCard>
+          <FunctionFormCard heading="<%= tool.names.name %>">
+            <DynamicForm
+              fields={fields}
+              onSubmit={handle<%= tool.action.names.className %>}
+            />
+          </FunctionFormCard>
+        </>
+    )}
+  </>
+);
+};

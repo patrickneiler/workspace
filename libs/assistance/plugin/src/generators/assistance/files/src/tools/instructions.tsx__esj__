@@ -1,0 +1,14 @@
+import { generateInstructions } from '@wrkspce/assistance/util';
+import { snapshot } from './knowledge';
+/**
+ * Instructions for generating project parameters.
+ */
+export const instructions = generateInstructions({
+  name: '<%= tool.names.fileName %>',
+  condition:
+    '<%= tool.condition %>',
+  goal:
+    '<%= tool.goal %>',
+  knowledge: `Here is a snapshot of a result from running utilizing this tool: <%- JSON.stringify(tool.knowledge) -%>} `,
+  rules: <%- JSON.stringify(tool.rules) -%>,
+});

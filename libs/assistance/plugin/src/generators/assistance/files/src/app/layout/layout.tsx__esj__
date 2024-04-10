@@ -1,0 +1,10 @@
+import { Assistance<%= feature.names.className %>Provider } from '@wrkspce/assistance/feature/<%= feature.names.fileName %>';
+
+export function AssistanceLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return < Assistance<%= feature.names.className %>Provider >{children}</ Assistance<%= feature.names.className %>Provider >;
+}
+export default AssistanceLayout;

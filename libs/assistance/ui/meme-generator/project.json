@@ -1,0 +1,29 @@
+{
+  "name": "assistance-ui-meme-generator",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/assistance/ui/meme-generator/src",
+  "projectType": "library",
+  "tags": ["scope:assistance", "type:ui"],
+  "targets": {
+    "build": {
+      "executor": "@nx/rollup:rollup",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/assistance/ui/meme-generator",
+        "tsConfig": "libs/assistance/ui/meme-generator/tsconfig.lib.json",
+        "project": "libs/assistance/ui/meme-generator/package.json",
+        "entryFile": "libs/assistance/ui/meme-generator/src/index.ts",
+        "external": ["react", "react-dom", "react/jsx-runtime"],
+        "rollupConfig": "@nx/react/plugins/bundle-rollup",
+        "compiler": "babel",
+        "assets": [
+          {
+            "glob": "libs/assistance/ui/meme-generator/README.md",
+            "input": ".",
+            "output": "."
+          }
+        ]
+      }
+    }
+  }
+}

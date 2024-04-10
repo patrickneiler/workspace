@@ -1,0 +1,29 @@
+{
+  "name": "assistance-ui-core",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/assistance/ui/core/src",
+  "projectType": "library",
+  "tags": ["scope: assitance", "type: ui"],
+  "targets": {
+    "build": {
+      "executor": "@nx/rollup:rollup",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/assistance/ui/core",
+        "tsConfig": "libs/assistance/ui/core/tsconfig.lib.json",
+        "project": "libs/assistance/ui/core/package.json",
+        "entryFile": "libs/assistance/ui/core/src/index.ts",
+        "external": ["react", "react-dom", "react/jsx-runtime"],
+        "rollupConfig": "@nx/react/plugins/bundle-rollup",
+        "compiler": "babel",
+        "assets": [
+          {
+            "glob": "libs/assistance/ui/core/README.md",
+            "input": ".",
+            "output": "."
+          }
+        ]
+      }
+    }
+  }
+}

@@ -22,7 +22,6 @@ const openai = new OpenAI({
 export async function getAssistance(tools: AssistanceTool[]) {
   'use server';
   const aiState = getMutableAIState<AI>();
-  console.log('getAssistance', aiState.get());
   const instructions = tools.map((tool) => tool.instructions).join(' ');
   const reply = createStreamableUI(
     <BotMessage className="items-center">{spinner}</BotMessage>,

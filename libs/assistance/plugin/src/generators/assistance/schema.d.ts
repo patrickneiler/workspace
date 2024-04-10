@@ -28,6 +28,7 @@ export interface AssistanceToolGenerator {
   goal: string;
   rules: string;
   parameters: string;
+  knowledge?: string;
   action?: string;
   endpoint?: string;
 }
@@ -35,6 +36,7 @@ export interface AssistanceToolGenerator {
 export interface AssistanceFeatureGeneratorSchema {
   name: string;
   tool: AssistanceToolGenerator;
+  appPath?: string;
 }
 
 // Transformation of the schema
