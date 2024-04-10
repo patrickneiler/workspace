@@ -14,10 +14,10 @@
         "{options.outputPath}"
       ],
       "options": {
-        "outputPath": "dist/libs/assistance/ui/chat",
-        "tsConfig": "libs/assistance/ui/chat/tsconfig.lib.json",
-        "project": "libs/assistance/ui/chat/package.json",
-        "entryFile": "libs/assistance/ui/chat/src/index.ts",
+        "outputPath": "dist/libs/assistance/ui/stocks",
+        "tsConfig": "libs/assistance/ui/stocks/tsconfig.lib.json",
+        "project": "libs/assistance/ui/stocks/package.json",
+        "entryFile": "libs/assistance/ui/stocks/src/index.ts",
         "external": [
           "react",
           "react-dom",
@@ -27,7 +27,7 @@
         "compiler": "babel",
         "assets": [
           {
-            "glob": "libs/assistance/ui/chat/README.md",
+            "glob": "libs/assistance/feature/next/README.md",
             "input": ".",
             "output": "."
           }

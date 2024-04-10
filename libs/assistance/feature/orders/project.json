@@ -1,0 +1,29 @@
+{
+  "name": "assistance-feature-orders",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/assistance/feature/orders/src",
+  "projectType": "library",
+  "tags": ["scope:assistance", "type:feature"],
+  "targets": {
+    "build": {
+      "executor": "@nx/rollup:rollup",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/assistance/feature/orders",
+        "tsConfig": "libs/assistance/feature/orders/tsconfig.lib.json",
+        "project": "libs/assistance/feature/orders/package.json",
+        "entryFile": "libs/assistance/feature/orders/src/index.ts",
+        "external": ["react", "react-dom", "react/jsx-runtime"],
+        "rollupConfig": "@nx/react/plugins/bundle-rollup",
+        "compiler": "swc",
+        "assets": [
+          {
+            "glob": "libs/assistance/feature/orders/README.md",
+            "input": ".",
+            "output": "."
+          }
+        ]
+      }
+    }
+  }
+}

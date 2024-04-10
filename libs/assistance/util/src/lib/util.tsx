@@ -4,6 +4,10 @@ import type OpenAI from 'openai';
 import { z } from 'zod';
 import zodToJsonSchema from 'zod-to-json-schema';
 import { CompletionResponse } from './domain';
+import { DynamicFormField } from '@wrkspce/shared/feature/form';
+import lodash from 'lodash';
+
+export type AssistantToolPropertyType = 'string' | 'number' | 'boolean' | 'object' | 'array';
 
 
 /**
@@ -20,20 +24,20 @@ import { CompletionResponse } from './domain';
 export const generateInstructions = ({
   name,
   condition,
-  description,
+  goal,
   knowledge,
   rules
 }: {
   name: string;
   condition: string;
-  description: string;
+  goal: string;
   knowledge?: string;
   rules: string[];
 }) => {
   return `
     When the following condition is met: "${condition}"
     You will run the function named "${name}".
-    ${description}
+    ${goal}
     ${knowledge ? `Here's the knowledge you should use: ${knowledge}` : ''}
     Here's how you should proceed:
     ${rules
@@ -45,6 +49,38 @@ export const generateInstructions = ({
   `;
 };
 
+export function generatePropertyField(property: {
+  property: string;
+  type: AssistantToolPropertyType,
+  value: string
+}): DynamicFormField {
+  console.log(property)
+  return {
+    name: property.property,
+    value: property.value,
+    required: true,
+    type: convertAssistantToolPropertyTypeToDynamicFormFieldType(property.type),
+    label: lodash.startCase(property.property),
+  };
+}
+
+
+function convertAssistantToolPropertyTypeToDynamicFormFieldType(
+  type: AssistantToolPropertyType,
+): DynamicFormField['type'] {
+  switch (type) {
+    case 'string':
+      return 'input';
+    case 'number':
+      return 'input';
+    case 'boolean':
+      return 'checkbox';
+    case 'object':
+      return 'input';
+    case 'array':
+      return 'select';
+  }
+}
 
 /**
  * Consumes a ReadableStream by reading from it until it is done.

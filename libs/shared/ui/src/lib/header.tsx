@@ -4,14 +4,17 @@ import { IconGitHub, IconSparkles } from './icons';
 import { Button } from './button';
 import Navigation from './navigation';
 import { Code } from '@radix-ui/themes';
+import Logo from './logo';
 
-export function Header({ navItems }: { navItems?: { title: string, href: string }[] }) {
+export function Header({ navItems, logo }: { navItems?: { title: string, href: string }[], logo?: JSX.Element }) {
 
   return (
     <header className="sticky top-0 z-50 flex items-center justify-between w-full px-4 border-b h-14 shrink-0 bg-background backdrop-blur-xl">
       <span className="inline-flex items-center home-links whitespace-nowrap">
-        <Link href="/">
-          <span className="text-lg font-bold">
+
+        <Link href="/" className='flex items-center'>
+          {logo && logo}
+          <span className="text-lg font-bold ml-4">
             <Code color="sky" variant="solid">@wkspce</Code>
           </span>
         </Link>

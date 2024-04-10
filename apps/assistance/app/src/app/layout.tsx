@@ -5,10 +5,9 @@ import { GeistSans } from 'geist/font/sans';
 import './global.css';
 import { Providers } from './providers';
 import { Header } from '@wrkspce/shared/ui';
+import { navItems } from './navigation';
+import Logo from './logo';
 
-/**
- * The metadata for the site.
- */
 const meta = {
   title: 'Assistance',
   description:
@@ -68,13 +67,13 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             <div className="flex flex-col min-h-screen">
-              <Header />
+              <Header navItems={navItems} logo={<Logo />} />
               {children}
-            </div>
-          </Providers>
-        </Theme>
-      </body>
-    </html>
+            </div >
+          </Providers >
+        </Theme >
+      </body >
+    </html >
   );
 }
 

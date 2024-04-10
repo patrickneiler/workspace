@@ -1,0 +1,29 @@
+{
+  "name": "assistance-feature-stocks",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/assistance/feature/stocks/src",
+  "projectType": "library",
+  "tags": ["scope:assistance", "type:feature"],
+  "targets": {
+    "build": {
+      "executor": "@nx/rollup:rollup",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/assistance/feature/stocks",
+        "tsConfig": "libs/assistance/feature/stocks/tsconfig.lib.json",
+        "project": "libs/assistance/feature/stocks/package.json",
+        "entryFile": "libs/assistance/feature/stocks/src/index.ts",
+        "external": ["react", "react-dom", "react/jsx-runtime"],
+        "rollupConfig": "@nx/react/plugins/bundle-rollup",
+        "compiler": "swc",
+        "assets": [
+          {
+            "glob": "libs/assistance/feature/stocks/README.md",
+            "input": ".",
+            "output": "."
+          }
+        ]
+      }
+    }
+  }
+}

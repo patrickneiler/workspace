@@ -10,3 +10,4 @@ export * from './lib/spinner';
 export * from './lib/selector';
 export * from './lib/panel-background';
 export * from './lib/navigation';
+export * from './lib/logo';

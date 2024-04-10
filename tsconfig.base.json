@@ -16,20 +16,45 @@
     "baseUrl": ".",
     "paths": {
       "@wrkspce/assistance/domain": ["libs/assistance/domain/src/index.ts"],
+      "@wrkspce/assistance/feature/meme-generator": [
+        "libs/assistance/feature/meme-generator/src/index.ts"
+      ],
+      "@wrkspce/assistance/feature/Meme Generator/server": [
+        "libs/assistance/feature/meme-generator/src/server.ts"
+      ],
       "@wrkspce/assistance/feature/ai/server": [
         "libs/assistance/feature/ai/src/server.ts"
       ],
       "@wrkspce/assistance/feature/core": [
         "libs/assistance/feature/core/src/index.ts"
       ],
+      "@wrkspce/assistance/feature/orders": [
+        "libs/assistance/feature/orders/src/index.ts"
+      ],
+      "@wrkspce/assistance/feature/orders/server": [
+        "libs/assistance/feature/orders/src/server.ts"
+      ],
       "@wrkspce/assistance/feature/project": [
         "libs/assistance/feature/project/src/index.ts"
+      ],
+      "@wrkspce/assistance/feature/stocks": [
+        "libs/assistance/feature/stocks/src/index.ts"
+      ],
+      "@wrkspce/assistance/feature/stocks/server": [
+        "libs/assistance/feature/stocks/src/server.ts"
       ],
       "@wrkspce/assistance/feature/workspace/server": [
         "libs/assistance/feature/workspace/src/server.ts"
       ],
       "@wrkspce/assistance/plugin": ["libs/assistance/plugin/src/index.ts"],
       "@wrkspce/assistance/ui/chat": ["libs/assistance/ui/chat/src/index.ts"],
+      "@wrkspce/assistance/ui/core": ["libs/assistance/ui/core/src/index.ts"],
+      "@wrkspce/assistance/ui/meme-generator": [
+        "libs/assistance/ui/meme-generator/src/index.ts"
+      ],
+      "@wrkspce/assistance/ui/orders": [
+        "libs/assistance/ui/orders/src/index.ts"
+      ],
       "@wrkspce/assistance/ui/persona": [
         "libs/assistance/ui/persona/src/index.ts"
       ],

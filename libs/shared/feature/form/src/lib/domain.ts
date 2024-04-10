@@ -10,7 +10,7 @@ export interface DynamicFormField {
    * The type of the form field.
    * Possible values: 'input', 'select', 'multi', 'checkbox', 'radio', 'file'.
    */
-  type: 'input' | 'select' | 'multi' | 'checkbox' | 'radio' | 'file';
+  type: 'input' | 'select' | 'multi' | 'checkbox' | 'radio' | 'file' | 'group';
   /**
    * The options for the form field (only applicable for 'select' and 'multi' types).
    */
@@ -31,6 +31,7 @@ export interface DynamicFormField {
    * The value of the form field.
    */
   value: string;
+  fields?: DynamicFormField[];
 }
 
 /**
@@ -41,6 +42,7 @@ export interface DynamicFormProps {
    * The fields to be rendered in the dynamic form.
    */
   fields: DynamicFormField[];
+  groups?: string[];
   /**
    * The callback function to be called when the form is submitted.
    * @param formState The current state of the form.

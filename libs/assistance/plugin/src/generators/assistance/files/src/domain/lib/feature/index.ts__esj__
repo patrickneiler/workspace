@@ -1,0 +1,13 @@
+import { DynamicFormField } from "@wrkspce/shared/feature/form";
+
+<% feature.tools.forEach(tool => { %>
+    export interface <%= tool.names.className %>Parameters {
+        <% tool.parameters.forEach(param => { %>
+            <%= param.property %>: {
+                value: string;
+                type: string;
+            },
+        <% }) %>
+        fields?: DynamicFormField[]
+    }
+<% }) %>

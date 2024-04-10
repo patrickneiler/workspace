@@ -1,0 +1,1 @@
+export const snapshot = <%- JSON.stringify(tool.knowledge) -%>;

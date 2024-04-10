@@ -1,0 +1,2 @@
+export * from './lib/tools/<%= tool.names.fileName %>/<%= tool.names.className %>';
+export * from './lib/tools/<%= tool.names.fileName %>/action/<%= tool.action.names.className %>';
