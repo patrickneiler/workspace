@@ -2,21 +2,11 @@ import type { Metadata } from 'next';
 import { Theme } from '@radix-ui/themes';
 import { GeistMono } from 'geist/font/mono';
 import { GeistSans } from 'geist/font/sans';
-<<<<<<< Updated upstream:apps/assistance/rsc/app/layout.tsx
-import { Analytics } from '@vercel/analytics/react';
-import { Toaster } from '@/components/ui/toaster';
-import './globals.css';
-
-import { AI } from './action';
-import { Header } from '@/components/header';
-import { Providers } from '@/components/providers';
-=======
 import './global.css';
 import { Providers } from './providers';
 import { Header } from '@wrkspce/shared/ui';
 import { navItems } from './navigation';
 import Logo from './logo';
->>>>>>> Stashed changes:apps/assistance/app/src/app/layout.tsx
 
 const meta = {
   title: 'Assistance',
@@ -77,15 +67,8 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             <div className="flex flex-col min-h-screen">
-<<<<<<< Updated upstream:apps/assistance/rsc/app/layout.tsx
-              <Header />
-              <main className="flex flex-col flex-1 bg-muted/50 dark:bg-background">
-                {children}
-              </main>
-=======
               <Header navItems={navItems} logo={<Logo />} />
               {children}
->>>>>>> Stashed changes:apps/assistance/app/src/app/layout.tsx
             </div >
           </Providers >
         </Theme >

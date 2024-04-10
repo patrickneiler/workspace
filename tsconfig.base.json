@@ -15,13 +15,6 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-<<<<<<< Updated upstream
-      "@assistance/rsc/server": ["assistance/src/server.ts"],
-      "@pathology/workspace/react": ["libs/workspace/react/src/index.ts"],
-      "@ranthology/assistance/domain": ["libs/assistance/domain/src/index.ts"],
-      "@ranthology/assistance/feature/next": [
-        "libs/assistance/feature/next/src/index.ts"
-=======
       "@wrkspce/assistance/domain": ["libs/assistance/domain/src/index.ts"],
       "@wrkspce/assistance/feature/meme-generator": [
         "libs/assistance/feature/meme-generator/src/index.ts"
@@ -31,23 +24,10 @@
       ],
       "@wrkspce/assistance/feature/ai/server": [
         "libs/assistance/feature/ai/src/server.ts"
->>>>>>> Stashed changes
       ],
-      "@wrkspce/assistance/ui/project": [
-        "libs/assistance/ui/project/src/index.ts"
+      "@wrkspce/assistance/feature/core": [
+        "libs/assistance/feature/core/src/index.ts"
       ],
-      "@wrkspce/assistance/ui/stocks": [
-        "libs/assistance/ui/stocks/src/index.ts"
-      ],
-<<<<<<< Updated upstream
-      "@ranthology/assistance/feature/react": [
-        "libs/assistance/feature/react/src/index.ts"
-      ],
-      "@wrkspce/shared/feature/diagram": [
-        "libs/shared/feature/diagram/src/index.ts"
-      ],
-      "@ranthology/workspace/config": ["libs/workspace/config/src/index.ts"]
-=======
       "@wrkspce/assistance/feature/orders": [
         "libs/assistance/feature/orders/src/index.ts"
       ],
@@ -94,7 +74,6 @@
       "@wrkspce/shared/feature/form": ["libs/shared/feature/form/src/index.ts"],
       "@wrkspce/shared/ui": ["libs/shared/ui/src/index.ts"],
       "@wrkspce/shared/util": ["libs/shared/util/src/index.ts"]
->>>>>>> Stashed changes
     }
   },
   "exclude": ["node_modules", "tmp"]

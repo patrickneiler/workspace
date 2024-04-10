@@ -3,17 +3,10 @@
   "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/assistance/ui/chat/src",
   "projectType": "library",
-<<<<<<< Updated upstream:libs/assistance/feature/next/project.json
   "tags": [
     "scope:assistance",
     "type:ui"
   ],
-=======
-  "tags": [
-    "scope:assistance",
-    "type:ui"
-  ],
->>>>>>> Stashed changes:libs/assistance/ui/stocks/project.json
   "targets": {
     "build": {
       "executor": "@nx/rollup:rollup",
@@ -21,17 +14,6 @@
         "{options.outputPath}"
       ],
       "options": {
-<<<<<<< Updated upstream:libs/assistance/feature/next/project.json
-        "outputPath": "dist/libs/assistance/feature/next",
-        "tsConfig": "libs/assistance/feature/next/tsconfig.lib.json",
-        "project": "libs/assistance/feature/next/package.json",
-        "entryFile": "libs/assistance/feature/next/src/index.ts",
-        "external": [
-          "react",
-          "react-dom",
-          "react/jsx-runtime"
-        ],
-=======
         "outputPath": "dist/libs/assistance/ui/stocks",
         "tsConfig": "libs/assistance/ui/stocks/tsconfig.lib.json",
         "project": "libs/assistance/ui/stocks/package.json",
@@ -41,7 +23,6 @@
           "react-dom",
           "react/jsx-runtime"
         ],
->>>>>>> Stashed changes:libs/assistance/ui/stocks/project.json
         "rollupConfig": "@nx/react/plugins/bundle-rollup",
         "compiler": "babel",
         "assets": [

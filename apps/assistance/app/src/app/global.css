@@ -1,10 +1,7 @@
-<<<<<<< Updated upstream:apps/assistance/rsc/app/globals.css
-=======
 @import '@radix-ui/themes/styles.css';
 @import 'https://cdn.jsdelivr.net/npm/@radix-ui/colors@latest/sky-dark.css';
 @import 'https://cdn.jsdelivr.net/npm/@radix-ui/colors@latest/mint.css';
 @import 'https://cdn.jsdelivr.net/npm/@radix-ui/colors@latest/sky-dark-alpha.css';
->>>>>>> Stashed changes:apps/assistance/app/src/app/global.css
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -82,8 +79,6 @@
     background-color: rgba(21, 68, 103, .5);
   }
 }
-<<<<<<< Updated upstream:apps/assistance/rsc/app/globals.css
-=======
 
 .clone-video {
   height: 96px;
@@ -300,4 +295,3 @@
     transform: translateX(50px) translateY(50px) rotateY(-45deg) rotateX(405deg);
   }
 }
->>>>>>> Stashed changes:apps/assistance/app/src/app/global.css
