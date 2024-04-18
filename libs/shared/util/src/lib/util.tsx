@@ -38,3 +38,7 @@ export const runAsyncFnWithoutBlocking = (
  */
 export const sleep = (ms: number) =>
   new Promise(resolve => setTimeout(resolve, ms));
+
+export function getInitials(name: string) {
+  return name.split(' ').map((n) => n[0]).join('');
+}
