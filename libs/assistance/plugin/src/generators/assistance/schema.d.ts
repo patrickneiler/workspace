@@ -58,6 +58,7 @@ export interface AssistanceToolFileGeneratorParams extends AssistanceToolGenerat
 export interface AssistanceFeatureFileGeneratorParams {
   names: Names;
   tools: AssistanceToolFileGeneratorParams[];
+  appPath?: string;
 }
 
 export const tools = [

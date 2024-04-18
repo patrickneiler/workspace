@@ -14,8 +14,8 @@ export function ConfirmFeature({ params }: { params: GenerateFeatureParameters }
   --tool.type='${getPropertyValueFromFields('type', tool?.fields)}'
   --tool.condition='${getPropertyValueFromFields('condition', tool?.fields)}'
   --tool.goal='${getPropertyValueFromFields('goal', tool?.fields)}'
-  --tool.rules='${JSON.stringify(getPropertyValueFromFields('rules', tool?.fields))}'
-  --tool.parameters='${JSON.stringify(getPropertyValueFromFields('parameters', tool?.fields))}'
+  --tool.rules='${getPropertyValueFromFields('rules', tool?.fields)}'
+  --tool.parameters='${getPropertyValueFromFields('parameters', tool?.fields)}'
   --tool.action='${getPropertyValueFromFields('action', tool?.fields)}'
   --appPath='${getPropertyValueFromFields('appPath', params.fields)}'`;
   const copyCode = () => {
