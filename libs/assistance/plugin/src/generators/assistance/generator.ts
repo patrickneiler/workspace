@@ -214,7 +214,7 @@ export async function assistanceFeatureToolGenerator(
   toolActionFileName: string,
 ) {
   // 1. Construct the path to the template files
-  const templatePath = path.join(__dirname, 'files/src/tools');
+  const templatePath = path.join(__dirname, 'files/src/tool');
 
   // 2. Iterate through the tools and generate the files
   feature.tools.forEach((tool) => {
@@ -226,6 +226,16 @@ export async function assistanceFeatureToolGenerator(
         tool,
         feature,
         toolActionFileName,
+        esj: ''
+      },
+    );
+    generateFiles(
+      tree,
+      path.join(__dirname, 'files/src/tools'),
+      `libs/assistance/feature/${feature.names.fileName}/src/lib/tools`,
+      {
+        tool,
+        feature,
         esj: ''
       },
     );

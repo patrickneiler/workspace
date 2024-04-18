@@ -1,8 +1,8 @@
 import { z } from 'zod';
 
 export const parameters = z
-  .object(
-    <%- tool.parameters.map(parameter => {
+  .object({
+    <%- tool.parameters.map(parameter => 
         switch (parameter.type) {
             case 'string':
                 return `{${parameter.property}: z
@@ -24,7 +24,7 @@ export const parameters = z
             default:
                 break;
         }
-    }) -%>
-  )
+    ) -%>
+  })
   .required()
   .describe('The <%= tool.names.name %> parameters');
