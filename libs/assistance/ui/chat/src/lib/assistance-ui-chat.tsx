@@ -146,11 +146,15 @@ export function AssistanceChat({ empty }: { empty?: ReactNode }): JSX.Element {
 }
 
 export const DefaultEmpty = () => (
-  <Card className="w-full h-full flex items-center justify-center">
-    <Text as="div" size="2" color="gray">
-      Start a conversation with the AI assistant.
-    </Text>
-  </Card>
+  <div className="pb-[200px] pt-8 md:pt-24 z-10 relative">
+    <div className="relative mx-auto max-w-2xl px-4">
+      <Card className="w-full h-full flex items-center justify-center">
+        <Text as="div" size="2" color="gray">
+          Start a conversation with the AI assistant.
+        </Text>
+      </Card>
+    </div>
+  </div>
 );
 
 export default AssistanceChat;

@@ -1,0 +1,7 @@
+import { <%= tool.names.className %>Tool, actions } from "./<%= tool.names.fileName %>";
+
+export const ToolActions = { ...actions };
+
+export const Tools = [
+    <%= tool.names.className %>Tool
+];

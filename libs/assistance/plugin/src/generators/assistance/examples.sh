@@ -6,52 +6,74 @@ pnpm nx g @wrkspce/assistance/plugin:assistance-feature --name='DJ Set Planner' 
 
 
 pnpm nx g @wrkspce/assistance/plugin:assistance-feature
-  --name='Orders'
-  --tool.name='Order Help'
-  --tool.type='action'
-  --tool.condition='The user asks for help with an order'
-  --tool.goal='To provide assistance for orders'
-  --tool.rules='["The user must provide the order ID", "The user must specify the type of assistance needed"]'
-  --tool.parameters='[{property: "orderID", type: "string", description: "The unique identifier for the order"}, {property: "actionType", type: "string", description: "The type of assistance needed for the order"}]'
-  --tool.action='Assist Order'
-  --appPath='apps/assistance/app/src/app'
-  --dry-run
+    --name='Orders'
+    --tool.name='Order Help'
+    --tool.type='action'
+    --tool.condition='The user asks for help with an order'
+    --tool.goal='To provide assistance for orders'
+    --tool.rules='["The user must provide the order ID", "The user must specify the type of assistance needed"]'
+    --tool.parameters='[{property: "orderID", type: "string", description: "The unique identifier for the order"}, {property: "actionType", type: "string", description: "The type of assistance needed for the order"}]'
+    --tool.action='Assist Order'
+    --appPath='apps/assistance/app/src/app'
+    --dry-run
 
-  pnpm nx g @wrkspce/assistance/plugin:assistance-feature
-  --name='Orders'
-  --tool.name='Assist Order'
-  --tool.type='action'
-  --tool.condition='The user asks for help with an order'
-  --tool.goal='To provide assistance for orders'
-  --tool.rules='"[\"The user must provide the order ID\", \"The user must specify the type of assistance needed\"]"'
-  --tool.parameters='"[{property: \"orderID\", type: \"string\", description: \"The unique identifier of the order\"}, {property: \"actionType\", type: \"string\", description: \"The type of assistance needed for the order\"}]"'
-  --tool.action='Assist'
-  --appPath='apps/assistance/app/src/app'
-  --dry-run
-  --verbose
+    pnpm nx g @wrkspce/assistance/plugin:assistance-feature
+    --name='Orders'
+    --tool.name='Assist Order'
+    --tool.type='action'
+    --tool.condition='The user asks for help with an order'
+    --tool.goal='To provide assistance for orders'
+    --tool.rules='"[\"The user must provide the order ID\", \"The user must specify the type of assistance needed\"]"'
+    --tool.parameters='"[{property: \"orderID\", type: \"string\", description: \"The unique identifier of the order\"}, {property: \"actionType\", type: \"string\", description: \"The type of assistance needed for the order\"}]"'
+    --tool.action='Assist'
+    --appPath='apps/assistance/app/src/app'
+    --dry-run
+    --verbose
 
-  pnpm nx g @wrkspce/assistance/plugin:assistance-feature
-  --name='Orders'
-  --tool.name='Order Help'
-  --tool.type='action'
-  --tool.condition='The user asks for help with an order'
-  --tool.goal='To provide assistance for orders'
-  --tool.rules='["The user must have an existing order to request assistance", "The issue with the order should be clearly described"]'
-  --tool.parameters='[{property: "issue", type: "string", description: "The issue with the order"}, {property: "orderId", type: "string", description: "The ID of the order"}]'
-  --tool.action='Assist Order'
-  --appPath='apps/assistance/app/src/app'
-  --dry-run
-  --verbose
+    pnpm nx g @wrkspce/assistance/plugin:assistance-feature
+    --name='Orders'
+    --tool.name='Order Help'
+    --tool.type='action'
+    --tool.condition='The user asks for help with an order'
+    --tool.goal='To provide assistance for orders'
+    --tool.rules='["The user must have an existing order to request assistance", "The issue with the order should be clearly described"]'
+    --tool.parameters='[{property: "issue", type: "string", description: "The issue with the order"}, {property: "orderId", type: "string", description: "The ID of the order"}]'
+    --tool.action='Assist Order'
+    --appPath='apps/assistance/app/src/app'
+    --dry-run
+    --verbose
 
-  pnpm nx g @wrkspce/assistance/plugin:assistance-feature
-  --name='Orders'
-  --tool.name='Assist Order'
-  --tool.type='action'
-  --tool.condition='The user asks for help with an order'
-  --tool.goal='To provide assistance for managing orders'
-  --tool.rules='["The user must provide the order ID", "The user must specify the type of assistance needed"]'
-  --tool.parameters='[{"property": "orderID", "type": "string", "description": "The unique identifier for the order"}, {"property": "actionType", "type": "string", "description": "The type of assistance needed for the order"}]'
-  --tool.action='Provide Assistance'
-  --appPath='apps/assistance/app/src/app'
-  --dry-run
-  --verbose
+    pnpm nx g @wrkspce/assistance/plugin:assistance-feature
+    --name='Orders'
+    --tool.name='Assist Order'
+    --tool.type='action'
+    --tool.condition='The user asks for help with an order'
+    --tool.goal='To provide assistance for managing orders'
+    --tool.rules='["The user must provide the order ID", "The user must specify the type of assistance needed"]'
+    --tool.parameters='[{"property": "orderID", "type": "string", "description": "The unique identifier for the order"}, {"property": "actionType", "type": "string", "description": "The type of assistance needed for the order"}]'
+    --tool.action='Provide Assistance'
+    --appPath='apps/assistance/app/src/app'
+    --dry-run
+    --verbose
+
+    [{"property": "item", "type": "string", "description": "The name of the item"}, {"property": "quantity", "type": "string", "description": "The quantity of the item"}, {"property": "price", "type": "string", "description": "The price of the item. If not provided, the assistant will estimate a price"}]
+
+    [{"property": "orderID", "type": "string", "description": "The unique identifier for the order"}, {"property": "actionType", "type": "string", "description": "The type of assistance needed for the order"}]
+
+    [{"property": "issue", "type": "string", "description": "The issue with the order"}, {"property": "orderId", "type": "string", "description": "The ID of the order"}]
+
+    [{"property": "orderID", "type": "string", "description": "The unique identifier for the order"}, {"property": "actionType", "type": "string", "description": "The type of assistance needed for the order"}]
+
+    [{"property": "orderID", "type": "string", "description": "The unique identifier for the order"}, {"property": "actionType", "type": "string", "description": "The type of assistance needed for the order"}]
+
+    [{"property": "orderID", "type": "string", "description": "The unique identifier for the order"}, {"property": "actionType", "type": "string", "description": "The type of assistance needed for the order"}]
+
+    [{"property": "orderID", "type": "string", "description": "The unique identifier for the order"}, {"property": "actionType", "type": "string", "description": "The type of assistance needed for the order"}]
+
+    [{"property": "orderID", "type": "string", "description": "The unique identifier for the order"}, {"property": "actionType", "type": "string", "description": "The type of assistance needed for the order"}]
+
+    [{"property": "orderID", "type": "string", "description": "The unique identifier for the order"}, {"property": "actionType", "type": "string", "description": "The type of assistance needed for the order"}]
+
+    [{"property": "orderID", "type": "string", "description": "The unique identifier for the order"}, {"property": "actionType", "type": "string", "description": "The type of assistance needed for the order"}]
+
+    [{"property": "orderID", "type": "string", "description": "The unique identifier for the order"},
