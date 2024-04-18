@@ -2,7 +2,7 @@ import { z } from 'zod';
 
 export const parameters = z
   .object({
-    <%- tool.parameters.map(parameter => `${parameter.property}: z.object({ value: z.string().describe('The value of the ${parameter.property} property'), type: z.string().describe('The type of the ${parameter.property} property')}).describe('${parameter.description}')`) -%>
+    <%- tool.parameters.map(parameter => `${parameter.property}: z.string().describe('${parameter.description}')`) -%>
   })
   .required()
   .describe('The <%= tool.names.name %> parameters');
