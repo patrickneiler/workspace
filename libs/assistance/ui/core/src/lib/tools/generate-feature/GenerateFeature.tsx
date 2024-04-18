@@ -14,34 +14,33 @@ export const GenerateFeature = ({
 }) => {
   const [ui, setUi] = useState<null | React.ReactNode>(null);
   const { confirmFeature } = useActions();
-  console.log(JSON.stringify(params, null, 2));
   const fields: DynamicFormField[] =
     Object.keys(params).map((key) => {
       if (key === 'tool') {
         return {
           name: 'tool',
-          type: 'group',
+          type: 'text',
           label: 'Tool',
           value: '',
           fields: Object.keys(params[key]).map((prop) => {
             return generatePropertyField({
               property: prop,
-              type: params[key][prop].type,
-              value: params[key][prop],
+              type: (params[key] as any)[prop].type,
+              value: (params[key] as any)[prop],
             });
           }),
         };
       } else {
         return generatePropertyField({
           property: key,
-          type: params[key].type,
-          value: params[key],
+          type: (params as any)[key].type,
+          value: (params as any)[key],
         });
       }
     }
     );
 
-  const handleConfirmOrder = async (fields: DynamicFormField[]) => {
+  const handleConfirmFeature = async (fields: DynamicFormField[]) => {
 
     const response = await confirmFeature({
       ...params,
@@ -58,7 +57,7 @@ export const GenerateFeature = ({
         <>
           <BotCard>Absolutely! Take a look and review:</BotCard>
           <FunctionFormCard heading={params.name}>
-            <DynamicForm fields={fields} onSubmit={handleConfirmOrder} />
+            <DynamicForm fields={fields} onSubmit={handleConfirmFeature} />
           </FunctionFormCard>
         </>
       )}

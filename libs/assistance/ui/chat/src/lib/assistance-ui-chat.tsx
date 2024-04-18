@@ -16,7 +16,6 @@ import {
   PanelBackground,
   UserMessage,
 } from '@wrkspce/shared/ui';
-import { ChatList } from './chat-list';
 import { ChatScrollAnchor } from './hooks/chat-scroll-anchor';
 import { useEnterSubmit } from './hooks/use-enter-submit';
 import { Card, Text } from '@radix-ui/themes';
@@ -84,7 +83,13 @@ export function AssistanceChat({ introMessage }: { introMessage?: string }): JSX
       <PanelBackground />
       {messages.length ? (
         <div className="pb-[200px] pt-4 md:pt-24 z-10 relative">
-          <ChatList messages={messages} />
+          <div className="relative mx-auto max-w-2xl px-4">
+            {messages.map((message: any, index: number) => (
+              <div key={index} className="pb-4">
+                {message.display}
+              </div>
+            ))}
+          </div>
         </div>
       ) : (
         <div className="flex justify-center items-center h-[calc(100vh-3.5rem)] relative z-10">

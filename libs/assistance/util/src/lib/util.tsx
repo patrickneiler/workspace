@@ -64,6 +64,11 @@ export function generatePropertyField(property: {
   };
 }
 
+export function getPropertyValueFromFields(property: string, fields?: DynamicFormField[]) {
+  return fields?.find((field) => field.name === property)?.value;
+}
+
+
 
 function convertAssistantToolPropertyTypeToDynamicFormFieldType(
   type: AssistantToolPropertyType,

@@ -3,31 +3,22 @@
   "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/assistance/ui/chat/src",
   "projectType": "library",
-  "tags": [
-    "scope:assistance",
-    "type:ui"
-  ],
+  "tags": ["scope: assistance", "type: ui"],
   "targets": {
     "build": {
       "executor": "@nx/rollup:rollup",
-      "outputs": [
-        "{options.outputPath}"
-      ],
+      "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/libs/assistance/ui/stocks",
-        "tsConfig": "libs/assistance/ui/stocks/tsconfig.lib.json",
-        "project": "libs/assistance/ui/stocks/package.json",
-        "entryFile": "libs/assistance/ui/stocks/src/index.ts",
-        "external": [
-          "react",
-          "react-dom",
-          "react/jsx-runtime"
-        ],
+        "outputPath": "dist/libs/assistance/ui/chat",
+        "tsConfig": "libs/assistance/ui/chat/tsconfig.lib.json",
+        "project": "libs/assistance/ui/chat/package.json",
+        "entryFile": "libs/assistance/ui/chat/src/index.ts",
+        "external": ["react", "react-dom", "react/jsx-runtime"],
         "rollupConfig": "@nx/react/plugins/bundle-rollup",
         "compiler": "babel",
         "assets": [
           {
-            "glob": "libs/assistance/feature/next/README.md",
+            "glob": "libs/assistance/ui/chat/README.md",
             "input": ".",
             "output": "."
           }

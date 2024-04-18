@@ -1,1 +1,1 @@
-export * from './lib/assistance-ui-chat';
+export { AssistanceChat} from './lib/assistance-ui-chat';

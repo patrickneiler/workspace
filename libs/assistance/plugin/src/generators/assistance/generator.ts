@@ -28,7 +28,6 @@ export async function assistanceGenerator(
   const schema = z.object({
     ...convertToZod(parameters),
   });
-  console.log(tool.knowledge)
   const knowledge = tool.knowledge ? JSON.stringify(tool.knowledge) : "";
   const fields = parameters.map((property) => generatePropertyField(property))
   const action = tool.action ? { names: names(tool.action) } : undefined;

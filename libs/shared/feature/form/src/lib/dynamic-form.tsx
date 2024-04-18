@@ -29,35 +29,9 @@ export const DynamicForm = ({ fields = [], onSubmit }: DynamicFormProps) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      {fields.map((field, index) => {
-        switch (field.type) {
-          case 'select':
-            return (
-              <Box key={field.name} mb="5">
-                <label>
-                  <Text as="div" size="2" weight="medium" mb="2">
-                    {field.label}
-                  </Text>
-                  <Select.Root
-                    required={field.required}
-                    defaultValue={field.value}
-                    onValueChange={(value) => handleChange(field.name, value)}
-                  >
-                    <Select.Trigger />
-                    <Select.Content>
-                      <Select.Group>
-                        {field?.options?.map((option) => (
-                          <Select.Item key={option} value={option}>
-                            {option}
-                          </Select.Item>
-                        ))}
-                      </Select.Group>
-                    </Select.Content>
-                  </Select.Root>
-                </label>
-              </Box>
-            );
-          case 'group':
+      {
+        fields.map((field, index) => {
+          if (field.fields?.length) {
             return (
               <Box key={field + index.toString()} mb="4" mt="4">
                 <Heading size="3" color="sky">
@@ -73,48 +47,44 @@ export const DynamicForm = ({ fields = [], onSubmit }: DynamicFormProps) => {
                         <Text as="div" size="2" weight="medium" ml="1" mb="2">
                           {subField.label}
                         </Text>
-                        <TextField.Root>
-                          <TextField.Input
-                            variant="classic"
-                            size="2"
-                            name={subField.name}
-                            type={subField.type}
-                            placeholder={subField.placeholder}
-                            defaultValue={subField.value}
-                            required={subField.required}
-                            onChange={(e) => handleChange(subField.name, e.target.value)}
-                          />
-                        </TextField.Root>
+                        <TextField.Root
+                          variant="classic"
+                          size="2"
+                          name={subField.name}
+                          type={subField.type}
+                          placeholder={subField.placeholder}
+                          defaultValue={subField.value}
+                          required={subField.required}
+                          onChange={(e) => handleChange(subField.name, e.target.value)}
+                        />
                       </label>
                     </Box>
                   ))
                 }
               </Box>
             )
-          default:
+          } else {
             return (
               <Box key={field.name} mb="4" mt="4">
                 <label>
                   <Text as="div" size="2" weight="medium" ml="1" mb="2">
                     {field.label}
                   </Text>
-                  <TextField.Root>
-                    <TextField.Input
-                      variant="classic"
-                      size="2"
-                      name={field.name}
-                      type={field.type}
-                      placeholder={field.placeholder}
-                      defaultValue={field.value}
-                      required={field.required}
-                      onChange={(e) => handleChange(field.name, e.target.value)}
-                    />
-                  </TextField.Root>
+                  <TextField.Root
+                    variant="classic"
+                    size="2"
+                    name={field.name}
+                    type={field.type}
+                    defaultValue={field.value}
+                    required={field.required}
+                    onChange={(e) => handleChange(field.name, e.target.value)}
+                  />
                 </label>
               </Box>
             );
-        }
-      })}
+          }
+        })
+      }
       <Flex mt="6" justify="end" gap="3">
         <Button color='sky' variant="soft">Submit</Button>
       </Flex>

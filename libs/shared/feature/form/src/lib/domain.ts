@@ -10,7 +10,7 @@ export interface DynamicFormField {
    * The type of the form field.
    * Possible values: 'input', 'select', 'multi', 'checkbox', 'radio', 'file'.
    */
-  type: 'input' | 'select' | 'multi' | 'checkbox' | 'radio' | 'file' | 'group';
+  type: 'date' | 'datetime-local' | 'email' | 'hidden' | 'month' | 'number' | 'password' | 'search' | 'tel' | 'text' | 'time' | 'url' | 'week';
   /**
    * The options for the form field (only applicable for 'select' and 'multi' types).
    */
