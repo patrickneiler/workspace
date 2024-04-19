@@ -11,44 +11,15 @@ Through the integration of AI technology, we have the ability to automate monoto
 
 ## Example Usage
 
-Goal: An AI assistant that generates order forms.
+### Orders Assistant
+**Goal**: An AI assistant that generates order forms.
 
-1. Run app and prompt assistant with new feature
-![Define](./examples/assistance/orders/1.gif)
+1. Run app and prompt assistant with new feature: ![Define](./examples/assistance/orders/1.gif)
+2. Alter the configuration of the assistant: ![Define](./examples/assistance/orders/2.gif)
+3. Paste the code in the terminal: ![Define](./examples/assistance/orders/3.gif)
+4. Run app and access new assistant: ![Define](./examples/assistance/orders/4.gif)
 
-
-2. Alter the configuration of the assistant
-![Define](./examples/assistance/orders/2.gif)
-
-3. Paste the code in the terminal
-![Define](./examples/assistance/orders/3.gif)
-
-4. Run app and access new assistant
-![Define](./examples/assistance/orders/4.gif)
-
-The implementation of **@wrkspce** in product development embraces a conceptual, stepwise approach:
-
-### 🎨 Design & Describe
-
----
-
-> With @wrkspce, users can leverage the power of AI technology to define their systems more effectively. This tool harnesses Language Model Learning (LLM) to simplify processes, enhancing operational efficiency. Ultimately, this empowers users to visualize and design their systems in a more intuitive manner, enriching the overall user experience.
-> 
-
-### 💬 Chat & Configure
-
----
-
-> The user interacts with our AI tool, which is trained on the system. This allows the tool to extrapolate details in real time, revolutionizing business operations and setting a new standard for efficiency and innovation.
-> 
-
-### 📚 Generate Libraries, Docs, Tasks & More
-
----
-
-> Our AI tool provides automatic generation of project scaffolding, inclusive of readme files with detailed documentation, subtasks, and useful prompts. This ensures developers have all the necessary resources at their disposal while creating project code.
-> 
-
+## More to come...
 
 About @Patrick Neiler
 
