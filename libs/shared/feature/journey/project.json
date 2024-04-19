@@ -1,0 +1,29 @@
+{
+  "name": "shared-feature-journey",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/shared/feature/journey/src",
+  "projectType": "library",
+  "tags": ["scope: shared", "type: feature"],
+  "targets": {
+    "build": {
+      "executor": "@nx/rollup:rollup",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/shared/feature/journey",
+        "tsConfig": "libs/shared/feature/journey/tsconfig.lib.json",
+        "project": "libs/shared/feature/journey/package.json",
+        "entryFile": "libs/shared/feature/journey/src/index.ts",
+        "external": ["react", "react-dom", "react/jsx-runtime"],
+        "rollupConfig": "@nx/react/plugins/bundle-rollup",
+        "compiler": "babel",
+        "assets": [
+          {
+            "glob": "libs/shared/feature/journey/README.md",
+            "input": ".",
+            "output": "."
+          }
+        ]
+      }
+    }
+  }
+}

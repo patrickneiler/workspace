@@ -1,7 +1,0 @@
-import { <% tool.action.names.functionName %> } from './<% tool.action.names.fileName %>';
-
-
-export const Actions = {
-  <% tool.action.names.functionName %>
-}
-export default Actions;

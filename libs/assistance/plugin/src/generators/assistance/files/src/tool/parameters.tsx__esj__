@@ -1,0 +1,8 @@
+import { z } from 'zod';
+
+export const parameters = z
+  .object({
+    <%- tool.parameters.map(parameter => `${parameter.property}: z.string().describe('${parameter.description}')`) -%>
+  })
+  .required()
+  .describe('The <%= tool.names.name %> parameters');

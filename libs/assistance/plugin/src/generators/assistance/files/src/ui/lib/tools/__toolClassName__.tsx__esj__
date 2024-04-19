@@ -14,7 +14,11 @@ export const <%= tool.names.className %> = ({
 }) => {
   const [ui, setUi] = useState<null | React.ReactNode>(null);
   const { <%= tool.action.names.functionName %> } = useActions();
-  const fields: DynamicFormField[] = Object.keys(params).map((key) => (generatePropertyField({ property: key, type: params[key].type, value: params[key].value })));
+  const fields: DynamicFormField[] = Object.keys(params).map((key) => (generatePropertyField({
+      property: key,
+      type: 'string',
+      value: (params as any)[key],
+    })));
 
 
 const handle<%= tool.action.names.className %> = async (fields: DynamicFormField[]) => {

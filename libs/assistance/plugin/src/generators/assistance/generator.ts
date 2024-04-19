@@ -44,17 +44,22 @@ export async function assistanceGenerator(
         fields,
         schema,
         action
-      }]
+      }],
+    appPath: params.appPath,
     };
+    
+  // await test(feature);
   await build(feature, tree);
-  await appToApp(feature, tree, params.appPath && params.appPath !== 'undefined' ? params.appPath : 'apps/assistance/app/src/app');
 
 }
 
+async function test(feature: AssistanceFeatureFileGeneratorParams) {
+  return await console.log('Feature', JSON.stringify(feature, null, 2));
+}
 
 async function build(feature: AssistanceFeatureFileGeneratorParams, tree: Tree) {
   const featureFileName = feature.names.fileName;
-  const toolActionFilenName = feature.tools[0].action ? feature.tools[0].action.names.fileName : '';
+  const toolActionFileName = feature.tools[0].action ? feature.tools[0].action.names.fileName : '';
   const toolFileName = feature.tools[0].names.fileName;
   const toolClassName = feature.tools[0].names.className;
   const toolActionClassName = feature.tools[0].action ? feature.tools[0].action.names.className : '';
@@ -72,10 +77,12 @@ async function build(feature: AssistanceFeatureFileGeneratorParams, tree: Tree) 
   await assistanceUIGenerator(tree, feature);
 
   // 5. Generate the tool files for the feature
-  await assistanceFeatureToolGenerator(tree, feature, toolActionFilenName);
+  await assistanceFeatureToolGenerator(tree, feature, toolActionFileName);
 
   // 6. Generate the tool UI files for the feature
   await assistanceFeatureToolUIGenerator(tree, feature, toolFileName, toolClassName, toolActionClassName);
+
+  await appToApp(feature, tree, feature.appPath && feature.appPath !== 'undefined' ? feature.appPath : 'apps/assistance/app/src/app');
 }
 
 async function appToApp(feature: AssistanceFeatureFileGeneratorParams, tree: Tree, appPath: string) {
@@ -204,10 +211,10 @@ export async function assistanceUIGenerator(
 export async function assistanceFeatureToolGenerator(
   tree: Tree,
   feature: AssistanceFeatureFileGeneratorParams,
-  toolActionFilenName: string,
+  toolActionFileName: string,
 ) {
   // 1. Construct the path to the template files
-  const templatePath = path.join(__dirname, 'files/src/tools');
+  const templatePath = path.join(__dirname, 'files/src/tool');
 
   // 2. Iterate through the tools and generate the files
   feature.tools.forEach((tool) => {
@@ -218,7 +225,17 @@ export async function assistanceFeatureToolGenerator(
       {
         tool,
         feature,
-        toolActionFilenName,
+        toolActionFileName,
+        esj: ''
+      },
+    );
+    generateFiles(
+      tree,
+      path.join(__dirname, 'files/src/tools'),
+      `libs/assistance/feature/${feature.names.fileName}/src/lib/tools`,
+      {
+        tool,
+        feature,
         esj: ''
       },
     );

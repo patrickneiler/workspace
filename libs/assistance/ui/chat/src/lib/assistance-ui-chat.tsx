@@ -1,6 +1,6 @@
 'use client';
 
-import { FormEvent, useEffect, useRef, useState } from 'react';
+import { FormEvent, ReactNode, useEffect, useRef, useState } from 'react';
 import Textarea from 'react-textarea-autosize';
 
 // TODO: Utilize this implementation within the library components.
@@ -18,30 +18,19 @@ import {
 } from '@wrkspce/shared/ui';
 import { ChatScrollAnchor } from './hooks/chat-scroll-anchor';
 import { useEnterSubmit } from './hooks/use-enter-submit';
-import { Card, Text } from '@radix-ui/themes';
+import { Card, Container, Text } from '@radix-ui/themes';
 import { AI } from '@wrkspce/assistance/domain';
 
 /**
  * Represents the AssistanceChat component.
  * This component is responsible for rendering the assistance chat, where users can interact with the AI assistant.
  */
-export function AssistanceChat({ introMessage }: { introMessage?: string }): JSX.Element {
+export function AssistanceChat({ empty }: { empty?: ReactNode }): JSX.Element {
   const [messages, setMessages] = useUIState<AI>();
   const { submitUserMessage } = useActions();
   const [inputValue, setInputValue] = useState('');
   const { formRef, onKeyDown } = useEnterSubmit();
   const inputRef = useRef<HTMLTextAreaElement>(null);
-
-  useEffect(() => {
-    if (introMessage) {
-      setMessages([
-        {
-          id: Date.now(),
-          display: <UserMessage>{introMessage}</UserMessage>,
-        },
-      ]);
-    }
-  }, [introMessage, setMessages]);
 
   // Handle form submission
   const handleForm = async (e: FormEvent<HTMLFormElement>) => {
@@ -92,15 +81,8 @@ export function AssistanceChat({ introMessage }: { introMessage?: string }): JSX
           </div>
         </div>
       ) : (
-        <div className="flex justify-center items-center h-[calc(100vh-3.5rem)] relative z-10">
-          <Card variant="classic" size="3">
-            <Text as="div" size="2" weight="bold">
-              Start a conversation by typing a message.
-            </Text>
-          </Card>
-        </div>
-      )
-      }
+        empty ? <Container size="2">{empty}</Container> : <DefaultEmpty />
+      )}
       <ChatScrollAnchor trackVisibility={true} />
       <div className="fixed inset-x-0 bottom-0 w-full z-20 bg-gradient-to-b from-muted/30 from-0% to-muted/30 to-50% duration-300 ease-in-out animate-in dark:from-background/10 dark:from-10% dark:to-background/80 peer-[[data-state=open]]:group-[]:lg:pl-[250px] peer-[[data-state=open]]:group-[]:xl:pl-[300px]">
         <div className="mx-auto sm:max-w-2xl sm:px-4">
@@ -162,5 +144,17 @@ export function AssistanceChat({ introMessage }: { introMessage?: string }): JSX
     </div>
   );
 }
+
+export const DefaultEmpty = () => (
+  <div className="pb-[200px] pt-8 md:pt-24 z-10 relative">
+    <div className="relative mx-auto max-w-2xl px-4">
+      <Card className="w-full h-full flex items-center justify-center">
+        <Text as="div" size="2" color="gray">
+          Start a conversation with the AI assistant.
+        </Text>
+      </Card>
+    </div>
+  </div>
+);
 
 export default AssistanceChat;

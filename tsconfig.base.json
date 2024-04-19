@@ -29,6 +29,7 @@
       "@wrkspce/assistance/ui/chat": ["libs/assistance/ui/chat/src/index.ts"],
       "@wrkspce/assistance/ui/core": ["libs/assistance/ui/core/src/index.ts"],
       "@wrkspce/assistance/util": ["libs/assistance/util/src/index.ts"],
+      "@wrkspce/shared/domain": ["libs/shared/domain/src/index.ts"],
       "@wrkspce/shared/feature/avatar": [
         "libs/shared/feature/avatar/src/index.ts"
       ],
@@ -36,6 +37,9 @@
         "libs/shared/feature/diagram/src/index.ts"
       ],
       "@wrkspce/shared/feature/form": ["libs/shared/feature/form/src/index.ts"],
+      "@wrkspce/shared/feature/journey": [
+        "libs/shared/feature/journey/src/index.ts"
+      ],
       "@wrkspce/shared/ui": ["libs/shared/ui/src/index.ts"],
       "@wrkspce/shared/util": ["libs/shared/util/src/index.ts"]
     }
