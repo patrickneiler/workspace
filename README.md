@@ -4,9 +4,27 @@
 
 [https://github.com/patrickneiler/wrkspce](https://github.com/patrickneiler/wrkspce)
 
-## Leveraging AI in Software Development
+## Assistance
+Leveraging AI in Software Development
 
 Through the integration of AI technology, we have the ability to automate monotonous tasks, augment decision-making processes, and in the grand scheme of things, streamline the entire software development lifecycle. This system is not merely a testament to the capabilities of AI, but it also highlights the potential of human creativity when used to aid others in their success.
+
+## Example Usage
+
+Goal: An AI assistant that generates order forms.
+
+1. Run app and prompt assistant with new feature
+![Define](./examples/assistance/orders/1.png)
+
+
+2. Alter the configuration of the assistant
+![Define](./examples/assistance/orders/2.png)
+
+3. Paste the code in the terminal
+![Define](./examples/assistance/orders/3.png)
+
+3. Run app and access new assistant
+![Define](./examples/assistance/orders/4.png)
 
 The implementation of **@wrkspce** in product development embraces a conceptual, stepwise approach:
 
