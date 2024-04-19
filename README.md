@@ -14,17 +14,17 @@ Through the integration of AI technology, we have the ability to automate monoto
 Goal: An AI assistant that generates order forms.
 
 1. Run app and prompt assistant with new feature
-![Define](./examples/assistance/orders/1.png)
+![Define](./examples/assistance/orders/1.gif)
 
 
 2. Alter the configuration of the assistant
-![Define](./examples/assistance/orders/2.png)
+![Define](./examples/assistance/orders/2.gif)
 
 3. Paste the code in the terminal
-![Define](./examples/assistance/orders/3.png)
+![Define](./examples/assistance/orders/3.gif)
 
-3. Run app and access new assistant
-![Define](./examples/assistance/orders/4.png)
+4. Run app and access new assistant
+![Define](./examples/assistance/orders/4.gif)
 
 The implementation of **@wrkspce** in product development embraces a conceptual, stepwise approach:
 
