@@ -41,7 +41,8 @@
         "libs/shared/feature/journey/src/index.ts"
       ],
       "@wrkspce/shared/ui": ["libs/shared/ui/src/index.ts"],
-      "@wrkspce/shared/util": ["libs/shared/util/src/index.ts"]
+      "@wrkspce/shared/util": ["libs/shared/util/src/index.ts"],
+      "@wrkspce/stocks/ui": ["libs/stocks/ui/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
