@@ -3,7 +3,6 @@ import { Action, AITool } from './domain';
 export const mappedActions = (actions: Action[]) =>
   actions.reduce((obj: { [key: string]: Action }, action) => {
     obj[action.name] = action;
-    console.log(action.name);
     return obj;
   }, {});
 

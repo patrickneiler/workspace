@@ -13,15 +13,13 @@ export function Header({ navItems, cta, logo, name, accent }: { navItems?: { tit
 
         <Link href="/" className='flex items-center'>
           {logo && logo}
-          <span className="text-lg font-bold ml-4">
-            {
-              name ? <Text color={accent ? accent : 'sky'}>{name}</Text> : <Code color={accent ? accent : 'sky'} variant="solid">{name ? name : '@wkspce'}</Code>
-            }
-          </span>
+          {
+            name ? <Text className="font-saira ml-1 font-bold" size="5" color={accent ? accent : 'sky'}>{name}</Text> : <Code color={accent ? accent : 'sky'} variant="solid">{name ? name : '@wkspce'}</Code>
+          }
         </Link>
       </span>
       <div className="h-full inline-flex items-end">
-        {navItems && <Navigation items={navItems} />}
+        {navItems && <Navigation color={accent} items={navItems} />}
       </div>
       <div className="flex items-center justify-end space-x-2">
         {

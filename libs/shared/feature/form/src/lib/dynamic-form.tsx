@@ -23,7 +23,6 @@ export const DynamicForm = ({ fields = [], onSubmit }: DynamicFormProps) => {
       ...(value as Record<string, any>),
       name,
     }));
-    console.log('fields', fields);
     onSubmit(fields as DynamicFormField[]);
   };
 

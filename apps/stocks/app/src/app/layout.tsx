@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
-import { Button, TextField, Theme } from '@radix-ui/themes';
+import { TextField, Theme } from '@radix-ui/themes';
 import { GeistMono } from 'geist/font/mono';
 import { GeistSans } from 'geist/font/sans';
+import { Saira } from 'next/font/google';
 import './global.css';
 import { Providers } from './providers';
 import { Header } from '@wrkspce/shared/ui';
@@ -14,6 +15,9 @@ const meta = {
   description:
     'The primary objective of Assistance is to leverage the power of Artificial Intelligence to drastically improve the efficiency of software development teams.',
 };
+
+const saira_init = Saira({ subsets: ['latin'], variable: '--font-saira' });
+export const saira = saira_init.variable;
 
 /**
  * The complete metadata object for the site.
@@ -57,7 +61,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`font-sans antialiased ${GeistSans.variable} ${GeistMono.variable}`}
+        className={`font-sans antialiased ${GeistSans.variable} ${GeistMono.variable} ${saira} bg-background text-foreground`}
       >
         <Theme appearance="dark" accentColor="jade" grayColor="slate">
           <Providers
@@ -67,7 +71,7 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             <div className="flex flex-col min-h-screen">
-              <Header name="Stock Grab" accent="jade" navItems={navItems} logo={<Logo />} cta={<TextField.Root placeholder="Search for stock…">
+              <Header name="Grabstock" accent="jade" navItems={navItems} logo={<Logo />} cta={<TextField.Root placeholder="Search for stock…">
                 <TextField.Slot>
                   <MagnifyingGlassIcon height="16" width="16" />
                 </TextField.Slot>

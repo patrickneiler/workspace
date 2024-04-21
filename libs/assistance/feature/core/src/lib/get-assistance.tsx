@@ -75,7 +75,9 @@ export async function getAssistance(tools: AssistanceTool[]) {
               'Content-Type': 'application/json',
             },
           }).then((res) => res.json());
-          reply.done(tool.ui.done(response));
+          response ?
+            reply.done(tool.ui.done(response)) :
+            reply.done(tool.ui.done(<BotMessage>Failed to fetch data</BotMessage>))
           break;
         }
         case 'action': {

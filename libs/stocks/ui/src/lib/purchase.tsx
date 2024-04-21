@@ -16,24 +16,18 @@ export function Purchase({
     const [value, setValue] = useState(defaultAmount || 100);
     const handlePurchase = async () => {
         await sleep(1000);
-        console.log(`Purchased ${value} shares of ${name} at $${price}`);
     };
 
     // Whenever the slider changes, we need to update the local value state and the history
     // so LLM also knows what's going on.
-    function onSliderChange(e: React.ChangeEvent<HTMLInputElement>) {
-        const newValue = Number(e.target.value);
+    function onSliderChange(e: string) {
+        const newValue = Number(e);
         setValue(newValue);
     }
 
     return (
-        <div className="p-4 text-green-900 border rounded-xl bg-zinc-950">
-            <div className="inline-block float-right px-2 py-1 text-xs rounded-full bg-green-400">
-                +1.23% ↑
-            </div>
-            <div className="text-lg text-green-100">{name}</div>
-            <div className="text-3xl text-green-100 font-bold">${price}</div>
-            <StockPurchase value={value} name={name} price={price} onPurchase={handlePurchase} onSliderChange={onSliderChange} />
+        <div className=" text-green-900 bg-zinc-950">
+            <StockPurchase amount={value} name={name} price={price} onPurchase={handlePurchase} onSliderChange={onSliderChange} />
         </div>
     );
 }

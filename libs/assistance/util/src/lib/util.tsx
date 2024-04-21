@@ -54,7 +54,6 @@ export function generatePropertyField(property: {
   type: AssistantToolPropertyType,
   value: string
 }): DynamicFormField {
-  console.log(property)
   return {
     name: property.property,
     value: property.value,

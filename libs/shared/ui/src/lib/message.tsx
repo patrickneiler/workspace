@@ -12,12 +12,15 @@ import { spinner } from './spinner';
  */
 export function UserMessage({ children }: { children: React.ReactNode }) {
   return (
-    <div className="group relative flex items-start md:-ml-12">
+    <div className="group relative flex items-center md:-ml-12">
       <div className="flex h-8 w-8 shrink-0 select-none items-center justify-center rounded-md border shadow-sm bg-background">
         <IconUser />
       </div>
       <div className="ml-4 flex-1 space-y-2 overflow-hidden px-1">
-        {children}
+        <Text style={{ width: '100%', fontWeight: 'bolder' }}>
+          {children}
+        </Text>
+
       </div>
     </div>
   );
@@ -65,21 +68,23 @@ export function BotMessage({
 export function BotCard({
   children,
   showAvatar = true,
+  avatar
 }: {
   children: React.ReactNode;
   showAvatar?: boolean;
+  avatar?: React.ReactNode;
 }) {
   return (
-    <div className="group relative flex items-start md:-ml-12">
+    <div className="group relative flex  md:-ml-12">
       <div
         className={cn(
-          'flex h-8 w-8 shrink-0 select-none items-center justify-center rounded-md border shadow-sm border-sky-11 bg-sky text-sky rounded-full',
+          'flex h-8 w-8 shrink-0 select-none items-center justify-center rounded-md border bg-accent-2 text-accent-12 shadow-sm rounded-full',
           !showAvatar && 'invisible',
         )}
       >
-        <IconAI />
+        {avatar ? avatar : <IconAI />}
       </div>
-      <div className="ml-4 flex-1 px-1">{children}</div>
+      <div className="ml-4 flex-1 px-1 min-h-8">{children}</div>
     </div>
   );
 }
@@ -109,7 +114,7 @@ export function SystemMessage({ children }: { children: React.ReactNode }) {
  */
 export function FunctionCard({ children }: { children: React.ReactNode }) {
   return (
-    <Card color="mint" variant="surface" size="2" mt="2" style={{ width: '100%' }}>
+    <Card variant="surface" size="2" mt="2" style={{ width: '100%' }}>
       {children}
     </Card>
   );
@@ -122,7 +127,7 @@ export function FunctionCard({ children }: { children: React.ReactNode }) {
  */
 export function FunctionFormCard({ children, heading }: { children: React.ReactNode, heading: string }) {
   return (
-    <Card color="mint" variant="surface" size="2" mt="2" style={{ width: '100%' }}>
+    <Card variant="surface" size="2" mt="2" style={{ width: '100%' }}>
       <Heading as="h4" size="4" mb="4">
         <Text as="span">{heading}</Text>
       </Heading>

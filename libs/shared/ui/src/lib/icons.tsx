@@ -133,6 +133,15 @@ function IconArrowElbow({ className, ...props }: React.ComponentProps<'svg'>) {
   );
 }
 
+function IconSend({ className, ...props }: React.ComponentProps<'svg'>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={cn('h-8 w-8', className)}  {...props}>
+      <path d="M12 8L12 16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M15 11L12.087 8.08704V8.08704C12.039 8.03897 11.961 8.03897 11.913 8.08704V8.08704L9 11" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
 function IconSpinner({ className, ...props }: React.ComponentProps<'svg'>) {
   return (
     <svg
@@ -345,4 +354,5 @@ export {
   IconExternalLink,
   IconChevronUpDown,
   IconSparkles,
+  IconSend
 };

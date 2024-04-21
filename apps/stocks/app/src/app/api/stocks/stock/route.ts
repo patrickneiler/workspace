@@ -1,0 +1,1 @@
+export {POST} from '@wrkspce/assistance/feature/stocks/server';
