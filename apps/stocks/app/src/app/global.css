@@ -1,8 +1,5 @@
 
 @import '@radix-ui/themes/styles.css';
-@import 'https://cdn.jsdelivr.net/npm/@radix-ui/colors@latest/sky-dark.css';
-@import 'https://cdn.jsdelivr.net/npm/@radix-ui/colors@latest/mint.css';
-@import 'https://cdn.jsdelivr.net/npm/@radix-ui/colors@latest/sky-dark-alpha.css';
 
 @tailwind base;
 @tailwind components;
@@ -63,24 +60,7 @@
   body {
     @apply bg-background text-foreground;
   }
-  .text-mint {
-    color: var(--mint-11);
-  }
-  .bg-mint {
-    background-color: var(--mint-2);
-  }
-  .solid-mint {
-    background-color: var(--mint-9);
-  }
-  .text-sky {
-    color: var(--sky-11);
-  }
-  .bg-sky {
-    background-color: var(--sky-2);
-  }
-  .solid-sky {
-    background-color: rgba(21, 68, 103, .5);
-  }
+
 }
 
 .clone-video {
