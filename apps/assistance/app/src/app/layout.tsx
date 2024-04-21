@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Theme } from '@radix-ui/themes';
 import { GeistMono } from 'geist/font/mono';
 import { GeistSans } from 'geist/font/sans';
+import { fira_code, itim } from './font';
 import './global.css';
 import { Providers } from './providers';
 import { Header } from '@wrkspce/shared/ui';
@@ -56,7 +57,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`font-sans antialiased ${GeistSans.variable} ${GeistMono.variable}`}
+        className={`font-sans antialiased ${GeistSans.variable} ${GeistMono.variable} ${itim} ${fira_code}`}
       >
         <Theme appearance="dark" accentColor="sky" grayColor="slate">
           <Providers
@@ -66,7 +67,7 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             <div className="flex flex-col min-h-screen">
-              <Header navItems={navItems} logo={<Logo />} />
+              <Header accent="sky" navItems={navItems} logo={<Logo />} />
               {children}
             </div >
           </Providers >

@@ -7,14 +7,14 @@ import Textarea from 'react-textarea-autosize';
 import { useUIState, useActions } from 'ai/rsc';
 
 import {
-  IconArrowElbow,
   IconSend,
   UserMessage,
 } from '@wrkspce/shared/ui';
 import { ChatScrollAnchor } from './hooks/chat-scroll-anchor';
 import { useEnterSubmit } from './hooks/use-enter-submit';
-import { Card, Container, Text, Button, Separator } from '@radix-ui/themes';
+import { Card, Text, Button, Separator, Box, Callout } from '@radix-ui/themes';
 import { AI } from '@wrkspce/assistance/domain';
+import { InfoCircledIcon } from '@radix-ui/react-icons';
 
 /**
  * Represents the AssistanceChat component.
@@ -81,14 +81,14 @@ export function AssistanceChat({ empty }: { empty?: ReactNode }): JSX.Element {
           </div>
         </div>
       ) : (
-        empty ? <Container size="2">{empty}</Container> : <DefaultEmpty />
+        empty ? <Card className="z-10 relative  mt-8 mb-40 max-w-3xl mx-auto w-full">{empty}</Card> : <DefaultEmpty />
       )}
       <ChatScrollAnchor trackVisibility={true} />
       <div className="fixed inset-x-0 bottom-0 w-full z-20 bg-gradient-to-b from-muted/30 from-0% to-muted/30 to-50% duration-300 ease-in-out animate-in dark:from-background/10 dark:from-10% dark:to-background/80 peer-[[data-state=open]]:group-[]:lg:pl-[250px] peer-[[data-state=open]]:group-[]:xl:pl-[300px]">
-        <div className="mx-auto sm:max-w-2xl sm:px-4 relative bottom-2 md:bottom-8">
-          <Card variant="ghost" className="space-y-4 border-t bg-background md:px-4 py-2 shadow-lg rounded-t-4 sm:border md:py-4">
+        <div className="mx-auto sm:max-w-3xl sm:px-4 relative bottom-8 md:bottom-8">
+          <Box className="space-y-4 md:px-4 py-2 shadow-lg rounded-t-4 md:py-4">
             <form ref={formRef} onSubmit={handleForm}>
-              <div className="relative flex max-h-60 w-full grow items-center overflow-hidden bg-background px-8 sm:px-4">
+              <Card variant='surface' className="relative flex max-h-60 w-full grow items-center overflow-hidden  px-8 sm:px-4">
                 <Textarea
                   ref={inputRef}
                   tabIndex={0}
@@ -116,9 +116,9 @@ export function AssistanceChat({ empty }: { empty?: ReactNode }): JSX.Element {
                     <span className="sr-only">Send message</span>
                   </Button>
                 </div>
-              </div>
+              </Card>
             </form>
-          </Card>
+          </Box>
         </div>
       </div>
     </>
@@ -128,11 +128,15 @@ export function AssistanceChat({ empty }: { empty?: ReactNode }): JSX.Element {
 export const DefaultEmpty = () => (
   <div className="pb-[200px] pt-8 md:pt-24 z-10 relative">
     <div className="relative mx-auto max-w-2xl px-4">
-      <Card className="w-full h-full flex items-center justify-center">
-        <Text as="div" size="2" color="gray">
-          Start a conversation with the AI assistant.
-        </Text>
-      </Card>
+
+      <Callout.Root variant="surface" size="3">
+        <Callout.Icon>
+          <InfoCircledIcon />
+        </Callout.Icon>
+        <Callout.Text>
+          Start a conversation below to get assistance for this topic.
+        </Callout.Text>
+      </Callout.Root>
     </div>
   </div>
 );

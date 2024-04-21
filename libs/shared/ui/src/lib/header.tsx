@@ -14,7 +14,7 @@ export function Header({ navItems, cta, logo, name, accent }: { navItems?: { tit
         <Link href="/" className='flex items-center'>
           {logo && logo}
           {
-            name ? <Text className="font-saira ml-1 font-bold" size="5" color={accent ? accent : 'sky'}>{name}</Text> : <Code color={accent ? accent : 'sky'} variant="solid">{name ? name : '@wkspce'}</Code>
+            name ? <Text className="font-saira ml-1 font-bold" size="5" color={accent ? accent : 'sky'}>{name}</Text> : <Code className="ml-3 text-itim text-5" color={accent ? accent : 'sky'} variant="ghost">{name ? name : '@wrkspce'}</Code>
           }
         </Link>
       </span>
