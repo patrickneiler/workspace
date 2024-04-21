@@ -1,10 +1,9 @@
 import { AssistanceStocksProvider } from '@wrkspce/assistance/feature/stocks';
 
-export function AssistanceLayout({
+export default function AssistanceStocksLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return <AssistanceStocksProvider>{children}</AssistanceStocksProvider>;
 }
-export default AssistanceLayout;

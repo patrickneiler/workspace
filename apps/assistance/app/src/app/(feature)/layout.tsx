@@ -1,4 +1,4 @@
-import { AssistanceFeatureProvider } from '@wrkspce/assistance/feature/core';
+import { AssistanceFeatureProvider } from '@wrkspce/assistance/feature/root';
 
 export function AssistanceLayout({
   children,

@@ -2,22 +2,21 @@ import type { Metadata } from 'next';
 import { TextField, Theme } from '@radix-ui/themes';
 import { GeistMono } from 'geist/font/mono';
 import { GeistSans } from 'geist/font/sans';
-import { Saira } from 'next/font/google';
+import { saira } from './font';
+import Logo from './logo';
+import { MagnifyingGlassIcon } from '@radix-ui/react-icons';
 import './global.css';
+
 import { Providers } from './providers';
 import { Header } from '@wrkspce/shared/ui';
 import { navItems } from './navigation';
-import Logo from './logo';
-import { MagnifyingGlassIcon } from '@radix-ui/react-icons';
+
 
 const meta = {
   title: 'Assistance',
   description:
     'The primary objective of Assistance is to leverage the power of Artificial Intelligence to drastically improve the efficiency of software development teams.',
 };
-
-const saira_init = Saira({ subsets: ['latin'], variable: '--font-saira' });
-export const saira = saira_init.variable;
 
 /**
  * The complete metadata object for the site.

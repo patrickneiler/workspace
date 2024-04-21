@@ -50,7 +50,7 @@ export const DynamicForm = ({ fields = [], onSubmit }: DynamicFormProps) => {
                           variant="classic"
                           size="2"
                           name={subField.name}
-                          type={subField.type}
+                          type={subField.type as any}
                           placeholder={subField.placeholder}
                           defaultValue={subField.value}
                           required={subField.required}
@@ -73,7 +73,7 @@ export const DynamicForm = ({ fields = [], onSubmit }: DynamicFormProps) => {
                     variant="classic"
                     size="2"
                     name={field.name}
-                    type={field.type}
+                    type={field.type as any}
                     defaultValue={field.value}
                     required={field.required}
                     onChange={(e) => handleChange(field.name, e.target.value)}

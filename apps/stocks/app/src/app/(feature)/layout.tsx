@@ -1,10 +1,9 @@
-import { AssistanceFeatureProvider } from '@wrkspce/assistance/feature/core';
+import { AssistanceFeatureProvider } from '@wrkspce/assistance/feature/root';
 
-export function AssistanceLayout({
+export default function AssistanceFeatureLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return <AssistanceFeatureProvider>{children}</AssistanceFeatureProvider>;
 }
-export default AssistanceLayout;

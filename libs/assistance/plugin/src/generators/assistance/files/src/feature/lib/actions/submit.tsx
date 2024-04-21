@@ -1,7 +1,7 @@
 import 'server-only';
 
 import { getMutableAIState } from 'ai/rsc';
-import { getAssistance } from '@wrkspce/assistance/feature/core';
+import { getAssistance } from '@wrkspce/assistance/feature/root';
 import { AI } from '@wrkspce/assistance/domain';
 import { Tools } from '../tools';
 

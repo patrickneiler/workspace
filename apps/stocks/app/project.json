@@ -3,7 +3,9 @@
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "apps/stocks/app",
   "projectType": "application",
-  "tags": ["scope: stocks", "type: app"],
-  "// targets": "to see all targets run: nx show project stocks-app --web",
+  "tags": [
+    "scope: stocks",
+    "type: app"
+  ],
   "targets": {}
 }

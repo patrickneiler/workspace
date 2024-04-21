@@ -1,0 +1,9 @@
+{
+  "name": "assistance-root",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/assistance/feature/root/src",
+  "projectType": "library",
+  "tags": ["scope: assistance", "type: feature"],
+  "// targets": "to see all targets run: nx show project assistance-root --web",
+  "targets": {}
+}

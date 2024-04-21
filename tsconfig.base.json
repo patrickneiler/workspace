@@ -22,6 +22,12 @@
       "@wrkspce/assistance/feature/core": [
         "libs/assistance/feature/core/src/index.ts"
       ],
+      "@wrkspce/assistance/feature/root": [
+        "libs/assistance/feature/root/src/index.ts"
+      ],
+      "@wrkspce/assistance/feature/root/server": [
+        "libs/assistance/feature/root/src/server.ts"
+      ],
       "@wrkspce/assistance/feature/stocks": [
         "libs/assistance/feature/stocks/src/index.ts"
       ],
