@@ -74,13 +74,13 @@ function convertAssistantToolPropertyTypeToDynamicFormFieldType(
 ): DynamicFormField['type'] {
   switch (type) {
     case 'string':
-      return 'input';
+      return 'text';
     case 'number':
-      return 'input';
+      return 'number';
     case 'boolean':
       return 'checkbox';
     case 'object':
-      return 'input';
+      return 'text';
     case 'array':
       return 'select';
   }

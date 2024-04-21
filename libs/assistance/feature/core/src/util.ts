@@ -1,4 +1,4 @@
-import { Action, AITool } from './domain';
+import { Action, AITool } from '@wrkspce/assistance/domain';
 
 export const mappedActions = (actions: Action[]) =>
   actions.reduce((obj: { [key: string]: Action }, action) => {
