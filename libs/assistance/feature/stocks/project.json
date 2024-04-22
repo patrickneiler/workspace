@@ -1,0 +1,11 @@
+{
+  "name": "assistance-feature-stocks",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/assistance/feature/stocks/src",
+  "projectType": "library",
+  "tags": [
+    "scope:assistance",
+    "type:feature"
+  ],
+  "targets": {}
+}

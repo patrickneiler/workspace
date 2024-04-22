@@ -1,0 +1,11 @@
+{
+  "name": "stocks-app",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/stocks/app",
+  "projectType": "application",
+  "tags": [
+    "scope: stocks",
+    "type: app"
+  ],
+  "targets": {}
+}

@@ -1,0 +1,29 @@
+{
+  "name": "stocks-ui",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/stocks/ui/src",
+  "projectType": "library",
+  "tags": ["scope: stocks", "type: ui"],
+  "targets": {
+    "build": {
+      "executor": "@nx/rollup:rollup",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/stocks/ui",
+        "tsConfig": "libs/stocks/ui/tsconfig.lib.json",
+        "project": "libs/stocks/ui/package.json",
+        "entryFile": "libs/stocks/ui/src/index.ts",
+        "external": ["react", "react-dom", "react/jsx-runtime"],
+        "rollupConfig": "@nx/react/plugins/bundle-rollup",
+        "compiler": "babel",
+        "assets": [
+          {
+            "glob": "libs/stocks/ui/README.md",
+            "input": ".",
+            "output": "."
+          }
+        ]
+      }
+    }
+  }
+}

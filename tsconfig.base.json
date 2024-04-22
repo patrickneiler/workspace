@@ -22,12 +22,27 @@
       "@wrkspce/assistance/feature/core": [
         "libs/assistance/feature/core/src/index.ts"
       ],
+      "@wrkspce/assistance/feature/root": [
+        "libs/assistance/feature/root/src/index.ts"
+      ],
+      "@wrkspce/assistance/feature/root/server": [
+        "libs/assistance/feature/root/src/server.ts"
+      ],
+      "@wrkspce/assistance/feature/stocks": [
+        "libs/assistance/feature/stocks/src/index.ts"
+      ],
+      "@wrkspce/assistance/feature/stocks/server": [
+        "libs/assistance/feature/stocks/src/server.ts"
+      ],
       "@wrkspce/assistance/feature/workspace/server": [
         "libs/assistance/feature/workspace/src/server.ts"
       ],
       "@wrkspce/assistance/plugin": ["libs/assistance/plugin/src/index.ts"],
       "@wrkspce/assistance/ui/chat": ["libs/assistance/ui/chat/src/index.ts"],
       "@wrkspce/assistance/ui/core": ["libs/assistance/ui/core/src/index.ts"],
+      "@wrkspce/assistance/ui/stocks": [
+        "libs/assistance/ui/stocks/src/index.ts"
+      ],
       "@wrkspce/assistance/util": ["libs/assistance/util/src/index.ts"],
       "@wrkspce/shared/domain": ["libs/shared/domain/src/index.ts"],
       "@wrkspce/shared/feature/avatar": [
@@ -41,7 +56,8 @@
         "libs/shared/feature/journey/src/index.ts"
       ],
       "@wrkspce/shared/ui": ["libs/shared/ui/src/index.ts"],
-      "@wrkspce/shared/util": ["libs/shared/util/src/index.ts"]
+      "@wrkspce/shared/util": ["libs/shared/util/src/index.ts"],
+      "@wrkspce/stocks/ui": ["libs/stocks/ui/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
