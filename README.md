@@ -2,7 +2,7 @@
 
 @wrkspce aims to boost developers' efficiency through AI tools.
 
-[https://github.com/patrickneiler/wrkspce](https://github.com/patrickneiler/wrkspce)
+[View Demo](https://wrkspce.vercel.app/)
 
 ## Assistance
 Leveraging AI in Software Development
