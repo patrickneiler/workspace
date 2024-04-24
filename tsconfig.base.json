@@ -50,6 +50,13 @@
       "@wrkspce/newsletter/feature/core/server": [
         "libs/newsletter/feature/core/src/server.ts"
       ],
+      "@wrkspce/newsletter/feature/subscriptions": [
+        "libs/newsletter/feature/subscriptions/src/index.ts"
+      ],
+      "@wrkspce/newsletter/feature/subscriptions/server": [
+        "libs/newsletter/feature/subscriptions/src/server.ts"
+      ],
+      "@wrkspce/newsletter/ui": ["libs/newsletter/ui/src/index.ts"],
       "@wrkspce/shared/domain": ["libs/shared/domain/src/index.ts"],
       "@wrkspce/shared/feature/avatar": [
         "libs/shared/feature/avatar/src/index.ts"

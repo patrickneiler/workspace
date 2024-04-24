@@ -1,0 +1,9 @@
+{
+  "name": "newsletter-domain",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/newsletter/domain/src",
+  "projectType": "library",
+  "tags": ["scope: newsletter. type: domain"],
+  "// targets": "to see all targets run: nx show project newsletter-domain --web",
+  "targets": {}
+}

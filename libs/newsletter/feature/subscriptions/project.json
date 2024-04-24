@@ -1,0 +1,9 @@
+{
+  "name": "newsletter-feature-subscriptions",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/newsletter/feature/subscriptions/src",
+  "projectType": "library",
+  "tags": ["scope: newsletter. type: feature"],
+  "// targets": "to see all targets run: nx show project newsletter-feature-subscriptions --web",
+  "targets": {}
+}
