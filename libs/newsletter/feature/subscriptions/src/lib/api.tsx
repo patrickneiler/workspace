@@ -16,6 +16,7 @@ export async function GET(request: NextRequest) {
     }
     const subscription = await getSubscription(userId);
     subscription ? NextResponse.json(subscription) : NextResponse.error();
+    return subscription;
 }
 
 /**
@@ -30,5 +31,5 @@ export async function POST(request: NextRequest) {
         return NextResponse.error();
     }
     const subscription = await createSubscription({ userId, newsletter });
-    subscription ? NextResponse.json(subscription) : NextResponse.error();
+    return subscription ? NextResponse.json(subscription) : NextResponse.error();
 }

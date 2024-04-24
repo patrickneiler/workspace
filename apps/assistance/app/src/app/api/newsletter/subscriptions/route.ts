@@ -1,0 +1,1 @@
+export { GET, POST} from '@wrkspce/newsletter/feature/subscriptions/server'
