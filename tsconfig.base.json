@@ -44,6 +44,9 @@
         "libs/assistance/ui/stocks/src/index.ts"
       ],
       "@wrkspce/assistance/util": ["libs/assistance/util/src/index.ts"],
+      "@wrkspce/newsletter/domain": [
+        "libs/newsletter/domain/src/index.ts"
+      ],
       "@wrkspce/newsletter/feature/core": [
         "libs/newsletter/feature/core/src/index.ts"
       ],
